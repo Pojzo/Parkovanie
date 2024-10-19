@@ -1,0 +1,105 @@
+/* reset marginov a paddingov */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* fixne pre kazdy monitor */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+/*  header menu */
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    /* fix na vrch obrazovky */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    /* pre zobrazenie nad pozadim*/
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.menu li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+
+.main-container {
+    min-height: 100vh;
+    /* odsadenie aby sa neprekrival z hornym menu */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Layout pre bočné kontajnery a obsah */
+.layout {
+    display: flex;
+    justify-content: center;
+    /* Zarovná stredový obsah na stred */
+    flex: 1;
+    /* Rozťahuje layout tak, aby zaplnil dostupný priestor */
+}
+
+/* Hlavný obsah */
+.content {
+    width: 60%;
+    /* 60% šírky */
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 80px;
+    /* Pridaný horný padding, aby sa obsah posunul pod menu */
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    z-index: 1;
+}
+
+/* Spodný panel (footer) */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    /* Fixovanie na spodok obrazovky */
+    bottom: 0;
+    width: 100%;
+    /* Šírka celého okna */
+    z-index: 1000;
+    /* Uistíme sa, že bude nad ostatným obsahom */
+}
