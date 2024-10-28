@@ -1,63 +1,156 @@
 <!DOCTYPE html>
-<html lang="sk">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moja Stránka</title>
-    <link rel="stylesheet" href="css\style.css">
+    <link rel="icon" type="image/x-icon" href="res/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./res/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./res/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./res/favicons/favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Park Easy</title>
 </head>
+
 <body>
-
-    <!-- Horné menu -->
-    <header>
-        <nav class="menu">
-            <ul>
-                <li><a href="#">Obsah</a></li>
-                <li><a href="#">Predstavenie timu</a></li>
-                <li><a href="#">Zapisnica </a></li>
-             </ul>
-            <ul>
-                <li><a href="#">KOTVA</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Video v pozadí -->
-    <div class="video-container">
-        <video autoplay muted loop id="background-video">
-            <source src="images\video\video.mp4" type="video/mp4">
-            Tvoj prehliadač nepodporuje video.
-        </video>
+    <div class="bg-image">
+        <div class="bg-gradient"></div>
+        <div class="content">Park Easy</div>
+        <div class="content-sub">Váš nástroj na hľadanie a rezerváciu parkovacích miest</div>
     </div>
+    <section class="about-section">
+        <div class="about-container">
+            <div class="text">
+                <h2>O projekte</h2>
+                <p>Táto webová aplikácia pomáha vodičom nájsť a rezervovať parkovacie miesta v meste.</p>
+                <button class="btn-demo">Vyskúšať demo</button>
+            </div>
+            <div class="image">
+                <img src="https://s3-ap-south-1.amazonaws.com/trt-blog-ghost/2021/01/73.jpg" alt="Project Image">
+            </div>
+        </div>
+    </section>
+    <section class="team-section">
+        <div class="team-container">
+            <div class="team-member">
+                <img src="team_member_image.jpg" alt="Team Leader">
+                <h3>Patrik Gazdík</h3>
+                <p>V súčasnosti pracujem ako Mendix Developer v spoločnosti Siemens, kde
+                    vytváram interné stránky s o zameraním na frontend a backend. Najviac využívam
+                    technológie html, scss, bootstrap, php, avšak mám skúsenosti aj s frameworkami, ako
+                    napríklad vue.js a laravel. V tomto projekte si vyskúšam pozíciu vedúceho tímu, na
+                    ktorú by som sa raz aj chcel dopracovať.</p>
+                <br>
+                <a href="mailto:gazdik1@ucm.sk" class="btn-email">Email</a>
+            </div>
 
-    <!-- Hlavný obsah stránky obalený v kontajneri -->
-    <div class="main-container">
-        <div class="layout">
-            <div class="side-container"></div>
+            <div class="team-member">
+                <img src="./res/images/tomas_pic.png" alt="Team Member">
+                <h3>Tomáš Zajac</h3>
+                <p>Mám 37 rokov a odjakživa sa zaujímam o hardvér a softvér. Po štúdiu na TOS Trenčín som začal pracovať
+                    v
+                    spoločnosti PCLA na rôznych pozíciách. Popri práci opravujem a navrhujem desktopy. Som študentom UCM
+                    v Trnave, kde sa zdokonaľujem v IT, najmä v programovacích jazykoch, grafike a sieťach. Verím, že
+                    človek by mal na sebe pracovať celý život a štúdium vnímam ako príležitosť na rozšírenie vedomostí.
+                    Hoci som v tíme ešte nepracoval, verím, že dokážem prispieť k úspechu nášho projektu</p>
+                <br>
+                <a href="mailto:zajac2@ucm.sk" class="btn-email">Email</a>
+            </div>
 
-            <main class="content">
-                <h1>Obsah stránky</h1>
-                   <p> Posledný kúsok textu pre scrollovanie...What is Lorem Ipsum?
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                    when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                    Why do we use it?
-                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-                    Where does it come from?
-                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-                    The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
-                    Where can I get some?
-                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.lorem ipsumsddddddd
-                   </p>
-            </main>
+            <div class="team-member">
+                <img src="team_member_image.jpg" alt="Team Member">
+                <h3>Vojtech Petrík</h3>
+                <p>Väčšinu mojich skúseností som získal štúdiom na univerzite UCM. Aj keď som nepracoval pre žiadnu
+                    firmu,
+                    neustále sa zlepšujem cez školské projekty.
+                    Som ochotný učiť sa nové veci a tvrdo pracovať. Moje silné stránky sú trpezlivosť a odhodlanie.
+                    Teším sa na prácu v tíme, a verím, že mi to pomôže rozvíjať sa v programovaní aj v spolupráci. Môj
+                    cieľ je
+                    naučiť sa čo najviac a byť užitočným členom tímu.</p>
+                <br>
+                <a href="mailto:petrik5@ucm.sk" class="btn-email">Email</a>
+            </div>
 
-            <div class="side-container"></div>
+            <div class="team-member">
+                <img src="team_member_image.jpg" alt="Team Member">
+                <h3>Peter Kováč</h3>
+                <p>Pracujem na pozícií Data Acquisition Engineer, zameriavam sa na automatizovaný zber a ukladanie dát.
+                    Predtým som pracoval ako Game Developer. Programujem od roku 2015 a mám skúsenosti s Pythonom, C a
+                    TypeScriptom. V tomto projekte sa venujem backend vývoju, pričom využívam skúsenosti z voľnočasových
+                    projektov.</p>
+                <br>
+                <a href="mailto:kovac27@ucm.sk" class="btn-email">Email</a>
+            </div>
+
+            <div class="team-member">
+                <img src="./res/images/lukas_pic.png" alt="Team Member">
+                <h3>Lukáš Grúlik</h3>
+                <p>Pracujem ako aplikačný programátor a vo voľnom čase sa venujem tvorbe webových aplikácií. Mám
+                    skúsenosti s C,
+                    C++, základy Pythonu, HTML, CSS, JavaScript, PHP, a frameworkami ako Bootstrap a Laravel. Pri tvorbe
+                    webových stránok kladiem dôraz na funkcionalitu a vzhľad.</p>
+                <br>
+                <a href="mailto:grulik1@ucm.sk" class="btn-email">Email</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="documents-section">
+        <div class="documents-container">
+            <div class="document-item">
+                <img src="./res/images/file_icon.png" alt="File Icon">
+                <h3>Motivačný dokument</h3>
+                <a href="./doc/Motivačný_Dokument.pdf" download>Stiahnuť</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="schedule-section">
+        <div class="schedule-buttons">
+            <button onclick="showWeek('week1')">Týždeň 1</button>
+            <button onclick="showWeek('week2')">Týždeň 2</button>
+            <button onclick="showWeek('week3')">Týždeň 3</button>
+            <button onclick="showWeek('week4')">Týždeň 4</button>
+            <button onclick="showWeek('week5')">Týždeň 5</button>
+            <button onclick="showWeek('week6')">Týždeň 6</button>
+            <button onclick="showWeek('week7')">Týždeň 7</button>
+            <button onclick="showWeek('week8')">Týždeň 8</button>
+            <button onclick="showWeek('week9')">Týždeň 9</button>
+            <button onclick="showWeek('week10')">Týždeň 10</button>
         </div>
 
-        <!-- Spodný kontajner (footer) -->
-        <footer>
-            <p>Copyright by S4B4T0N</p>
-        </footer>
-    </div>
+        <div id="week1" class="schedule-week">
+            <h3>Týždeň 1</h3>
+            <p>Analýza a návrh riešenia.</p>
+            <ul>
+                <li>Definovanie požiadaviek: Lukáš</li>
+                <li>Navrhnutie predbežného užívateľského rozhrania: Lukáš</li>
+                <li>Výber technológií: Patrik, Peter</li>
+                <li>Rozdelenie úloh: všetci členovia</li>
+            </ul>
+        </div>
 
+        <div id="week2" class="schedule-week">
+            <h3>Týždeň 2</h3>
+            <p>Vývoj backendu.</p>
+            <ul>
+                <li>Tvorba základnej logiky: Peter</li>
+                <li>Spojenie s databázou: Lukáš</li>
+                <li>Vytvorenie API: Peter</li>
+                <li>Testovanie funkčnosti backendu: Peter, Lukáš</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer class="bg-night text-white text-center py-3">
+        &copy; 2024 Park Easy, všetky práva vyhradené.
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="./scripts/script.js"></script>
 </body>
+
 </html>
