@@ -1,4 +1,4 @@
-# PARKOVANIE - "PARK EASY"
+# PARKOVANIE - "EASY PARK"
 ## 🌐 TÍMOVÝ PROJEKT 
 - Webová  stránka projektu: [Otvoriť 🔗](https://bcstudent.fpvucm.sk/~zajactomas/) 
 - Motivačný dokument: [Otvoriť 🔗](https://bcstudent.fpvucm.sk/~zajactomas/doc/Motiva%C4%8Dn%C3%BD_Dokument.docx) 
