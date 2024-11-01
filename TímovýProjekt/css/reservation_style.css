@@ -1,0 +1,25 @@
+#main-content {
+  width: 35vw;
+  height: 35vw;
+  background-color: white;
+  margin-inline: auto;
+  margin-top: 200px;
+}
+
+body {
+  background-color: aliceblue;
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
