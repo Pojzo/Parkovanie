@@ -1,105 +1,359 @@
-/* reset marginov a paddingov */
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+:root {
+    --cambridge-blue: #82B295ff;
+    --celadon: #8CCDA6ff;
+    --white: #FEFEFEff;
+    --night: #161616ff;
+    --white-2: #FFFFFFff;
+}
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-/* fixne pre kazdy monitor */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Kanit", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     margin: 0;
     padding: 0;
 }
 
+body,
+html {
+    height: 100%;
+    margin: 0;
+    background-color: black;
+}
 
-#background-video {
-    position: fixed;
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: #f8f9fa;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+li::before {
+    content: '\2022';
+    color: var(--cambridge-blue);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-right: 10px;
+}
+
+li span {
+    flex-grow: 1;
+    text-align: left;
+    color: #333;
+}
+
+li small {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.bg-image {
+    background-image: url('https://images.unsplash.com/photo-1720166671019-744dcef65d05?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    height: 70vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.bg-gradient {
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-}
-
-/*  header menu */
-header {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-    position: fixed;
-    /* fix na vrch obrazovky */
-    top: 0;
     width: 100%;
-    z-index: 1000;
-    /* pre zobrazenie nad pozadim*/
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
 }
 
-.menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-
-.menu li {
-    display: inline;
-    margin: 0 15px;
-}
-
-.menu a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-.menu a:hover {
-    text-decoration: underline;
-}
-
-
-.main-container {
-    min-height: 100vh;
-    /* odsadenie aby sa neprekrival z hornym menu */
-    display: flex;
-    flex-direction: column;
-}
-
-/* Layout pre bočné kontajnery a obsah */
-.layout {
-    display: flex;
-    justify-content: center;
-    /* Zarovná stredový obsah na stred */
-    flex: 1;
-    /* Rozťahuje layout tak, aby zaplnil dostupný priestor */
-}
-
-/* Hlavný obsah */
 .content {
-    width: 60%;
-    /* 60% šírky */
-    margin: 0 auto;
-    padding: 20px;
-    padding-top: 80px;
-    /* Pridaný horný padding, aby sa obsah posunul pod menu */
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.8);
     position: relative;
     z-index: 1;
+    text-align: center;
+    color: white;
+    font-size: 4em;
+    top: 70%;
+    transform: translateY(-30%);
+    text-shadow: 0 0 10px black;
+    margin: 0 auto;
 }
 
-/* Spodný panel (footer) */
-footer {
-    background-color: #333;
+.content-sub {
     color: white;
-    padding: 10px 0;
+    font-size: 1.6rem;
+    font-style: italic;
+    text-shadow: 0 0 10px black;
     text-align: center;
-    position: fixed;
-    /* Fixovanie na spodok obrazovky */
-    bottom: 0;
-    width: 100%;
-    /* Šírka celého okna */
-    z-index: 1000;
-    /* Uistíme sa, že bude nad ostatným obsahom */
+    margin-top: -4rem;
+    z-index: 2;
+}
+
+.about-section {
+    background-color: black;
+    padding: 50px 0;
+    margin-top: -50px;
+}
+
+.about-container {
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.about-container .text {
+    flex: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-container .image {
+    flex: 1;
+    text-align: center;
+}
+
+.about-container h2 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.about-container p {
+    font-size: 1.2em;
+}
+
+.about-container .btn-demo {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    width: 40%;
+}
+
+.about-container .btn-demo:hover {
+    background-color: var(--celadon);
+    color: black;
+}
+
+.about-container .btn-demo:active {
+    transform: scale(0.9);
+    border: none;
+}
+
+.about-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+.team-section {
+    background-color: var(--cambridge-blue);
+    padding: 50px 0;
+}
+
+.team-container {
+    max-width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.team-member {
+    background-color: var(--white-2);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.team-member img {
+    width: 20%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.team-member h3 {
+    margin: 15px 0 10px;
+    font-size: 1.5em;
+}
+
+.team-member p {
+    font-size: 1em;
+    margin: 10px 0;
+    text-align: justify;
+}
+
+.team-member .btn-email {
+    background-color: var(--night);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.team-member .btn-email:hover {
+    background-color: var(--celadon);
+    color: var(--night);
+}
+
+.documents-section {
+    background-color: var(--night);
+    padding: 50px 0;
+}
+
+.documents-container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.document-item {
+    color: var(--white);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.document-item img {
+    width: 50px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.document-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.document-item a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.document-item a:hover {
+    background-color: var(--celadon);
+}
+
+.schedule-section {
+    background-color: var(--night);
+    color: var(--white);
+    padding: 50px 0;
+    text-align: center;
+}
+
+.schedule-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.schedule-buttons button {
+    background-color: var(--white);
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin: 0 5px;
+    cursor: pointer;
+    width: auto;
+    transition: background-color 0.3s ease;
+}
+
+.schedule-buttons button:hover {
+    background-color: var(--celadon);
+}
+
+.schedule-week {
+    display: none;
+    text-align: left;
+    margin: 0 auto;
+    width: 60%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.schedule-week.active {
+    display: block;
+    background-color: var(--white);
+    padding: 3rem;
+    color: var(--night);
+    border-radius: 15px;
+    font-size: 1.5rem;
+    opacity: 1;
+}
+
+.schedule-week h3 {
+    margin-top: 0;
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+
+    .about-container img {
+        margin: 20px 0;
+    }
+
+    .team-container {
+        grid-template-columns: 1fr;
+    }
+
+    .documents-container {
+        grid-template-columns: 1fr;
+    }
+
+    .schedule-buttons button {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .schedule-week.active {
+        font-size: 0.8rem;
+    }
+
+    .schedule-week {
+        width: 100%;
+    }
 }
