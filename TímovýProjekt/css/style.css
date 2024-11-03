@@ -1,26 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 
 :root {
-    --cambridge-blue: rgb(119, 202, 152);
-    /* Pozadie team-section */
-    --celadon: rgb(21, 193, 87);
-    /* Hover efekt pre tlačidlá */
-    --white: rgb(224, 213, 213);
-    /* Primárna biela farba pre tlačidlá a nadpisy */
-    --night: #161616ff;
-    /* Pozadie pre tlačidlá */
-    --white-2: rgb(130, 138, 133);
-    /* Alternatívna biela na svetlých prvkoch */
-    --light-grey: #392e2e;
-    /* Farba textov */
-    --dark-grey: #202020;
-    /* Pozadie pre about-section */
-    --mid-grey: #2b2b2b;
-    /* Pozadie pre kontajnery */
-    --shadow-grey: rgba(0, 0, 0, 0.1);
-    /* Tieň pre prvky */
-    --black: #000;
-    /* Čierna farba pre tlačidlá */
+    --cambridge-blue: rgb(119, 202, 152);   /* Pozadie team-section */
+    
+    --celadon: rgb(21, 193, 87);    /* Hover efekt pre tlačidlá */
+   
+    --white: rgb(224, 213, 213);    /* Primárna biela farba pre tlačidlá a nadpisy */
+    
+    --night: #161616ff; /* Pozadie pre tlačidlá */
+    
+    --white-2: rgb(130, 138, 133);  /* Alternatívna biela na svetlých prvkoch */
+    
+    --light-grey: #392e2e;  /* Farba textov */
+    
+    --dark-grey: #202020;   /* Pozadie pre about-section */
+    
+    --mid-grey: #2b2b2b;    /* Pozadie pre kontajnery */
+    
+    --shadow-grey: rgba(0, 0, 0, 0.1);  /* Tieň pre prvky */
+    
+    --black: #000;  /* Čierna farba pre tlačidlá */
+    
 }
 
 /* Globálne nastavenia */
