@@ -15,12 +15,48 @@
 </head>
 
 <body>
+    <!-- Fixná navigácia s triedou fixed-top -->
+    <nav class="navbar navbar-expand-lg custom-navbar fixed-top">
+        <div class="container-fluid justify-content-center">
+            <a class="navbar-brand custom-navbar-brand d-lg-block d-md-none d-sm-none d-none" href="#">Easy Park</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul
+                    class="navbar-nav mx-auto d-flex justify-content-center align-items-center flex-lg-row flex-md-row flex-sm-column">
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-link" href="#about">O projekte</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-link" href="#team">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-link" href="#documents">Motivačný Dokument</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle custom-nav-link" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Viac</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#schedule">Rozvrh</a></li>
+                            <li><a class="dropdown-item" href="#contact">Kontakt</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hlavný obsah začína pod navigáciou, ktorá je fixná -->
     <div class="bg-image">
         <div class="bg-gradient"></div>
         <div class="content">Easy Park</div>
         <div class="content-sub">Váš nástroj na hľadanie a rezerváciu parkovacích miest</div>
     </div>
-    <section class="about-section">
+
+    <!-- Sekcia "O projekte" -->
+    <section id="about" class="about-section">
         <div class="about-container">
             <div class="text">
                 <h2>O projekte</h2>
@@ -32,10 +68,12 @@
             </div>
         </div>
     </section>
-    <section class="team-section">
+
+    <!-- Sekcia "Team" -->
+    <section id="team" class="team-section">
         <div class="team-container">
             <div class="team-member">
-                <img src="./res/images/patrik_pic.png" alt="Team Leader">
+                <img src="team_member_image.jpg" alt="Team Leader">
                 <h3>Patrik Gazdík</h3>
                 <p>V súčasnosti pracujem ako Mendix Developer v spoločnosti Siemens, kde
                     vytváram interné stránky s o zameraním na frontend a backend. Najviac využívam
@@ -60,7 +98,7 @@
             </div>
 
             <div class="team-member">
-                <img src="./res/images/vojtech_pic.png" alt="Team Member">
+                <img src="/Parkovanie/TímovýProjekt/res/images/vojtech_pic.png" alt="Team Member">
                 <h3>Vojtech Petrík</h3>
                 <p>Väčšinu mojich skúseností som získal štúdiom na univerzite UCM. Aj keď som nepracoval pre žiadnu
                     firmu,
@@ -74,7 +112,7 @@
             </div>
 
             <div class="team-member">
-                <img src="./res/images/peter_pic.png" alt="Team Member">
+                <img src="team_member_image.jpg" alt="Team Member">
                 <h3>Peter Kováč</h3>
                 <p>Pracujem na pozícií Data Acquisition Engineer, zameriavam sa na automatizovaný zber a ukladanie dát.
                     Predtým som pracoval ako Game Developer. Programujem od roku 2015 a mám skúsenosti s Pythonom, C a
@@ -89,7 +127,8 @@
                 <h3>Lukáš Grúlik</h3>
                 <p>Pracujem ako aplikačný programátor a vo voľnom čase sa venujem tvorbe webových aplikácií. Mám
                     skúsenosti s C,
-                    C++, základy Pythonu, HTML, CSS, JavaScript, PHP, a frameworkami ako Bootstrap, Laravel a Qt. Pri tvorbe
+                    C++, základy Pythonu, HTML, CSS, JavaScript, PHP, a frameworkami ako Bootstrap, Laravel a Qt. Pri
+                    tvorbe
                     webových stránok kladiem dôraz na funkcionalitu a vzhľad.</p>
                 <br>
                 <a href="mailto:grulik1@ucm.sk" class="btn-email">Email</a>
@@ -97,7 +136,8 @@
         </div>
     </section>
 
-    <section class="documents-section">
+    <!-- Sekcia "Motivačný dokument" -->
+    <section id="documents" class="documents-section">
         <div class="documents-container">
             <div class="document-item">
                 <img src="./res/images/file_icon.png" alt="File Icon">
@@ -107,7 +147,8 @@
         </div>
     </section>
 
-    <section class="schedule-section">
+    <!-- Sekcia "Rozvrh" -->
+    <section id="schedule" class="schedule-section">
         <div class="schedule-buttons">
             <button onclick="showWeek('week1')">Týždeň 1</button>
             <button onclick="showWeek('week2')">Týždeň 2</button>
@@ -144,7 +185,7 @@
         </div>
     </section>
 
-    <footer class="bg-night text-white text-center py-3">
+    <footer id="contact" class="bg-night text-white text-center py-3">
         &copy; 2024 Easy Park, všetky práva vyhradené.
     </footer>
 

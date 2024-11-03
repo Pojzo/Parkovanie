@@ -1,13 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 
 :root {
-    --cambridge-blue: #82B295ff;
-    --celadon: #8CCDA6ff;
-    --white: #FEFEFEff;
+    --cambridge-blue: rgb(119, 202, 152);
+    /* Pozadie team-section */
+    --celadon: rgb(21, 193, 87);
+    /* Hover efekt pre tlačidlá */
+    --white: rgb(224, 213, 213);
+    /* Primárna biela farba pre tlačidlá a nadpisy */
     --night: #161616ff;
-    --white-2: #FFFFFFff;
+    /* Pozadie pre tlačidlá */
+    --white-2: rgb(130, 138, 133);
+    /* Alternatívna biela na svetlých prvkoch */
+    --light-grey: #392e2e;
+    /* Farba textov */
+    --dark-grey: #202020;
+    /* Pozadie pre about-section */
+    --mid-grey: #2b2b2b;
+    /* Pozadie pre kontajnery */
+    --shadow-grey: rgba(0, 0, 0, 0.1);
+    /* Tieň pre prvky */
+    --black: #000;
+    /* Čierna farba pre tlačidlá */
 }
 
+/* Globálne nastavenia */
 * {
     margin: 0;
     padding: 0;
@@ -17,61 +33,35 @@ body {
     font-family: "Kanit", sans-serif;
     font-weight: 400;
     font-style: normal;
-    margin: 0;
-    padding: 0;
+    background-color: var(--black);
+    color: var(--light-grey);
 }
 
-body,
-html {
-    height: 100%;
-    margin: 0;
-    background-color: black;
+/* Navigácia */
+
+.custom-nav-link {
+    color: var(--light-grey);
+    background-color:var(--black);
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
+.custom-nav-link:hover {
+    color: var(--celadon);
 }
 
-li {
-    background: #f8f9fa;
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-}
-
-li::before {
-    content: '\2022';
-    color: var(--cambridge-blue);
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-right: 10px;
-}
-
-li span {
-    flex-grow: 1;
-    text-align: left;
-    color: #333;
-}
-
-li small {
-    font-size: 0.9em;
-    color: #666;
-}
-
+/* Pozadie obrázka s gradientom */
 .bg-image {
     background-image: url('https://images.unsplash.com/photo-1720166671019-744dcef65d05?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
     height: 70vh;
+    max-height: 600px;
+    min-height: 400px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .bg-gradient {
@@ -80,77 +70,67 @@ li small {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+    background: linear-gradient(to bottom, var(--night) 1%, rgba(20, 20, 20, 0) 10%, rgba(20, 20, 20, 0) 70%, var(--night) 100%);
 }
 
+/* Text na obrázku */
 .content {
     position: relative;
     z-index: 1;
     text-align: center;
-    color: white;
-    font-size: 4em;
-    top: 70%;
+    color: var(--white);
+    font-size: 4vw;
+    top: 0%;
     transform: translateY(-30%);
-    text-shadow: 0 0 10px black;
-    margin: 0 auto;
+    text-shadow: 0 0 0.5vw var(--black);
 }
 
 .content-sub {
-    color: white;
-    font-size: 1.6rem;
+    color: var(--white);
+    font-size: 1.6vw;
     font-style: italic;
-    text-shadow: 0 0 10px black;
+    text-shadow: 0 0 0.5vw var(--black);
     text-align: center;
-    margin-top: -4rem;
+    margin-top: 1vw;
     z-index: 2;
 }
 
+/* Sekcia o projekte */
 .about-section {
-    background-color: black;
-    padding: 50px 0;
-    margin-top: -50px;
+    background-color: var(--dark-grey);
+    padding: 3vw 0;
+    margin-top: -2vw;
 }
 
 .about-container {
-    background-color: white;
-    border-radius: 15px;
-    padding: 30px;
-    width: 60%;
+    background-color: var(--mid-grey);
+    border-radius: 1vw;
+    padding: 3vw;
+    width: 60vw;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.about-container .text {
-    flex: 1;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.about-container .image {
-    flex: 1;
-    text-align: center;
-}
-
 .about-container h2 {
-    margin-bottom: 20px;
-    font-size: 2.5em;
+    margin-bottom: 2vw;
+    font-size: 2.5vw;
+    color: var(--white);
 }
 
 .about-container p {
-    font-size: 1.2em;
+    font-size: 1.2vw;
+    color: var(--white-2);
 }
 
 .about-container .btn-demo {
-    background-color: #000;
-    color: #fff;
-    padding: 10px 20px;
+    background-color: var(--black);
+    color: var(--white);
+    padding: 1vw 2vw;
     border: none;
-    border-radius: 5px;
-    font-size: 1em;
+    border-radius: 0.5vw;
+    font-size: 1vw;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     width: 40%;
@@ -158,23 +138,19 @@ li small {
 
 .about-container .btn-demo:hover {
     background-color: var(--celadon);
-    color: black;
-}
-
-.about-container .btn-demo:active {
-    transform: scale(0.9);
-    border: none;
+    color: var(--night);
 }
 
 .about-container img {
     max-width: 100%;
     height: auto;
-    border-radius: 15px;
+    border-radius: 1vw;
 }
 
+/* Sekcia tímu */
 .team-section {
     background-color: var(--cambridge-blue);
-    padding: 50px 0;
+    padding: 3vw 0;
 }
 
 .team-container {
@@ -182,40 +158,36 @@ li small {
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 2vw;
 }
 
 .team-member {
     background-color: var(--white-2);
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 1vw;
+    padding: 2vw;
     text-align: center;
 }
 
-.team-member img {
-    width: 20%;
-    height: auto;
-    border-radius: 50%;
-}
-
 .team-member h3 {
-    margin: 15px 0 10px;
-    font-size: 1.5em;
+    margin: 1.5vw 0 1vw;
+    font-size: 1.5vw;
+    color: var(--night);
 }
 
 .team-member p {
-    font-size: 1em;
-    margin: 10px 0;
+    font-size: 1vw;
+    margin: 1vw 0;
     text-align: justify;
+    color: var(--light-grey);
 }
 
 .team-member .btn-email {
     background-color: var(--night);
-    color: #fff;
-    padding: 10px 20px;
+    color: var(--white);
+    padding: 1vw 2vw;
     border: none;
-    border-radius: 5px;
-    font-size: 1em;
+    border-radius: 0.5vw;
+    font-size: 1vw;
     cursor: pointer;
     text-decoration: none;
 }
@@ -225,9 +197,16 @@ li small {
     color: var(--night);
 }
 
+.team-member img {
+    width: 10vw;
+    height: auto;
+    border-radius: 50%;
+}
+
+/* Sekcia dokumentov */
 .documents-section {
     background-color: var(--night);
-    padding: 50px 0;
+    padding: 3vw 0;
 }
 
 .documents-container {
@@ -240,29 +219,30 @@ li small {
 
 .document-item {
     color: var(--white);
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 1vw;
+    padding: 2vw;
     text-align: center;
     margin: 0 auto;
 }
 
-.document-item img {
-    width: 50px;
-    height: auto;
-    margin-bottom: 15px;
+.document-item h3 {
+    font-size: 1.5vw;
+    margin-bottom: 1vw;
+    color: var(--white);
 }
 
-.document-item h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
+.document-item img {
+    width: 5vw;
+    height: auto;
+    margin-bottom: 1.5vw;
 }
 
 .document-item a {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: white;
-    color: black;
-    border-radius: 5px;
+    padding: 1vw 2vw;
+    background-color: var(--white);
+    color: var(--light-grey);
+    border-radius: 0.5vw;
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
@@ -271,10 +251,11 @@ li small {
     background-color: var(--celadon);
 }
 
+/* Sekcia rozvrhu */
 .schedule-section {
     background-color: var(--night);
     color: var(--white);
-    padding: 50px 0;
+    padding: 3vw 0;
     text-align: center;
 }
 
@@ -282,17 +263,17 @@ li small {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
-    margin-bottom: 30px;
+    gap: 1vw;
+    margin-bottom: 3vw;
 }
 
 .schedule-buttons button {
     background-color: var(--white);
-    color: black;
-    padding: 10px 20px;
+    color: var(--light-grey);
+    padding: 1vw 2vw;
     border: none;
-    border-radius: 5px;
-    margin: 0 5px;
+    border-radius: 0.5vw;
+    margin: 0.5vw;
     cursor: pointer;
     width: auto;
     transition: background-color 0.3s ease;
@@ -314,10 +295,10 @@ li small {
 .schedule-week.active {
     display: block;
     background-color: var(--white);
-    padding: 3rem;
+    padding: 3vw;
     color: var(--night);
-    border-radius: 15px;
-    font-size: 1.5rem;
+    border-radius: 1vw;
+    font-size: 1.5vw;
     opacity: 1;
 }
 
@@ -325,6 +306,7 @@ li small {
     margin-top: 0;
 }
 
+/* Responzívne nastavenia */
 @media (max-width: 768px) {
     .about-container {
         flex-direction: column;
@@ -333,7 +315,7 @@ li small {
     }
 
     .about-container img {
-        margin: 20px 0;
+        margin: 2vw 0;
     }
 
     .team-container {
