@@ -34,16 +34,18 @@ body {
     font-weight: 400;
     font-style: normal;
     background-color: var(--black);
-    color: var(--light-grey);
+    
 }
 
 /* Navigácia */
 .custom-bg-color {
-    background-color: var(--cambridge-blue) !important;
+    background-color: var(--light-grey) !important;
+    .a color:  var(--white);
 }
 .custom-nav-link {
-    color: var(--light-grey);
-    background-color:var(--black);
+    color: var(--white);
+    background-color:var(--white);
+    ;
     position:fixed-top;
 }
 
@@ -54,6 +56,7 @@ body {
     display: flex !important;
         justify-content: center !important;
         align-items: center !important;
+        border-radius: 3rem;
 }
 /* Pozadie obrázka s gradientom */
 .bg-image {
