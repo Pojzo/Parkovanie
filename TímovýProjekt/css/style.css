@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 
 :root {
-    --cambridge-blue: rgb(119, 202, 152);   /* Pozadie team-section */
+    --cambridge-blue: rgb(119, 202, 152);   /* pozadie btn background*/
     
-    --celadon: rgb(21, 193, 87);    /* Hover efekt pre tlačidlá */
+    --celadon: rgb(21, 193, 87);    /* pozadie */
    
     --white: rgb(224, 213, 213);    /* Primárna biela farba pre tlačidlá a nadpisy */
     
@@ -38,16 +38,23 @@ body {
 }
 
 /* Navigácia */
-
+.custom-bg-color {
+    background-color: var(--cambridge-blue) !important;
+}
 .custom-nav-link {
     color: var(--light-grey);
     background-color:var(--black);
+    position:fixed-top;
 }
 
 .custom-nav-link:hover {
     color: var(--celadon);
 }
-
+.nav-container{
+    display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+}
 /* Pozadie obrázka s gradientom */
 .bg-image {
     background-image: url('https://images.unsplash.com/photo-1720166671019-744dcef65d05?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
@@ -70,7 +77,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, var(--night) 1%, rgba(20, 20, 20, 0) 10%, rgba(20, 20, 20, 0) 70%, var(--night) 100%);
+    background: linear-gradient(to bottom, var(--night) 0%, rgba(20, 20, 20, 0.3) 50%, rgba(20, 20, 20, 0.3) 80%, var(--night) 100%);
+     z-index: 1;
 }
 
 /* Text na obrázku */
@@ -97,13 +105,13 @@ body {
 
 /* Sekcia o projekte */
 .about-section {
-    background-color: var(--dark-grey);
+    background-color: var(--cambridge-blue);
     padding: 3vw 0;
     margin-top: -2vw;
 }
 
 .about-container {
-    background-color: var(--mid-grey);
+    background-color: var(--cambridge-blue);
     border-radius: 1vw;
     padding: 3vw;
     width: 60vw;
@@ -111,17 +119,18 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border: 1px,solid;
 }
 
 .about-container h2 {
     margin-bottom: 2vw;
     font-size: 2.5vw;
-    color: var(--white);
+    color: var(--night);
 }
 
 .about-container p {
     font-size: 1.2vw;
-    color: var(--white-2);
+    color: var(--night);
 }
 
 .about-container .btn-demo {
