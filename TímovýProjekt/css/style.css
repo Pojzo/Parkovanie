@@ -28,7 +28,9 @@ body {
 .custom-bg-color {
     background-color: var(--light-grey) !important;
 }
-
+.nav-link dropdown-toggle active shadow-grey active shadow-grey{
+    background-color: var(--shadow-grey) !important;
+}
 .navbar .navbar-brand,
 .navbar .nav-link {
     color: var(--white);

@@ -40,9 +40,9 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="#">Motivačný list</a>
                         </li>
-                        <li class="nav-item dropdown active">
-                            <a class="nav-link dropdown-toggle active shadow-grey" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
                                 Viac
                             </a>
                             <ul class="dropdown-menu active">
@@ -56,9 +56,9 @@
             </div>
         </nav>
 
-
+        <!-- Hlavný obsah začína pod navigáciou, ktorá je fixná -->
         <div class="bg-image">
-
+            <div class="bg-gradient"></div>
             <div class="container-sm">
                 <div class="content">Easy Park</div>
                 <div class="content-sub">Váš nástroj na hľadanie a rezerváciu parkovacích miest</div>
@@ -237,26 +237,28 @@
         const documentContainer = document.getElementById('document-container');
 
         // Pridanie udalosti kliknutia na tlačidlo
-        toggleButton.addEventListener('click', function () {
+        toggleButton.addEventListener('click', function () 
+        {
             // Kontrola aktuálneho zobrazenia kontajnera
-            if (documentContainer.style.display === 'none' || documentContainer.style.display === '') {
+            if (documentContainer.style.display === 'none' || documentContainer.style.display === '') 
+            {
                 // Zobrazenie dokumentu
                 documentContainer.style.display = 'block';
                 // Aktualizácia textu tlačidla
                 toggleButton.textContent = 'Skryť dokument';
-            } else {
+            } else 
+            {
                 // Skrytie dokumentu
                 documentContainer.style.display = 'none';
                 // Aktualizácia textu tlačidla
                 toggleButton.textContent = 'Zobraziť dokument';
-            };
-        }
-
+            }
+        });
     </script>
-</body>
+
     <footer id="contact" class="bg-night text-white text-center py-3">
         &copy; 2024 Easy Park, všetky práva vyhradené.
     </footer>
-
+</body>
 
 </html>
