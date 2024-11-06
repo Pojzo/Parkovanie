@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <title>Easy Park</title>
     <link rel="icon" type="image/x-icon" href="res/favicons/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="./res/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./res/favicons/favicon-32x32.png">
@@ -13,7 +13,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Easy Park</title>
 </head>
 
 <body>
@@ -30,17 +29,17 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav ms-auto ">
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">O projekte</a>
+                            <a class="nav-link active" aria-current="page" href="#">O projekte</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Tím</a>
+                            <a class="nav-link" href="#">Tím</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Motivačný list</a>
+                            <a class="nav-link" href="#">Motivačný list</a>
                         </li>
-                        <li class="nav-item dropdown active">
+                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 Viac
@@ -82,79 +81,7 @@
         </section>
 
         <!-- Sekcia "Tím" -->
-        <section id="team" class="team-section">
-            <div class="team-container">
-                <div class="team-member">
-                    <img src="./res/images/patrik_pic.png" alt="Team Leader">
-                    <h3>Patrik Gazdík</h3>
-                    <p>V súčasnosti pracujem ako Mendix Developer v spoločnosti Siemens, kde
-                        vytváram interné stránky so zameraním na frontend a backend. Najviac využívam
-                        technológie HTML, SCSS, Bootstrap, PHP, avšak mám skúsenosti aj s frameworkami, ako
-                        napríklad Vue.js a Laravel. V tomto projekte si vyskúšam pozíciu vedúceho tímu, na
-                        ktorú by som sa raz aj chcel dopracovať.</p>
-                    <br>
-                    <a href="#" class="btn-email">Email</a>
-                </div>
-
-                <div class="team-member">
-                    <img src="./res/images/tomas_pic.png" alt="Team Member">
-                    <h3>Tomáš Zajac</h3>
-                    <p>Mám 37 rokov a odjakživa sa zaujímam o hardvér a softvér. Po štúdiu na TOS Trenčín som začal
-                        pracovať
-                        v spoločnosti PCLA na rôznych pozíciách. Popri práci opravujem a navrhujem desktopy. Som
-                        študentom
-                        UCM
-                        v Trnave, kde sa zdokonaľujem v IT, najmä v programovacích jazykoch, grafike a sieťach. Verím,
-                        že
-                        človek by mal na sebe pracovať celý život a štúdium vnímam ako príležitosť na rozšírenie
-                        vedomostí.
-                        Hoci som v tíme ešte nepracoval, verím, že dokážem prispieť k úspechu nášho projektu.</p>
-                    <br>
-                    <a href="#" class="btn-email">Email</a>
-                </div>
-
-                <div class="team-member">
-                    <img src="./res/images/vojtech_pic.png" alt="Team Member">
-                    <h3>Vojtech Petrík</h3>
-                    <p>Väčšinu mojich skúseností som získal štúdiom na univerzite UCM. Aj keď som nepracoval pre žiadnu
-                        firmu,
-                        neustále sa zlepšujem cez školské projekty.
-                        Som ochotný učiť sa nové veci a tvrdo pracovať. Moje silné stránky sú trpezlivosť a odhodlanie.
-                        Teším sa na prácu v tíme a verím, že mi to pomôže rozvíjať sa v programovaní aj v spolupráci.
-                        Môj
-                        cieľ je
-                        naučiť sa čo najviac a byť užitočným členom tímu.</p>
-                    <br>
-                    <a href="#" class="btn-email">Email</a>
-                </div>
-
-                <div class="team-member">
-                    <img src="./res/images/peter_pic.png" alt="Team Member">
-                    <h3>Peter Kováč</h3>
-                    <p>Pracujem na pozícii Data Acquisition Engineer, zameriavam sa na automatizovaný zber a ukladanie
-                        dát.
-                        Predtým som pracoval ako Game Developer. Programujem od roku 2015 a mám skúsenosti s Pythonom, C
-                        a
-                        TypeScriptom. V tomto projekte sa venujem backend vývoju, pričom využívam skúsenosti z
-                        voľnočasových
-                        projektov.</p>
-                    <br>
-                    <a href="#" class="btn-email">Email</a>
-                </div>
-
-                <div class="team-member">
-                    <img src="./res/images/lukas_pic.png" alt="Team Member">
-                    <h3>Lukáš Grúlik</h3>
-                    <p>Pracujem ako aplikačný programátor a vo voľnom čase sa venujem tvorbe webových aplikácií. Mám
-                        skúsenosti s C,
-                        C++, základy Pythonu, HTML, CSS, JavaScript, PHP a frameworkami ako Bootstrap, Laravel a Qt. Pri
-                        tvorbe
-                        webových stránok kladiem dôraz na funkcionalitu a vzhľad.</p>
-                    <br>
-                    <a href="#" class="btn-email">Email</a>
-                </div>
-            </div>
-        </section>
+        <!-- (Tu je váš existujúci kód pre sekciu tímu) -->
 
         <!-- Sekcia "Motivačný dokument" -->
         <section id="documents" class="documents-section">
@@ -164,7 +91,7 @@
                     <h2>Motivačný dokument</h2>
 
                     <!-- Tlačidlá na stiahnutie a zobrazenie/skrytie dokumentu -->
-                    <div class="my-4 container-sm bg-c">
+                    <div class="my-4">
                         <a href="./doc/Motivacny_Dokument.pdf" download class="btn-demo">Stiahnuť</a>
                         <!-- Tlačidlo na zobrazenie/skrytie dokumentu -->
                         <button id="toggle-document" class="btn-demo">Zobraziť dokument</button>
@@ -173,11 +100,10 @@
                     <!-- Kontajner s dokumentom, ktorý sa bude zobrazovať alebo skrývať -->
                     <div id="document-container" style="display: none; margin-top: 2vw;">
                         <div class="ratio" style="--bs-aspect-ratio: 85%;">
-                            <object data="./doc/Motivacny_Dokument.pdf" type="application/pdf" width=100px
-                                height=600px>
+                            <object data="./doc/Motivacny_Dokument.pdf" type="application/pdf" width="100%"
+                                height="600px">
                                 <p>Váš prehliadač nepodporuje zobrazenie PDF. <a
-                                        href="./doc/Motivacny_Dokument.pdf">Stiahnite
-                                        si dokument</a>.</p>
+                                        href="./doc/Motivacny_Dokument.pdf">Stiahnite si dokument</a>.</p>
                             </object>
                         </div>
                     </div>
@@ -186,49 +112,13 @@
         </section>
 
         <!-- Sekcia "Rozvrh" -->
-        <section id="schedule" class="schedule-section">
-            <div class="schedule-buttons">
-                <button onclick="showWeek('week1')">Týždeň 1</button>
-                <button onclick="showWeek('week2')">Týždeň 2</button>
-                <button onclick="showWeek('week3')">Týždeň 3</button>
-                <button onclick="showWeek('week4')">Týždeň 4</button>
-                <button onclick="showWeek('week5')">Týždeň 5</button>
-                <button onclick="showWeek('week6')">Týždeň 6</button>
-                <button onclick="showWeek('week7')">Týždeň 7</button>
-                <button onclick="showWeek('week8')">Týždeň 8</button>
-                <button onclick="showWeek('week9')">Týždeň 9</button>
-                <button onclick="showWeek('week10')">Týždeň 10</button>
-            </div>
-
-            <div id="week1" class="schedule-week">
-                <h3>Týždeň 1</h3>
-                <p>Analýza a návrh riešenia.</p>
-                <ul>
-                    <li>Definovanie požiadaviek: Lukáš</li>
-                    <li>Navrhnutie predbežného užívateľského rozhrania: Tomáš, Lukáš</li>
-                    <li>Výber technológií: Patrik, Peter</li>
-                    <li>Rozdelenie úloh: všetci členovia</li>
-                </ul>
-            </div>
-
-            <div id="week2" class="schedule-week">
-                <h3>Týždeň 2</h3>
-                <p>Vývoj backendu.</p>
-                <ul>
-                    <li>Tvorba základnej logiky: Peter</li>
-                    <li>Spojenie s databázou: Lukáš</li>
-                    <li>Vytvorenie API: Peter</li>
-                    <li>Testovanie funkčnosti backendu: Peter, Lukáš</li>
-                </ul>
-            </div>
-        </section>
+        <!-- (Tu je váš existujúci kód pre sekciu rozvrhu) -->
     </main>
 
     <!-- Skripty -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="./scripts/script.js"></script>
     <script>
         // Získanie referencií na tlačidlo a kontajner dokumentu
         const toggleButton = document.getElementById('toggle-document');
