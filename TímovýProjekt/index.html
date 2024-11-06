@@ -35,20 +35,20 @@
                             <a class="nav-link active" aria-current="page" href="#">O projekte</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Tím</a>
+                            <a class="nav-link active" href="#">Tím</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Motivačný list</a>
+                            <a class="nav-link active" href="#">Motivačný list</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-toggle active shadow-grey" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 Viac
                             </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Akcia</a></li>
-                                <li><a class="dropdown-item" href="#">Ďalšia akcia</a></li>
-                                <li><a class="dropdown-item" href="#">Niečo iné tu</a></li>
+                            <ul class="dropdown-menu active">
+                                <li><a class="dropdown-item active bg-body-shadow-grey" href="#">Akcia</a></li>
+                                <li><a class="dropdown-item active bg-body-shadow-grey" href="#">Ďalšia akcia</a></li>
+                                <li><a class="dropdown-item active bg-body-shadow-grey" href="#">Niečo iné tu</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -56,9 +56,9 @@
             </div>
         </nav>
 
-        <!-- Hlavný obsah začína pod navigáciou, ktorá je fixná -->
+        
         <div class="bg-image">
-            <div class="bg-gradient"></div>
+            
             <div class="container-sm">
                 <div class="content">Easy Park</div>
                 <div class="content-sub">Váš nástroj na hľadanie a rezerváciu parkovacích miest</div>
@@ -228,31 +228,36 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script src="./scripts/script.js"></script>
     <script>
         // Získanie referencií na tlačidlo a kontajner dokumentu
         const toggleButton = document.getElementById('toggle-document');
         const documentContainer = document.getElementById('document-container');
 
         // Pridanie udalosti kliknutia na tlačidlo
-        toggleButton.addEventListener('click', function () {
+        toggleButton.addEventListener('click', function () 
+        {
             // Kontrola aktuálneho zobrazenia kontajnera
-            if (documentContainer.style.display === 'none' || documentContainer.style.display === '') {
+            if (documentContainer.style.display === 'none' || documentContainer.style.display === '') 
+            {
                 // Zobrazenie dokumentu
                 documentContainer.style.display = 'block';
                 // Aktualizácia textu tlačidla
                 toggleButton.textContent = 'Skryť dokument';
-            } else {
+            } else 
+            {
                 // Skrytie dokumentu
                 documentContainer.style.display = 'none';
                 // Aktualizácia textu tlačidla
                 toggleButton.textContent = 'Zobraziť dokument';
-            }
-        });
+            };
+        }
+        
     </script>
-
+    
     <footer id="contact" class="bg-night text-white text-center py-3">
         &copy; 2024 Easy Park, všetky práva vyhradené.
     </footer>
-</body>
-
-</html>
+    </body>
+    
+    </html>
