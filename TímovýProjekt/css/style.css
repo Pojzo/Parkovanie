@@ -1,26 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 
 :root {
-    --cambridge-blue: rgb(119, 202, 152);   /* pozadie btn background*/
-    
-    --celadon: rgb(21, 193, 87);    /* pozadie */
-   
-    --white: rgb(224, 213, 213);    /* Primárna biela farba pre tlačidlá a nadpisy */
-    
-    --night: #161616ff; /* Pozadie pre tlačidlá */
-    
-    --white-2: rgb(130, 138, 133);  /* Alternatívna biela na svetlých prvkoch */
-    
-    --light-grey: #392e2e;  /* Farba textov */
-    
-    --dark-grey: #202020;   /* Pozadie pre about-section */
-    
-    --mid-grey: #2b2b2b;    /* Pozadie pre kontajnery */
-    
-    --shadow-grey: rgba(0, 0, 0, 0.1);  /* Tieň pre prvky */
-    
-    --black: #000;  /* Čierna farba pre tlačidlá */
-    
+    --cambridge-blue: rgb(119, 202, 152);
+    /* pozadie btn background */
+    --celadon: rgb(21, 193, 87);
+    /* pozadie */
+    --white: rgb(224, 213, 213);
+    /* Primárna biela farba pre tlačidlá a nadpisy */
+    --night: #161616ff;
+    /* Pozadie pre tlačidlá */
+    --white-2: rgb(130, 138, 133);
+    /* Alternatívna biela na svetlých prvkoch */
+    --light-grey: #392e2e;
+    /* Farba textov */
+    --dark-grey: #202020;
+    /* Pozadie pre about-section */
+    --mid-grey: #2b2b2b;
+    /* Pozadie pre kontajnery */
+    --shadow-grey: rgba(0, 0, 0, 0.1);
+    /* Tieň pre prvky */
+    --black: #000;
+    /* Čierna farba pre tlačidlá */
 }
 
 /* Globálne nastavenia */
@@ -34,31 +34,44 @@ body {
     font-weight: 400;
     font-style: normal;
     background-color: var(--black);
-    
 }
 
 /* Navigácia */
 .custom-bg-color {
     background-color: var(--light-grey) !important;
-    .a color:  var(--white);
-}
-.custom-nav-link {
-    color: var(--white);
-    background-color:var(--white);
-    ;
-    position:fixed-top;
 }
 
-.custom-nav-link:hover {
+.navbar .navbar-brand,
+.navbar .nav-link {
+    color: var(--white);
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
     color: var(--celadon);
 }
-.nav-container{
-    display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        border-radius: 0.7rem;
-      
+
+.custom-nav-width {
+    width: 100%;
 }
+
+@media (min-width: 768px) {
+
+    /* Tablety */
+    .custom-nav-width {
+        width: 100%;
+    }
+}
+
+@media (min-width: 992px) {
+
+    /* Monitory */
+    .custom-nav-width {
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+
 /* Pozadie obrázka s gradientom */
 .bg-image {
     background-image: url('https://images.unsplash.com/photo-1720166671019-744dcef65d05?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
@@ -82,7 +95,7 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom, var(--night) 0%, rgba(20, 20, 20, 0.3) 50%, rgba(20, 20, 20, 0.3) 80%, var(--night) 100%);
-     z-index: 1;
+    z-index: 1;
 }
 
 /* Text na obrázku */
@@ -123,7 +136,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px,solid;
+    border: 1px solid;
 }
 
 .about-container h2 {
@@ -137,7 +150,14 @@ body {
     color: var(--night);
 }
 
-.about-container .btn-demo {
+.about-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1vw;
+}
+
+/* Tlačidlá */
+.btn-demo {
     background-color: var(--black);
     color: var(--white);
     padding: 1vw 2vw;
@@ -146,18 +166,28 @@ body {
     font-size: 1vw;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    width: 40%;
+    text-decoration: none;
 }
 
-.about-container .btn-demo:hover {
+.btn-demo:hover {
     background-color: var(--celadon);
     color: var(--night);
 }
 
-.about-container img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 1vw;
+.btn-email {
+    background-color: var(--night);
+    color: var(--white);
+    padding: 1vw 2vw;
+    border: none;
+    border-radius: 0.5vw;
+    font-size: 1vw;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-email:hover {
+    background-color: var(--celadon);
+    color: var(--night);
 }
 
 /* Sekcia tímu */
@@ -194,22 +224,6 @@ body {
     color: var(--light-grey);
 }
 
-.team-member .btn-email {
-    background-color: var(--night);
-    color: var(--white);
-    padding: 1vw 2vw;
-    border: none;
-    border-radius: 0.5vw;
-    font-size: 1vw;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.team-member .btn-email:hover {
-    background-color: var(--celadon);
-    color: var(--night);
-}
-
 .team-member img {
     width: 10vw;
     height: auto;
@@ -238,7 +252,7 @@ body {
     margin: 0 auto;
 }
 
-.document-item h3 {
+.document-item h2 {
     font-size: 1.5vw;
     margin-bottom: 1vw;
     color: var(--white);
@@ -248,20 +262,6 @@ body {
     width: 5vw;
     height: auto;
     margin-bottom: 1.5vw;
-}
-
-.document-item a {
-    display: inline-block;
-    padding: 1vw 2vw;
-    background-color: var(--white);
-    color: var(--light-grey);
-    border-radius: 0.5vw;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.document-item a:hover {
-    background-color: var(--celadon);
 }
 
 /* Sekcia rozvrhu */

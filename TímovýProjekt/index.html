@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="icon" type="image/x-icon" href="res/favicons/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="./res/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./res/favicons/favicon-32x32.png">
@@ -14,201 +15,245 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>Easy Park</title>
 </head>
-<header>
-    <!-- Fixná navigácia s triedou fixed-top -->
-    <nav class="navbar navbar-expand-sm bg-body-tertiary custom-bg-color nav-container fixed-top ">
-        <div class="nav-container  ">
-            <div class="continer p-2">
-            <img src="./res/favicons/favicon-32x32.png" alt="logo">
+
+<body>
+    <header>
+        <!-- Fixná navigácia s triedou fixed-top -->
+        <nav class="navbar navbar-expand-md bg-body-tertiary custom-bg-color fixed-top">
+            <div class="container-fluid custom-nav-width">
+                <a class="navbar-brand" href="#">
+                    <img src="./res/favicons/favicon-32x32.png" alt="logo"> Easy Park
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto ">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">O projekte</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Tím</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Motivačný list</a>
+                        </li>
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Viac
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Akcia</a></li>
+                                <li><a class="dropdown-item" href="#">Ďalšia akcia</a></li>
+                                <li><a class="dropdown-item" href="#">Niečo iné tu</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <a class="navbar-brand " href="#">Easy Park</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">O projekte</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Team</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Motivačnýgit list</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Viac
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
+        </nav>
+
+        <!-- Hlavný obsah začína pod navigáciou, ktorá je fixná -->
+        <div class="bg-image">
+            <div class="bg-gradient"></div>
+            <div class="container-sm">
+                <div class="content">Easy Park</div>
+                <div class="content-sub">Váš nástroj na hľadanie a rezerváciu parkovacích miest</div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Sekcia "O projekte" -->
+        <section id="about" class="about-section">
+            <div class="about-container">
+                <div class="text">
+                    <h2>O projekte</h2>
+                    <p>Táto webová aplikácia pomáha vodičom nájsť a rezervovať parkovacie miesta v meste.</p>
+                    <button class="btn-demo">Vyskúšať demo</button>
+                </div>
+                <div class="image">
+                    <img src="https://s3-ap-south-1.amazonaws.com/trt-blog-ghost/2021/01/73.jpg" alt="Project Image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sekcia "Tím" -->
+        <section id="team" class="team-section">
+            <div class="team-container">
+                <div class="team-member">
+                    <img src="./res/images/patrik_pic.png" alt="Team Leader">
+                    <h3>Patrik Gazdík</h3>
+                    <p>V súčasnosti pracujem ako Mendix Developer v spoločnosti Siemens, kde
+                        vytváram interné stránky so zameraním na frontend a backend. Najviac využívam
+                        technológie HTML, SCSS, Bootstrap, PHP, avšak mám skúsenosti aj s frameworkami, ako
+                        napríklad Vue.js a Laravel. V tomto projekte si vyskúšam pozíciu vedúceho tímu, na
+                        ktorú by som sa raz aj chcel dopracovať.</p>
+                    <br>
+                    <a href="#" class="btn-email">Email</a>
+                </div>
+
+                <div class="team-member">
+                    <img src="./res/images/tomas_pic.png" alt="Team Member">
+                    <h3>Tomáš Zajac</h3>
+                    <p>Mám 37 rokov a odjakživa sa zaujímam o hardvér a softvér. Po štúdiu na TOS Trenčín som začal
+                        pracovať
+                        v spoločnosti PCLA na rôznych pozíciách. Popri práci opravujem a navrhujem desktopy. Som
+                        študentom
+                        UCM
+                        v Trnave, kde sa zdokonaľujem v IT, najmä v programovacích jazykoch, grafike a sieťach. Verím,
+                        že
+                        človek by mal na sebe pracovať celý život a štúdium vnímam ako príležitosť na rozšírenie
+                        vedomostí.
+                        Hoci som v tíme ešte nepracoval, verím, že dokážem prispieť k úspechu nášho projektu.</p>
+                    <br>
+                    <a href="#" class="btn-email">Email</a>
+                </div>
+
+                <div class="team-member">
+                    <img src="./res/images/vojtech_pic.png" alt="Team Member">
+                    <h3>Vojtech Petrík</h3>
+                    <p>Väčšinu mojich skúseností som získal štúdiom na univerzite UCM. Aj keď som nepracoval pre žiadnu
+                        firmu,
+                        neustále sa zlepšujem cez školské projekty.
+                        Som ochotný učiť sa nové veci a tvrdo pracovať. Moje silné stránky sú trpezlivosť a odhodlanie.
+                        Teším sa na prácu v tíme a verím, že mi to pomôže rozvíjať sa v programovaní aj v spolupráci.
+                        Môj
+                        cieľ je
+                        naučiť sa čo najviac a byť užitočným členom tímu.</p>
+                    <br>
+                    <a href="#" class="btn-email">Email</a>
+                </div>
+
+                <div class="team-member">
+                    <img src="./res/images/peter_pic.png" alt="Team Member">
+                    <h3>Peter Kováč</h3>
+                    <p>Pracujem na pozícii Data Acquisition Engineer, zameriavam sa na automatizovaný zber a ukladanie
+                        dát.
+                        Predtým som pracoval ako Game Developer. Programujem od roku 2015 a mám skúsenosti s Pythonom, C
+                        a
+                        TypeScriptom. V tomto projekte sa venujem backend vývoju, pričom využívam skúsenosti z
+                        voľnočasových
+                        projektov.</p>
+                    <br>
+                    <a href="#" class="btn-email">Email</a>
+                </div>
+
+                <div class="team-member">
+                    <img src="./res/images/lukas_pic.png" alt="Team Member">
+                    <h3>Lukáš Grúlik</h3>
+                    <p>Pracujem ako aplikačný programátor a vo voľnom čase sa venujem tvorbe webových aplikácií. Mám
+                        skúsenosti s C,
+                        C++, základy Pythonu, HTML, CSS, JavaScript, PHP a frameworkami ako Bootstrap, Laravel a Qt. Pri
+                        tvorbe
+                        webových stránok kladiem dôraz na funkcionalitu a vzhľad.</p>
+                    <br>
+                    <a href="#" class="btn-email">Email</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sekcia "Motivačný dokument" -->
+        <section id="documents" class="documents-section">
+            <div class="documents-container-sm">
+                <div class="document-item">
+                    <img src="./res/images/file_icon.png" alt="File Icon">
+                    <h2>Motivačný dokument</h2>
+
+                    <!-- Tlačidlá na stiahnutie a zobrazenie/skrytie dokumentu -->
+                    <div class="my-4 container-sm bg-c">
+                        <a href="./doc/Motivacny_Dokument.pdf" download class="btn-demo">Stiahnuť</a>
+                        <!-- Tlačidlo na zobrazenie/skrytie dokumentu -->
+                        <button id="toggle-document" class="btn-demo">Zobraziť dokument</button>
+                    </div>
+
+                    <!-- Kontajner s dokumentom, ktorý sa bude zobrazovať alebo skrývať -->
+                    <div id="document-container" style="display: none; margin-top: 2vw;">
+                        <div class="ratio" style="--bs-aspect-ratio: 85%;">
+                            <object data="./doc/Motivacny_Dokument.pdf" type="application/pdf" width=100px
+                                height=600px>
+                                <p>Váš prehliadač nepodporuje zobrazenie PDF. <a
+                                        href="./doc/Motivacny_Dokument.pdf">Stiahnite
+                                        si dokument</a>.</p>
+                            </object>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sekcia "Rozvrh" -->
+        <section id="schedule" class="schedule-section">
+            <div class="schedule-buttons">
+                <button onclick="showWeek('week1')">Týždeň 1</button>
+                <button onclick="showWeek('week2')">Týždeň 2</button>
+                <button onclick="showWeek('week3')">Týždeň 3</button>
+                <button onclick="showWeek('week4')">Týždeň 4</button>
+                <button onclick="showWeek('week5')">Týždeň 5</button>
+                <button onclick="showWeek('week6')">Týždeň 6</button>
+                <button onclick="showWeek('week7')">Týždeň 7</button>
+                <button onclick="showWeek('week8')">Týždeň 8</button>
+                <button onclick="showWeek('week9')">Týždeň 9</button>
+                <button onclick="showWeek('week10')">Týždeň 10</button>
+            </div>
+
+            <div id="week1" class="schedule-week">
+                <h3>Týždeň 1</h3>
+                <p>Analýza a návrh riešenia.</p>
+                <ul>
+                    <li>Definovanie požiadaviek: Lukáš</li>
+                    <li>Navrhnutie predbežného užívateľského rozhrania: Tomáš, Lukáš</li>
+                    <li>Výber technológií: Patrik, Peter</li>
+                    <li>Rozdelenie úloh: všetci členovia</li>
                 </ul>
             </div>
-        </div>
-    </nav>
 
-    <!-- Hlavný obsah začína pod navigáciou, ktorá je fixná -->
-    <div class="bg-image">
-        <div class="bg-gradient"></div>
-        <div class="container-sm">
-            <div class="content">Easy Park</div>
-            <div class="content-sub">Váš nástroj na hľadanie a rezerváciu parkovacích miest</div>
-        </div>
-    </div>
-    </header>
-<body>
-   
-<main>
-<!-- Sekcia "O projekte" -->
-    <section id="about" class="about-section">
-        <div class="about-container">
-            <div class="text">
-                <h2>O projekte</h2>
-                <p>Táto webová aplikácia pomáha vodičom nájsť a rezervovať parkovacie miesta v meste.</p>
-                <button class="btn-demo">Vyskúšať demo</button>
+            <div id="week2" class="schedule-week">
+                <h3>Týždeň 2</h3>
+                <p>Vývoj backendu.</p>
+                <ul>
+                    <li>Tvorba základnej logiky: Peter</li>
+                    <li>Spojenie s databázou: Lukáš</li>
+                    <li>Vytvorenie API: Peter</li>
+                    <li>Testovanie funkčnosti backendu: Peter, Lukáš</li>
+                </ul>
             </div>
-            <div class="image">
-                <img src="https://s3-ap-south-1.amazonaws.com/trt-blog-ghost/2021/01/73.jpg" alt="Project Image">
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Sekcia "Team" -->
-    <section id="team" class="team-section">
-        <div class="team-container">
-            <div class="team-member">
-                <img src="./res/images/patrik_pic.png" alt="Team Leader">
-                <h3>Patrik Gazdík</h3>
-                <p>V súčasnosti pracujem ako Mendix Developer v spoločnosti Siemens, kde
-                    vytváram interné stránky s o zameraním na frontend a backend. Najviac využívam
-                    technológie html, scss, bootstrap, php, avšak mám skúsenosti aj s frameworkami, ako
-                    napríklad vue.js a laravel. V tomto projekte si vyskúšam pozíciu vedúceho tímu, na
-                    ktorú by som sa raz aj chcel dopracovať.</p>
-                <br>
-                <a href="mailto:gazdik1@ucm.sk" class="btn-email">Email</a>
-            </div>
-
-            <div class="team-member">
-                <img src="./res/images/tomas_pic.png" alt="Team Member">
-                <h3>Tomáš Zajac</h3>
-                <p>Mám 37 rokov a odjakživa sa zaujímam o hardvér a softvér. Po štúdiu na TOS Trenčín som začal pracovať
-                    v
-                    spoločnosti PCLA na rôznych pozíciách. Popri práci opravujem a navrhujem desktopy. Som študentom UCM
-                    v Trnave, kde sa zdokonaľujem v IT, najmä v programovacích jazykoch, grafike a sieťach. Verím, že
-                    človek by mal na sebe pracovať celý život a štúdium vnímam ako príležitosť na rozšírenie vedomostí.
-                    Hoci som v tíme ešte nepracoval, verím, že dokážem prispieť k úspechu nášho projektu</p>
-                <br>
-                <a href="mailto:zajac2@ucm.sk" class="btn-email">Email</a>
-            </div>
-
-            <div class="team-member">
-                <img src="./res/images/vojtech_pic.png" alt="Team Member">
-                <h3>Vojtech Petrík</h3>
-                <p>Väčšinu mojich skúseností som získal štúdiom na univerzite UCM. Aj keď som nepracoval pre žiadnu
-                    firmu,
-                    neustále sa zlepšujem cez školské projekty.
-                    Som ochotný učiť sa nové veci a tvrdo pracovať. Moje silné stránky sú trpezlivosť a odhodlanie.
-                    Teším sa na prácu v tíme, a verím, že mi to pomôže rozvíjať sa v programovaní aj v spolupráci. Môj
-                    cieľ je
-                    naučiť sa čo najviac a byť užitočným členom tímu.</p>
-                <br>
-                <a href="mailto:petrik5@ucm.sk" class="btn-email">Email</a>
-            </div>
-
-            <div class="team-member">
-                <img src="./res/images/peter_pic.png" alt="Team Member">
-                <h3>Peter Kováč</h3>
-                <p>Pracujem na pozícií Data Acquisition Engineer, zameriavam sa na automatizovaný zber a ukladanie dát.
-                    Predtým som pracoval ako Game Developer. Programujem od roku 2015 a mám skúsenosti s Pythonom, C a
-                    TypeScriptom. V tomto projekte sa venujem backend vývoju, pričom využívam skúsenosti z voľnočasových
-                    projektov.</p>
-                <br>
-                <a href="mailto:kovac27@ucm.sk" class="btn-email">Email</a>
-            </div>
-
-            <div class="team-member">
-                <img src="./res/images/lukas_pic.png" alt="Team Member">
-                <h3>Lukáš Grúlik</h3>
-                <p>Pracujem ako aplikačný programátor a vo voľnom čase sa venujem tvorbe webových aplikácií. Mám
-                    skúsenosti s C,
-                    C++, základy Pythonu, HTML, CSS, JavaScript, PHP, a frameworkami ako Bootstrap, Laravel a Qt. Pri
-                    tvorbe
-                    webových stránok kladiem dôraz na funkcionalitu a vzhľad.</p>
-                <br>
-                <a href="mailto:grulik1@ucm.sk" class="btn-email">Email</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sekcia "Motivačný dokument" -->
-    <section id="documents" class="documents-section">
-        <div class="documents-container">
-            <div class="document-item">
-                <img src="./res/images/file_icon.png" alt="File Icon">
-                <h2>Motivačný dokument</h2>
-                <div class="ratio ratio-16x9 ">
-                    <iframe src="./doc/Motivačný_Dokument.pdf" title="dokument" allowfullscreen></iframe>
-                </div>
-                <a href="./doc/Motivačný_Dokument.pdf" download>Stiahnuť</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sekcia "Rozvrh" -->
-    <section id="schedule" class="schedule-section">
-        <div class="schedule-buttons">
-            <button onclick="showWeek('week1')">Týždeň 1</button>
-            <button onclick="showWeek('week2')">Týždeň 2</button>
-            <button onclick="showWeek('week3')">Týždeň 3</button>
-            <button onclick="showWeek('week4')">Týždeň 4</button>
-            <button onclick="showWeek('week5')">Týždeň 5</button>
-            <button onclick="showWeek('week6')">Týždeň 6</button>
-            <button onclick="showWeek('week7')">Týždeň 7</button>
-            <button onclick="showWeek('week8')">Týždeň 8</button>
-            <button onclick="showWeek('week9')">Týždeň 9</button>
-            <button onclick="showWeek('week10')">Týždeň 10</button>
-        </div>
-
-        <div id="week1" class="schedule-week">
-            <h3>Týždeň 1</h3>
-            <p>Analýza a návrh riešenia.</p>
-            <ul>
-                <li>Definovanie požiadaviek: Lukáš</li>
-                <li>Navrhnutie predbežného užívateľského rozhrania: Tomáš, Lukáš</li>
-                <li>Výber technológií: Patrik, Peter</li>
-                <li>Rozdelenie úloh: všetci členovia</li>
-            </ul>
-        </div>
-
-        <div id="week2" class="schedule-week">
-            <h3>Týždeň 2</h3>
-            <p>Vývoj backendu.</p>
-            <ul>
-                <li>Tvorba základnej logiky: Peter</li>
-                <li>Spojenie s databázou: Lukáš</li>
-                <li>Vytvorenie API: Peter</li>
-                <li>Testovanie funkčnosti backendu: Peter, Lukáš</li>
-            </ul>
-        </div>
-    </section>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Skripty -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
     <script src="./scripts/script.js"></script>
-</main>
+    <script>
+        // Získanie referencií na tlačidlo a kontajner dokumentu
+        const toggleButton = document.getElementById('toggle-document');
+        const documentContainer = document.getElementById('document-container');
+
+        // Pridanie udalosti kliknutia na tlačidlo
+        toggleButton.addEventListener('click', function () {
+            // Kontrola aktuálneho zobrazenia kontajnera
+            if (documentContainer.style.display === 'none' || documentContainer.style.display === '') {
+                // Zobrazenie dokumentu
+                documentContainer.style.display = 'block';
+                // Aktualizácia textu tlačidla
+                toggleButton.textContent = 'Skryť dokument';
+            } else {
+                // Skrytie dokumentu
+                documentContainer.style.display = 'none';
+                // Aktualizácia textu tlačidla
+                toggleButton.textContent = 'Zobraziť dokument';
+            }
+        });
+    </script>
+
     <footer id="contact" class="bg-night text-white text-center py-3">
         &copy; 2024 Easy Park, všetky práva vyhradené.
     </footer>
-
-   
 </body>
 
 </html>
