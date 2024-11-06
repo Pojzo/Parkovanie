@@ -56,7 +56,8 @@ body {
     display: flex !important;
         justify-content: center !important;
         align-items: center !important;
-        border-radius: 3rem;
+        border-radius: 0.7rem;
+      
 }
 /* Pozadie obrázka s gradientom */
 .bg-image {
