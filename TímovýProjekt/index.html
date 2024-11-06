@@ -21,6 +21,11 @@
         <!-- Fixná navigácia s triedou fixed-top -->
         <nav class="navbar navbar-expand-md bg-body-tertiary custom-bg-color fixed-top">
             <div class="container-fluid custom-nav-width">
+                
+                a class="navbar-brand" href="#">
+                    <svg height="32" aria-hidden="true" viewBox="0 0 24 24" version="1.1" width="32" data-view-component="true"
+                        class="octicon octicon-mark-github v-align-middle color-fg-default">
+                    </svg>
                 <a class="navbar-brand" href="#">
                     <img src="./res/favicons/favicon-32x32.png" alt="logo"> Easy Park
                 </a>
@@ -32,25 +37,30 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">O projekte</a>
+                            <a class="nav-link active" aria-current="page" href="#about">O projekte</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Tím</a>
+                            <a class="nav-link active" href="#team">Tím</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Motivačný list</a>
+                            <a class="nav-link active" href="#documents">Motivačný list</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#schedule">Zápisnica</a>
+                        </li>
+                        
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 Viac
                             </a>
                             <ul class="dropdown-menu active">
-                                <li><a class="dropdown-item active bg-body-shadow-grey" href="#">Akcia</a></li>
+                                <li><a class="dropdown-item active bg-body-shadow-grey" href="https://github.com/Pojzo/Parkovanie.git">Odkaz na Github</a></li>
                                 <li><a class="dropdown-item active bg-body-shadow-grey" href="#">Ďalšia akcia</a></li>
                                 <li><a class="dropdown-item active bg-body-shadow-grey" href="#">Niečo iné tu</a></li>
                             </ul>
                         </li>
+                    
                     </ul>
                 </div>
             </div>
@@ -74,6 +84,7 @@
                     <h2>O projekte</h2>
                     <p>Táto webová aplikácia pomáha vodičom nájsť a rezervovať parkovacie miesta v meste.</p>
                     <button class="btn-demo">Vyskúšať demo</button>
+                    <button class="btn-demo" href="https://github.com/Pojzo/Parkovanie.git">Odkaz na Github</button>
                 </div>
                 <div class="image">
                     <img src="https://s3-ap-south-1.amazonaws.com/trt-blog-ghost/2021/01/73.jpg" alt="Project Image">
@@ -164,8 +175,8 @@
                     <h2>Motivačný dokument</h2>
 
                     <!-- Tlačidlá na stiahnutie a zobrazenie/skrytie dokumentu -->
-                    <div class="my-4 container-sm bg-c">
-                        <a href="./doc/Motivacny_Dokument.pdf" download class="btn-demo">Stiahnuť</a>
+                    <div class="my-4 container-sm bg-body-shadow-grey">
+                        <a href="../doc/Motivačný_Dokument.pdf" download class="btn-demo">Stiahnuť</a>
                         <!-- Tlačidlo na zobrazenie/skrytie dokumentu -->
                         <button id="toggle-document" class="btn-demo">Zobraziť dokument</button>
                     </div>
@@ -173,10 +184,10 @@
                     <!-- Kontajner s dokumentom, ktorý sa bude zobrazovať alebo skrývať -->
                     <div id="document-container" style="display: none; margin-top: 2vw;">
                         <div class="ratio" style="--bs-aspect-ratio: 85%;">
-                            <object data="./doc/Motivacny_Dokument.pdf" type="application/pdf" width="100%"
-                                height="600px">
+                            <object data="../TímovýProjekt/doc/Motivačný_Dokument.pdf" type="application/pdf" width="100%" height="600px"></object>
+                                
                                 <p>Váš prehliadač nepodporuje zobrazenie PDF. <a
-                                        href="./doc/Motivacny_Dokument.pdf">Stiahnite
+                                        href="../TímovýProjekt/doc/Motivačný_Dokument.pdf">Stiahnite
                                         si dokument</a>.</p>
                             </object>
                         </div>
@@ -198,14 +209,14 @@
                 <button onclick="showWeek('week7')">Týždeň 7</button>
                 <button onclick="showWeek('week8')">Týždeň 8</button>
                 <button onclick="showWeek('week9')">Týždeň 9</button>
-                <button onclick="showWeek('week10')">Týždeň 10</button>
+                
             </div>
 
             <div id="week1" class="schedule-week">
                 <h3>Týždeň 1</h3>
                 <p>Analýza a návrh riešenia.</p>
                 <ul>
-                    <li>Definovanie požiadaviek: Lukáš</li>
+                    <li>Definovanie požiadaviek: Lukáš </li>
                     <li>Navrhnutie predbežného užívateľského rozhrania: Tomáš, Lukáš</li>
                     <li>Výber technológií: Patrik, Peter</li>
                     <li>Rozdelenie úloh: všetci členovia</li>
