@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="icon" type="image/x-icon" href="res/favicons/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="./res/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./res/favicons/favicon-32x32.png">
@@ -35,20 +35,20 @@
                             <a class="nav-link active" aria-current="page" href="#">O projekte</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Tím</a>
+                            <a class="nav-link active" href="#">Tím</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Motivačný list</a>
+                            <a class="nav-link active" href="#">Motivačný list</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-toggle active shadow-grey" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
                                 Viac
                             </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Akcia</a></li>
-                                <li><a class="dropdown-item" href="#">Ďalšia akcia</a></li>
-                                <li><a class="dropdown-item" href="#">Niečo iné tu</a></li>
+                            <ul class="dropdown-menu active">
+                                <li><a class="dropdown-item active bg-body-shadow-grey" href="#">Akcia</a></li>
+                                <li><a class="dropdown-item active bg-body-shadow-grey" href="#">Ďalšia akcia</a></li>
+                                <li><a class="dropdown-item active bg-body-shadow-grey" href="#">Niečo iné tu</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -56,9 +56,9 @@
             </div>
         </nav>
 
-        <!-- Hlavný obsah začína pod navigáciou, ktorá je fixná -->
+
         <div class="bg-image">
-            <div class="bg-gradient"></div>
+
             <div class="container-sm">
                 <div class="content">Easy Park</div>
                 <div class="content-sub">Váš nástroj na hľadanie a rezerváciu parkovacích miest</div>
@@ -95,7 +95,7 @@
                     <br>
                     <a href="#" class="btn-email">Email</a>
                 </div>
-        
+
                 <div class="team-member">
                     <img src="./res/images/tomas_pic.png" alt="Team Member">
                     <h3>Tomáš Zajac</h3>
@@ -112,7 +112,7 @@
                     <br>
                     <a href="#" class="btn-email">Email</a>
                 </div>
-        
+
                 <div class="team-member">
                     <img src="./res/images/vojtech_pic.png" alt="Team Member">
                     <h3>Vojtech Petrík</h3>
@@ -127,7 +127,7 @@
                     <br>
                     <a href="#" class="btn-email">Email</a>
                 </div>
-        
+
                 <div class="team-member">
                     <img src="./res/images/peter_pic.png" alt="Team Member">
                     <h3>Peter Kováč</h3>
@@ -141,7 +141,7 @@
                     <br>
                     <a href="#" class="btn-email">Email</a>
                 </div>
-        
+
                 <div class="team-member">
                     <img src="./res/images/lukas_pic.png" alt="Team Member">
                     <h3>Lukáš Grúlik</h3>
@@ -155,26 +155,28 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Sekcia "Motivačný dokument" -->
         <section id="documents" class="documents-section">
             <div class="documents-container-sm">
                 <div class="document-item">
                     <img src="./res/images/file_icon.png" alt="File Icon">
                     <h2>Motivačný dokument</h2>
-        
+
                     <!-- Tlačidlá na stiahnutie a zobrazenie/skrytie dokumentu -->
                     <div class="my-4 container-sm bg-c">
                         <a href="./doc/Motivacny_Dokument.pdf" download class="btn-demo">Stiahnuť</a>
                         <!-- Tlačidlo na zobrazenie/skrytie dokumentu -->
                         <button id="toggle-document" class="btn-demo">Zobraziť dokument</button>
                     </div>
-        
+
                     <!-- Kontajner s dokumentom, ktorý sa bude zobrazovať alebo skrývať -->
                     <div id="document-container" style="display: none; margin-top: 2vw;">
                         <div class="ratio" style="--bs-aspect-ratio: 85%;">
-                            <object data="./doc/Motivacny_Dokument.pdf" type="application/pdf" width="100%" height="600px">
-                                <p>Váš prehliadač nepodporuje zobrazenie PDF. <a href="./doc/Motivacny_Dokument.pdf">Stiahnite
+                            <object data="./doc/Motivacny_Dokument.pdf" type="application/pdf" width="100%"
+                                height="600px">
+                                <p>Váš prehliadač nepodporuje zobrazenie PDF. <a
+                                        href="./doc/Motivacny_Dokument.pdf">Stiahnite
                                         si dokument</a>.</p>
                             </object>
                         </div>
@@ -198,7 +200,7 @@
                 <button onclick="showWeek('week9')">Týždeň 9</button>
                 <button onclick="showWeek('week10')">Týždeň 10</button>
             </div>
-        
+
             <div id="week1" class="schedule-week">
                 <h3>Týždeň 1</h3>
                 <p>Analýza a návrh riešenia.</p>
@@ -209,7 +211,7 @@
                     <li>Rozdelenie úloh: všetci členovia</li>
                 </ul>
             </div>
-        
+
             <div id="week2" class="schedule-week">
                 <h3>Týždeň 2</h3>
                 <p>Vývoj backendu.</p>
@@ -228,6 +230,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script src="./scripts/script.js"></script>
     <script>
         // Získanie referencií na tlačidlo a kontajner dokumentu
         const toggleButton = document.getElementById('toggle-document');
@@ -246,13 +249,14 @@
                 documentContainer.style.display = 'none';
                 // Aktualizácia textu tlačidla
                 toggleButton.textContent = 'Zobraziť dokument';
-            }
-        });
-    </script>
+            };
+        }
 
+    </script>
+</body>
     <footer id="contact" class="bg-night text-white text-center py-3">
         &copy; 2024 Easy Park, všetky práva vyhradené.
     </footer>
-</body>
+
 
 </html>

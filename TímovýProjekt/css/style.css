@@ -2,28 +2,17 @@
 
 :root {
     --cambridge-blue: rgb(119, 202, 152);
-    /* pozadie btn background */
     --celadon: rgb(21, 193, 87);
-    /* pozadie */
     --white: rgb(224, 213, 213);
-    /* Primárna biela farba pre tlačidlá a nadpisy */
     --night: #161616ff;
-    /* Pozadie pre tlačidlá */
     --white-2: rgb(130, 138, 133);
-    /* Alternatívna biela na svetlých prvkoch */
     --light-grey: #392e2e;
-    /* Farba textov */
     --dark-grey: #202020;
-    /* Pozadie pre about-section */
     --mid-grey: #2b2b2b;
-    /* Pozadie pre kontajnery */
     --shadow-grey: rgba(0, 0, 0, 0.1);
-    /* Tieň pre prvky */
     --black: #000;
-    /* Čierna farba pre tlačidlá */
 }
 
-/* Globálne nastavenia */
 * {
     margin: 0;
     padding: 0;
@@ -36,7 +25,6 @@ body {
     background-color: var(--black);
 }
 
-/* Navigácia */
 .custom-bg-color {
     background-color: var(--light-grey) !important;
 }
@@ -51,7 +39,6 @@ body {
     color: var(--celadon);
 }
 
-/* Nové štýly pre rozbaľovacie menu */
 .dropdown-menu {
     background-color: var(--light-grey);
     border: none;
@@ -67,7 +54,6 @@ body {
     background-color: var(--night);
 }
 
-/* Štýly pre ikonku rozbalenia menu */
 .navbar-toggler {
     border-color: var(--white);
 }
@@ -81,23 +67,18 @@ body {
 }
 
 @media (min-width: 768px) {
-
-    /* Tablety */
     .custom-nav-width {
         width: 100%;
     }
 }
 
 @media (min-width: 992px) {
-
-    /* Monitory */
     .custom-nav-width {
         width: 70%;
         margin: 0 auto;
     }
 }
 
-/* Pozadie obrázka s gradientom */
 .bg-image {
     background-image: url('https://images.unsplash.com/photo-1720166671019-744dcef65d05?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
     height: 70vh;
@@ -123,7 +104,6 @@ body {
     z-index: 1;
 }
 
-/* Text na obrázku */
 .content {
     position: relative;
     z-index: 1;
@@ -145,7 +125,6 @@ body {
     z-index: 2;
 }
 
-/* Sekcia o projekte */
 .about-section {
     background-color: var(--cambridge-blue);
     padding: 3vw 0;
@@ -181,7 +160,6 @@ body {
     border-radius: 1vw;
 }
 
-/* Tlačidlá */
 .btn-demo {
     background-color: var(--black);
     color: var(--white);
@@ -215,7 +193,6 @@ body {
     color: var(--night);
 }
 
-/* Sekcia tímu */
 .team-section {
     background-color: var(--cambridge-blue);
     padding: 3vw 0;
@@ -255,7 +232,6 @@ body {
     border-radius: 50%;
 }
 
-/* Sekcia dokumentov */
 .documents-section {
     background-color: var(--night);
     padding: 3vw 0;
@@ -289,7 +265,6 @@ body {
     margin-bottom: 1.5vw;
 }
 
-/* Sekcia rozvrhu */
 .schedule-section {
     background-color: var(--night);
     color: var(--white);
@@ -344,7 +319,6 @@ body {
     margin-top: 0;
 }
 
-/* Responzívne nastavenia */
 @media (max-width: 768px) {
     .about-container {
         flex-direction: column;
