@@ -22,7 +22,7 @@
         <nav class="navbar navbar-expand-md bg-body-tertiary custom-bg-color fixed-top">
             <div class="container-fluid custom-nav-width">
                 
-                a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="#">
                     <svg height="32" aria-hidden="true" viewBox="0 0 24 24" version="1.1" width="32" data-view-component="true"
                         class="octicon octicon-mark-github v-align-middle color-fg-default">
                     </svg>
@@ -68,7 +68,7 @@
 
         <!-- Hlavný obsah začína pod navigáciou, ktorá je fixná -->
         <div class="bg-image">
-            <div class="bg-gradient"></div>
+            <div class="gradient-overlay"></div> <!-- Nový div s gradientom -->
             <div class="container-sm">
                 <div class="content">Easy Park</div>
                 <div class="content-sub">Váš nástroj na hľadanie a rezerváciu parkovacích miest</div>
@@ -266,6 +266,30 @@
             }
         });
     </script>
+    <script>
+        // Pole s cestami k obrázkom
+        const images = [
+            './res/images/parking1.jpg',
+            './res/images/parking2.jpg',
+            './res/images/parking3.jpg'
+        ];
+
+        // Výber div elementu s triedou bg-image
+        const bgImageDiv = document.querySelector('.bg-image');
+        let currentImageIndex = 0;
+
+        function changeBackgroundImage() {
+            // Zmeňte pozadie na ďalší obrázok
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            bgImageDiv.style.backgroundImage = `url('${images[currentImageIndex]}')`;
+        }
+
+        // Spustenie zmeny obrázka každé 3 sekundy
+        setInterval(changeBackgroundImage, 5000);
+    </script>
+
+
+    
 
     <footer id="contact" class="bg-night text-white text-center py-3">
         &copy; 2024 Easy Park, všetky práva vyhradené.

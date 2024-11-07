@@ -82,7 +82,6 @@ body {
 }
 
 .bg-image {
-    background-image: url('https://images.unsplash.com/photo-1720166671019-744dcef65d05?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
     height: 70vh;
     max-height: 600px;
     min-height: 400px;
@@ -96,13 +95,15 @@ body {
     justify-content: center;
 }
 
-.bg-gradient {
+.gradient-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, var(--night) 0%, rgba(20, 20, 20, 0.3) 50%, rgba(20, 20, 20, 0.3) 80%, var(--night) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 10%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.5) 100%);
+    pointer-events: none;
+    /* Tento riadok zabezpečí, že gradient nebude blokovať klikanie na prvky pod ním */
     z-index: 1;
 }
 
