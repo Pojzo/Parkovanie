@@ -271,20 +271,23 @@
         const images = [
             './res/images/parking1.jpg',
             './res/images/parking2.jpg',
-            './res/images/parking3.jpg'
+            './res/images/parking3.jpg',
+            './res/images/parking4.jpg',
+            './res/images/parking5.jpg',
+            './res/images/parking6.jpg',
         ];
 
-        // Výber div elementu s triedou bg-image
+        
         const bgImageDiv = document.querySelector('.bg-image');
         let currentImageIndex = 0;
 
         function changeBackgroundImage() {
-            // Zmeňte pozadie na ďalší obrázok
+            
             currentImageIndex = (currentImageIndex + 1) % images.length;
             bgImageDiv.style.backgroundImage = `url('${images[currentImageIndex]}')`;
         }
 
-        // Spustenie zmeny obrázka každé 3 sekundy
+        
         setInterval(changeBackgroundImage, 5000);
     </script>
 
