@@ -1,15 +1,7 @@
-from fastapi import FastAPI
+import uvicorn
 
-app = FastAPI(
-    title="Parking API",
-    description="A simple API for a parking system",
-    version="0.1.0",
-    contact={
-        "Author 1": "Peter Kovac",
-        "Author 2": "Lukas Gulik"
-    }
-)
+def main():
+    uvicorn.run("parking_app.app:app", host="0.0.0.0", port=8000, reload=True)
 
-@app.get("/")
-def read_root():
-    return "Hello World"
+if __name__ == "__main__":
+    main()
