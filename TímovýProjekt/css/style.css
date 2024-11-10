@@ -14,8 +14,8 @@
 }
 
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0px ;
+    padding: 0px;
 }
 
 body {
@@ -27,35 +27,43 @@ body {
 
 .custom-bg-color {
     background-color: var(--light-grey) !important;
+    
 }
 
 .navbar .navbar-brand,
 .navbar .nav-link {
-    color: var(--white);
+    color: var(--white) !important;
+    font-size: 2em;
+    
 }
 
 .navbar .nav-link:hover,
 .navbar .nav-link:focus {
-    color: var(--celadon);
+    color: var(--celadon)!important;
+    
+    
 }
 
 .dropdown-menu {
-    background-color: var(--light-grey);
+    background-color: var(--light-grey)!important;
     border: none;
 }
 
 .dropdown-item {
     color: var(--white);
+background-color: var(--light-grey) !important;
 }
+
 
 .dropdown-item:hover,
 .dropdown-item:focus {
-    color: var(--celadon);
-    background-color: var(--night);
+    color: var(--celadon);  
+    background-color: var(--white);
 }
 
 .navbar-toggler {
     border-color: var(--white);
+    
 }
 
 .navbar-toggler-icon {
@@ -64,6 +72,7 @@ body {
 
 .custom-nav-width {
     width: 100%;
+   
 }
 
 
@@ -123,7 +132,7 @@ body {
     background-color: var(--cambridge-blue);
     border-radius: 1vw;
     padding: 3vw;
-    width: 60vw;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -199,16 +208,17 @@ body {
     border-radius: 1vw;
     padding: 2vw;
     text-align: center;
+    width: 100%;
 }
 
 .team-member h3 {
     margin: 1.5vw 0 1vw;
-    font-size: 4vw;
+    font-size: 2vw;
     color: var(--night);
 }
 
 .team-member p {
-    font-size: 3vw;
+    font-size: 1vw;
     margin: 1vw 0;
     text-align: justify;
     color: var(--light-grey);
@@ -291,6 +301,7 @@ body {
     width: 60%;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
+    width: 100%;
 }
 
 .schedule-week.active {
