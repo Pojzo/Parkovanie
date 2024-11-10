@@ -28,9 +28,7 @@ body {
 .custom-bg-color {
     background-color: var(--light-grey) !important;
 }
-.nav-link dropdown-toggle active shadow-grey active shadow-grey{
-    background-color: var(--shadow-grey) !important;
-}
+
 .navbar .navbar-brand,
 .navbar .nav-link {
     color: var(--white);
@@ -68,18 +66,6 @@ body {
     width: 100%;
 }
 
-@media (min-width: 768px) {
-    .custom-nav-width {
-        width: 100%;
-    }
-}
-
-@media (min-width: 992px) {
-    .custom-nav-width {
-        width: 70%;
-        margin: 0 auto;
-    }
-}
 
 .bg-image {
     height: 70vh;
@@ -103,7 +89,6 @@ body {
     height: 100%;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 10%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.5) 100%);
     pointer-events: none;
-    /* Tento riadok zabezpečí, že gradient nebude blokovať klikanie na prvky pod ním */
     z-index: 1;
 }
 
@@ -218,12 +203,12 @@ body {
 
 .team-member h3 {
     margin: 1.5vw 0 1vw;
-    font-size: 1.5vw;
+    font-size: 4vw;
     color: var(--night);
 }
 
 .team-member p {
-    font-size: 1vw;
+    font-size: 3vw;
     margin: 1vw 0;
     text-align: justify;
     color: var(--light-grey);
@@ -320,37 +305,4 @@ body {
 
 .schedule-week h3 {
     margin-top: 0;
-}
-
-@media (max-width: 768px) {
-    .about-container {
-        flex-direction: column;
-        text-align: center;
-        width: 100%;
-    }
-
-    .about-container img {
-        margin: 2vw 0;
-    }
-
-    .team-container {
-        grid-template-columns: 1fr;
-    }
-
-    .documents-container {
-        grid-template-columns: 1fr;
-    }
-
-    .schedule-buttons button {
-        flex: 1 1 100%;
-        max-width: 100%;
-    }
-
-    .schedule-week.active {
-        font-size: 0.8rem;
-    }
-
-    .schedule-week {
-        width: 100%;
-    }
 }
