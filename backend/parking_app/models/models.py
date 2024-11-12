@@ -1,10 +1,12 @@
 from pydantic import BaseModel, Field
 
+
 class GarageModel(BaseModel):
     id: int = Field(None, description="ID of the garage")
     name: str = Field(..., description="Name of the garage")
     location: str = Field(..., description="Location of the garage")
     floors: int = Field(..., description="Number of floors in the garage")
+
 
 class SpotModel(BaseModel):
     id: int = Field(None, description="ID of the parking spot")
@@ -14,6 +16,7 @@ class SpotModel(BaseModel):
     column: int = Field(..., description="Column number of the spot")
     is_reserved: bool = Field(False, description="Whether the spot is reserved")
 
+
 class ReservationModel(BaseModel):
     id: int = Field(None, description="ID of the reservation")
     user_id: int = Field(..., description="ID of the user")
@@ -22,6 +25,7 @@ class ReservationModel(BaseModel):
     start_time: str = Field(..., description="Start time of the reservation")
     end_time: str = Field(..., description="End time of the reservation")
     confirmation_sent: bool = Field(False, description="Whether confirmation has been sent")
+
 
 class UserModel(BaseModel):
     id: int = Field(None, description="ID of the user")
