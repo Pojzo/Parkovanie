@@ -9,6 +9,7 @@ Táto webová aplikácia je navrhnutá pre efektívnejšiu rezerváciu parkovac�
 ## 🕐 DÔLEŽITÉ DÁTUMY 
 - **29.10.2024** - Treba mať pripravenú základnú štruktúru webovej stránky, základný dizajn k téme projektu, a pripravené logo. ✅
 - **16.11.2024** - Učebňa 328, 15:30
+- **13.11.2024** - Treba mať finálnu verziu motivačného dokumentu na stránke, harmonogram práce, jednotlivé úlohy na ktorých sa robilo, plánované stretnutia, roly v tíme, kto máš čo na starosti a krátku prezentáciu vo formáte PDF o tom čo každý člen tímu robí. Taktiež vedúci by mal nahrať na server aktuálny stav projektu.
 
 ## 🛠️ ️️TECHNOLOGICKÝ STACK ️
 - **HTML**
