@@ -1,6 +1,7 @@
 from aiomysql import Connection
 import aiomysql
 from fastapi import HTTPException
+from fastapi.responses import JSONResponse
 from parking_app.controllers.common import get_garage_by_id
 from parking_app.schema.responses import ErrorResponse, SuccessResponse
 from parking_app.models.models import GarageModel
@@ -79,10 +80,11 @@ async def _update_garage(garage_id: int, name: str, location: str, db: Connectio
 # Controller for the POST /garages endpoint
 async def handle_create_garage(rq: CreateGarageRequest, db: Connection):
     if await _get_garage_by_name(rq.name, db) is not None:
-        raise HTTPException(
-            status_code=409, detail="Garage with this name already exists"
+        return JSONResponse(
+            status_code=409,
+            content={"status": "error", "message": "Garage with this name already exists"},
         )
-
+              
     garage_id = await _create_garage(rq.name, rq.location, rq.floors, db)
 
     return SuccessResponse[GarageModel](data=garage_id)
@@ -113,7 +115,7 @@ async def handle_update_garage(
     garage: GarageModel, rq: UpdateGarageRequest, db: Connection
 ):
     if rq.name is None and rq.location is None:
-        raise HTTPException(status_code=400, detail="No fields to update")
+        raise HTTPException(status_code=422, detail="No fields to update")
 
     new_name = rq.name if rq.name is not None else garage.name
     new_location = rq.location if rq.location is not None else garage.location

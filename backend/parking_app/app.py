@@ -1,5 +1,6 @@
 import aiomysql
 from fastapi import Depends, FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, PlainTextResponse
 from parking_app.exceptions import CustomHTTPException
 from parking_app.config import version
@@ -14,6 +15,15 @@ app = FastAPI(
     contact={"Author 1": "Peter Kovac", "Author 2": "Lukas Gulik"},
 )
 
+# disable cors
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.exception_handler(CustomHTTPException)
 async def custom_exception_handler(request, exc):

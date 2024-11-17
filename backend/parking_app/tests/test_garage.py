@@ -107,3 +107,41 @@ def test_get_all_garages():
         assert response.status_code == 200
         assert response.json()["status"] == "success"
         assert response.json()["message"] == "Garage deleted"
+
+def test_update_garage():
+    garage = client.post(
+        "/garages", json={"name": "test", "location": "test", "floors": 3}
+    )
+    garage_id = garage.json()["data"]["garage_id"]
+
+    # Update the name and location of the garage
+    response = client.patch(
+        f"/garages/{garage_id}", json={"name": "new_name", "location": "new_location"}
+    )
+
+    new_garage = client.get(f"/garages/{garage_id}").json()["data"]
+
+    assert response.status_code == 200
+    assert response.json()["status"] == "success"
+    assert new_garage["name"] == "new_name"
+
+    # Clean up
+    response = client.delete(f"/garages/{garage_id}")
+
+    assert response.status_code == 200
+
+def test_update_garage_no_params():
+    garage = client.post(
+        "/garages", json={"name": "test", "location": "test", "floors": 3}
+    )
+    garage_id = garage.json()["data"]["garage_id"]
+
+    # Update the name and location of the garage
+    response = client.patch(f"/garages/{garage_id}", json={})
+
+    assert response.status_code == 422
+
+    # Clean up
+    response = client.delete(f"/garages/{garage_id}")
+
+    assert response.status_code == 200

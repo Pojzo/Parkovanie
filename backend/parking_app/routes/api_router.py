@@ -8,6 +8,7 @@ from parking_app.controllers.garage import (
     handle_create_garage,
     handle_delete_garage,
     handle_get_all_garages,
+    handle_update_garage,
 )
 from parking_app.models.models import GarageModel
 from parking_app.schema.responses import ErrorResponse, SuccessResponse
@@ -68,10 +69,8 @@ async def update_garage(
     garage_id: int, rq: UpdateGarageRequest, db: Connection = Depends(get_db)
 ):
     garage = await get_garage_by_id_or_raise(garage_id, db)
-    return JSONResponse(
-        status_code=501, content={"status": "error", "message": "Not implemented"}
-    )
-
+    return await handle_update_garage(garage, rq, db)
+   
 
 @router.get("/garages/{garage_id}/spots", tags=["spots"])
 async def get_garage_spots(garage_id: int, db: Connection = Depends(get_db)):
