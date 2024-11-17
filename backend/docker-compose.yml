@@ -4,9 +4,9 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8500:8000"
+      - "8000:8000"
     environment:
-      - DB_HOST=db
+      - DB_HOST=db_dev
       - DB_PORT=3306
       - DB_USER=dev_username
       - DB_PASSWORD=dev_password
