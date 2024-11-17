@@ -12,9 +12,9 @@ services:
       - DB_PASSWORD=dev_password
       - DB_NAME=parking
     depends_on:
-      - db
+      - db_dev
     
-  db:
+  db_dev:
     image: mysql:8
     environment:
       MYSQL_ROOT_PASSWORD: 'root_password'  

@@ -2,7 +2,7 @@ from pydantic import BaseModel, Field
 
 
 class GarageModel(BaseModel):
-    id: int = Field(None, description="ID of the garage")
+    garage_id: int = Field(None, description="ID of the garage")
     name: str = Field(..., description="Name of the garage")
     location: str = Field(..., description="Location of the garage")
     floors: int = Field(..., description="Number of floors in the garage")

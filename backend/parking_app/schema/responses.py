@@ -1,4 +1,4 @@
-from typing import Generic, Optional, TypeVar, Union
+from typing import Generic, Literal, Optional, TypeVar, Union
 from pydantic import BaseModel, Field
 
 
@@ -7,10 +7,11 @@ from pydantic import BaseModel, Field
 DataT = TypeVar("DataT")
 
 class SuccessResponse(BaseModel, Generic[DataT]):
-    status: str = Field("success", const=True)
+    status: Literal["success"] = "success"
     message: Optional[str] = None
     data: Optional[DataT] = None
 
 class ErrorResponse(BaseModel):
-    status: str = Field("error", const=True)
+    status: Literal["error"] = "error"
+    status_code: int
     message: str

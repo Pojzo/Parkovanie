@@ -1,6 +1,7 @@
 import aiomysql
 from fastapi import Depends, FastAPI
-from fastapi.responses import PlainTextResponse
+from fastapi.responses import JSONResponse, PlainTextResponse
+from parking_app.exceptions import CustomHTTPException
 from parking_app.config import version
 
 from parking_app.db import get_db
@@ -12,6 +13,10 @@ app = FastAPI(
     version=version,
     contact={"Author 1": "Peter Kovac", "Author 2": "Lukas Gulik"},
 )
+
+@app.exception_handler(CustomHTTPException)
+async def custom_exception_handler(request, exc):
+    return JSONResponse(status_code=404, content={"status": exc.status, "message": exc.message})
 
 app.include_router(api_router.router)
 

@@ -3,11 +3,11 @@ import os
 
 dotenv.load_dotenv()
 
-DB_HOST = os.getenv("DB_HOST")
-DB_PORT = int(os.getenv("DB_PORT"))
-DB_USER = os.getenv("DB_USER")
-DB_PASSWORD = os.getenv("DB_PASSWORD")
-DB_NAME = os.getenv("DB_NAME")
+DB_HOST = os.getenv("DB_HOST", "localhost")
+DB_PORT = int(os.getenv("DB_PORT", 3406))
+DB_USER = os.getenv("DB_USER", "dev_username")
+DB_PASSWORD = os.getenv("DB_PASSWORD", "dev_password")
+DB_NAME = os.getenv("DB_NAME", "parking")
 
 MAX_RESERAVATION_TIME_HOURS = 4
 

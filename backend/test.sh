@@ -1,0 +1,1 @@
+python -m pytest parking_app/tests/*
