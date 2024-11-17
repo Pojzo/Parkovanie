@@ -6,7 +6,7 @@ const mask = [
     [0, 1, 1, 1, 1, 1, 1, 1, 1, 0]
 ];
 
-export function generateParkingLot(numRows, numCols, colMargin, rowMargin) {
+export function displayParkingLot(numRows, numCols, colMargin, rowMargin) {
     const editorContent = document.getElementById('garage-editor');
     const mainContentWidth = editorContent.offsetWidth;
     const mainContentHeight = editorContent.offsetHeight;

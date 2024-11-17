@@ -1,5 +1,5 @@
 import { globalState } from '../config';
-import { getGarages } from "../api/fetchGarages"
+import { fetchGarages } from "../api/fetchGarages"
 
 console.log('dispalying garages')
 
@@ -46,7 +46,7 @@ function _addGarage(garage) {
     container.appendChild(garageListContainer);
 }
 
-export const displayGarages = (data) => {
+export const displayGarageList = (data) => {
 
     for (const garage of data) {
         _addGarage(garage);

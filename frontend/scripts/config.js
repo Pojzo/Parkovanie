@@ -5,9 +5,10 @@ const _API_PORT = "8000";
 
 export const API_URL = `${_API_HOST}:${_API_PORT}`;
 
-
 // Endpoints
 export const garagesEndpoint = `${API_URL}/garages`;
+
+// Glboal state
 export const globalState = {
     currentGarage: null
 }
