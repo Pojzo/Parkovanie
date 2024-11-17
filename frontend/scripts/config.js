@@ -7,5 +7,7 @@ export const API_URL = `${_API_HOST}:${_API_PORT}`;
 
 
 // Endpoints
-export const createGarageEndpoint = `${API_URL}/garages`;
-export const getGaragesEndpoint = `${API_URL}/garages`;
+export const garagesEndpoint = `${API_URL}/garages`;
+export const globalState = {
+    currentGarage: null
+}

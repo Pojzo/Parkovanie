@@ -1,16 +1,15 @@
 import axios from "axios";
-import { API_URL, createGarageEndpoint } from "../config";
+import { API_URL, garagesEndpoint } from "../config";
 import { showToast } from "../misc";
 
 const _getGarageForm = () => {
     const formId = "create-garage-form";
     const element = document.getElementById(formId);
 
+    // This should never happen
     if (!element) {
         return null;
     }
-
-    // extract name, location and floors
 
     const name = document.getElementById("create-garage-name").value;
     const location = document.getElementById("create-garage-location").value;
@@ -24,13 +23,23 @@ const _getGarageForm = () => {
 }
 
 export const createGarage = async () => {
-    const { name, location, floors } = _getGarageForm();
+    // Get the data from the form
+    const formData = _getGarageForm();
 
+    // Just in case
+    if (!formData) {
+        alert('Form not found');
+        return;
+    }
+    const { name, location, floors } = formData;
+
+    // Check if the form is filled out
     if (!name || !location || !floors) {
         alert('Please fill out all fields');
     }
     try {
-        const response = await axios.post(createGarageEndpoint, {
+        // Send the data to the server
+        const response = await axios.post(garagesEndpoint, {
             name,
             location,
             floors
