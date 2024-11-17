@@ -9,6 +9,7 @@ Táto webová aplikácia je navrhnutá pre efektívnejšiu rezerváciu parkovac�
 ## 🕐 DÔLEŽITÉ DÁTUMY 
 - **29.10.2024** - Treba mať pripravenú základnú štruktúru webovej stránky, základný dizajn k téme projektu, a pripravené logo. ✅
 - **16.11.2024** - Učebňa 328, 15:30
+- **13.11.2024** - Treba mať finálnu verziu motivačného dokumentu na stránke, harmonogram práce, jednotlivé úlohy na ktorých sa robilo, plánované stretnutia, roly v tíme, kto má čo na starosti a krátku prezentáciu vo formáte PDF o tom čo každý člen tímu robí. Taktiež vedúci by mal nahrať na server aktuálny stav projektu.
 
 ## 🛠️ ️️TECHNOLOGICKÝ STACK ️
 - **HTML**
@@ -39,7 +40,7 @@ Táto webová aplikácia je navrhnutá pre efektívnejšiu rezerváciu parkovac�
 - Tvorba prezentácie (tímu a projektu)
 
 ### 2. Vývoj backendu (3 – 4 týždne)
-- Tvorba základnej logiky aplikácie (spracovanie parkovacích miest, platobný systém). ✅
+- Tvorba základnej logiky aplikácie (spracovanie parkovacích miest). ✅
 - Spojenie s databázou (napr. na ukladanie informácií o parkovacích miestach, používateľoch).
 - Vytvorenie API pre komunikáciu medzi frontendom a backendom.
 - Testovanie funkčnosti backendu.
@@ -47,7 +48,7 @@ Táto webová aplikácia je navrhnutá pre efektívnejšiu rezerváciu parkovac�
 ### 3. Vývoj frontendu (3 – 4 týždne)
 - Vývoj užívateľského rozhrania na základe návrhu (responzívny dizajn pre mobil a desktop).
 - Prepojenie frontendu k backendu (komunikácia cez API).
-- Implementácia platobnej brány a interakcie s používateľmi (napr. potvrdenie platby, náhľad voľných miest).
+- Implementácia interakcie s používateľmi (napr. náhľad voľných miest).
 - Vytvorenie PWA 
 
 ### 4. Testovanie a ladenie (1 - 2  týždne)
