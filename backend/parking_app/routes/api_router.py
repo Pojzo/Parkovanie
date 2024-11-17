@@ -2,6 +2,9 @@ from aiomysql import Connection
 from fastapi import APIRouter, Depends, Path, Query
 from fastapi.responses import JSONResponse
 
+from backend.parking_app.controllers.garages import handle_create_garage
+from backend.parking_app.models.models import GarageModel
+from backend.parking_app.schema.responses import SuccessResponse
 from parking_app.db import get_db
 from parking_app.schema.requests import CreateGarageRequest, ReservationRequest, UpdateGarageRequest
 
@@ -25,9 +28,9 @@ async def get_garage_spots(garage_id: int, db: Connection = Depends(get_db)):
     )
 
 
-@router.post("/garages", tags=["garages"])
+@router.post("/garages", tags=["garages"], response_model=SuccessResponse[GarageModel])
 async def create_garage(rq: CreateGarageRequest, db: Connection = Depends(get_db)):
-    return JSONResponse(status_code=200, content={"status": "success", "message": "Garage created"})
+    return await handle_create_garage(rq, db) 
 
 
 @router.put("/garages/{garage_id}", tags=["garages"])

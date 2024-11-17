@@ -23,7 +23,10 @@ class ReservationRequest(BaseModel):
     #     return values
 
 
-class CreateGarageRequest(BaseModel): ...
+class CreateGarageRequest(BaseModel):
+    name: str = Field(..., description="Name of the garage")
+    location: str = Field(..., description="Location of the garage")
+    floors: int = Field(..., description="Number of floors")
 
 class UpdateGarageRequest(BaseModel): ...
 

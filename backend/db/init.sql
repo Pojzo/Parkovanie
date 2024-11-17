@@ -1,8 +1,10 @@
--- Create the database
-CREATE DATABASE IF NOT EXISTS parking_db;
+-- -- Create the database
+-- CREATE DATABASE IF NOT EXISTS parking_db;
 
--- Use the database
-USE parking_db;
+-- -- Use the database
+-- USE parking_db;
+
+USE parking;
 
 -- Create ParkingGarage table
 CREATE TABLE IF NOT EXISTS ParkingGarage (
@@ -17,8 +19,8 @@ CREATE TABLE IF NOT EXISTS ParkingSpot (
     spot_id INT PRIMARY KEY AUTO_INCREMENT,
     garage_id INT,
     floor_number INT NOT NULL,
-    row INT NOT NULL,
-    col INT NOT NULL,
+    spot_row INT NOT NULL,
+    spot_col INT NOT NULL,
     is_reserved BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (garage_id) REFERENCES ParkingGarage(garage_id)
 );
