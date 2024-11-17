@@ -24,7 +24,9 @@ class ReservationModel(BaseModel):
     license_plate: str = Field(..., description="License plate of the vehicle")
     start_time: str = Field(..., description="Start time of the reservation")
     end_time: str = Field(..., description="End time of the reservation")
-    confirmation_sent: bool = Field(False, description="Whether confirmation has been sent")
+    confirmation_sent: bool = Field(
+        False, description="Whether confirmation has been sent"
+    )
 
 
 class UserModel(BaseModel):

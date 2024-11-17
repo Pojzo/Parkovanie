@@ -3,7 +3,9 @@ import aiomysql
 
 
 async def create_connection() -> aiomysql.Connection:
-    return await aiomysql.connect(host=DB_HOST, user=DB_USER, password=DB_PASSWORD, db=DB_NAME, port=DB_PORT)
+    return await aiomysql.connect(
+        host=DB_HOST, user=DB_USER, password=DB_PASSWORD, db=DB_NAME, port=DB_PORT
+    )
 
 
 async def get_db():

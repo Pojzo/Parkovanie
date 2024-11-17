@@ -5,6 +5,7 @@ from parking_app.app import app
 
 client = TestClient(app)
 
+
 def test_create_garage_bad_params():
     # Bad parameters
     test_bodies = [
@@ -12,32 +13,19 @@ def test_create_garage_bad_params():
             "name": "test",
             "location": "test",
         },
-        {
-            "location": "test",
-            "floors": 3
-        },
-        {
-            "name": "test",
-            "floors": 3
-        },
+        {"location": "test", "floors": 3},
+        {"name": "test", "floors": 3},
     ]
     for body in test_bodies:
         response = client.post("/garages", json=body)
         assert response.status_code == 422
 
+
 def test_create_garage():
     # Good parameters
     test_bodies = [
-        {
-            "name": "test",
-            "location": "test",
-            "floors": 3
-        },
-        {
-            "name": "test2",
-            "location": "test2",
-            "floors": 4
-        },
+        {"name": "test", "location": "test", "floors": 3},
+        {"name": "test2", "location": "test2", "floors": 4},
     ]
 
     ids = []
@@ -59,14 +47,19 @@ def test_create_garage():
         assert response.json()["status"] == "success"
         assert response.json()["message"] == "Garage deleted"
 
+
 def test_create_same_name():
     # Create a garage
-    response = client.post("/garages", json={"name": "test", "location": "test", "floors": 3})
+    response = client.post(
+        "/garages", json={"name": "test", "location": "test", "floors": 3}
+    )
     assert response.status_code == 200
     garage_id = response.json()["data"]["garage_id"]
 
     # Create another garage with the same name
-    response = client.post("/garages", json={"name": "test", "location": "test", "floors": 3})
+    response = client.post(
+        "/garages", json={"name": "test", "location": "test", "floors": 3}
+    )
     assert response.status_code == 409
 
     # Clean up
@@ -75,13 +68,18 @@ def test_create_same_name():
     assert response.json()["status"] == "success"
     assert response.json()["message"] == "Garage deleted"
 
+
 def test_get_all_garages():
-    random_location = lambda: ''.join(random.choices(string.ascii_lowercase, k=10))
-    random_name = lambda: ''.join(random.choices(string.ascii_lowercase, k=10))
+    random_location = lambda: "".join(random.choices(string.ascii_lowercase, k=10))
+    random_name = lambda: "".join(random.choices(string.ascii_lowercase, k=10))
     random_floors = lambda: random.randint(1, 10)
 
     sample_data = [
-        {"name": random_name(), "location": random_location(), "floors": random_floors()}
+        {
+            "name": random_name(),
+            "location": random_location(),
+            "floors": random_floors(),
+        }
         for _ in range(10)
     ]
 
@@ -89,7 +87,7 @@ def test_get_all_garages():
 
     for data in sample_data:
         response = client.post("/garages", json=data)
-    
+
     all_garages = client.get("/garages")
 
     assert all_garages.status_code == 200

@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import Optional
 from pydantic import BaseModel, Field, model_validator, root_validator
 
 from parking_app.config import MAX_RESERAVATION_TIME_HOURS
@@ -28,6 +29,10 @@ class CreateGarageRequest(BaseModel):
     location: str = Field(..., description="Location of the garage")
     floors: int = Field(..., description="Number of floors")
 
-class UpdateGarageRequest(BaseModel): ...
+
+class UpdateGarageRequest(BaseModel):
+    name: Optional[str] = Field(None, description="Name of the garage")
+    location: Optional[str] = Field(None, description="Location of the garage")
+
 
 class UpdateSpotRequest(BaseModel): ...
