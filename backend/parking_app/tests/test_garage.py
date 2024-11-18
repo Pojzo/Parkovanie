@@ -70,7 +70,9 @@ def test_create_same_name():
 
 
 def test_get_all_garages():
-    random_location = lambda: "".join(random.choices(string.ascii_lowercase, k=10))
+    random_location = lambda: "".join(
+        random.choices(string.ascii_lowercase, k=10)
+    )
     random_name = lambda: "".join(random.choices(string.ascii_lowercase, k=10))
     random_floors = lambda: random.randint(1, 10)
 
@@ -108,6 +110,7 @@ def test_get_all_garages():
         assert response.json()["status"] == "success"
         assert response.json()["message"] == "Garage deleted"
 
+
 def test_update_garage():
     garage = client.post(
         "/garages", json={"name": "test", "location": "test", "floors": 3}
@@ -116,7 +119,8 @@ def test_update_garage():
 
     # Update the name and location of the garage
     response = client.patch(
-        f"/garages/{garage_id}", json={"name": "new_name", "location": "new_location"}
+        f"/garages/{garage_id}",
+        json={"name": "new_name", "location": "new_location"},
     )
 
     new_garage = client.get(f"/garages/{garage_id}").json()["data"]
@@ -129,6 +133,7 @@ def test_update_garage():
     response = client.delete(f"/garages/{garage_id}")
 
     assert response.status_code == 200
+
 
 def test_update_garage_no_params():
     garage = client.post(

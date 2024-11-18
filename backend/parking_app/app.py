@@ -25,6 +25,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 @app.exception_handler(CustomHTTPException)
 async def custom_exception_handler(request, exc):
     return JSONResponse(
@@ -37,7 +38,9 @@ app.include_router(api_router.router)
 
 @app.get("/", tags=["meta"])
 def read_root():
-    return PlainTextResponse(f"A simple API for a parking system\nVersion: {version}")
+    return PlainTextResponse(
+        f"A simple API for a parking system\nVersion: {version}"
+    )
 
 
 @app.get("/health", tags=["meta"])

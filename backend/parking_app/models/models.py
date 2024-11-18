@@ -1,19 +1,20 @@
+from typing import Optional
 from pydantic import BaseModel, Field
 
 
 class GarageModel(BaseModel):
-    garage_id: int = Field(None, description="ID of the garage")
+    garage_id: Optional[int] = Field(None, description="ID of the garage")
     name: str = Field(..., description="Name of the garage")
     location: str = Field(..., description="Location of the garage")
     floors: int = Field(..., description="Number of floors in the garage")
 
 
 class SpotModel(BaseModel):
-    id: int = Field(None, description="ID of the parking spot")
+    spot_id: int = Field(None, description="ID of the parking spot")
     garage_id: int = Field(..., description="ID of the garage")
     floor_number: int = Field(..., description="Floor number of the spot")
-    row: int = Field(..., description="Row number of the spot")
-    column: int = Field(..., description="Column number of the spot")
+    spot_row: int = Field(..., description="Row number of the spot")
+    spot_col: int = Field(..., description="Column number of the spot")
     is_reserved: bool = Field(False, description="Whether the spot is reserved")
 
 

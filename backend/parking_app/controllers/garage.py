@@ -13,7 +13,9 @@ from parking_app.schema.requests import CreateGarageRequest, UpdateGarageRequest
 # Retrieve a garage by name
 async def _get_garage_by_name(name: str, db: Connection) -> GarageModel | None:
     async with db.cursor(aiomysql.DictCursor) as cur:
-        await cur.execute("SELECT * FROM ParkingGarage WHERE name = %s", (name,))
+        await cur.execute(
+            "SELECT * FROM ParkingGarage WHERE name = %s", (name,)
+        )
         if cur.rowcount == 0:
             return None
 
@@ -60,12 +62,15 @@ async def _create_garage(
 async def _delete_garage(garage: GarageModel, db: Connection):
     async with db.cursor() as cursor:
         await cursor.execute(
-            "DELETE FROM ParkingGarage WHERE garage_id = %s", (garage.garage_id,)
+            "DELETE FROM ParkingGarage WHERE garage_id = %s",
+            (garage.garage_id,),
         )
         await db.commit()
 
 
-async def _update_garage(garage_id: int, name: str, location: str, db: Connection):
+async def _update_garage(
+    garage_id: int, name: str, location: str, db: Connection
+):
     async with db.cursor() as cursor:
         await cursor.execute(
             "UPDATE ParkingGarage SET name = %s, location = %s WHERE garage_id = %s",
@@ -82,9 +87,12 @@ async def handle_create_garage(rq: CreateGarageRequest, db: Connection):
     if await _get_garage_by_name(rq.name, db) is not None:
         return JSONResponse(
             status_code=409,
-            content={"status": "error", "message": "Garage with this name already exists"},
+            content={
+                "status": "error",
+                "message": "Garage with this name already exists",
+            },
         )
-              
+
     garage_id = await _create_garage(rq.name, rq.location, rq.floors, db)
 
     return SuccessResponse[GarageModel](data=garage_id)

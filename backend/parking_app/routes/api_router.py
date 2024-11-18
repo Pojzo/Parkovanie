@@ -1,8 +1,10 @@
+from typing import Union
 from aiomysql import Connection
 from fastapi import APIRouter, Depends, HTTPException, Path, Query
 from fastapi.responses import JSONResponse
 
 from parking_app.controllers.common import get_garage_by_id
+from parking_app.controllers.spots import handle_create_garage_spots
 from parking_app.exceptions import CustomHTTPException
 from parking_app.controllers.garage import (
     handle_create_garage,
@@ -10,11 +12,12 @@ from parking_app.controllers.garage import (
     handle_get_all_garages,
     handle_update_garage,
 )
-from parking_app.models.models import GarageModel
+from parking_app.models.models import GarageModel, SpotModel
 from parking_app.schema.responses import ErrorResponse, SuccessResponse
 from parking_app.db import get_db
 from parking_app.schema.requests import (
     CreateGarageRequest,
+    CreateSpotRequest,
     ReservationRequest,
     UpdateGarageRequest,
 )
@@ -22,7 +25,9 @@ from parking_app.schema.requests import (
 router = APIRouter()
 
 
-async def get_garage_by_id_or_raise(garage_id: int, db: Connection) -> GarageModel:
+async def get_garage_by_id_or_raise(
+    garage_id: int, db: Connection
+) -> GarageModel:
     garage = await get_garage_by_id(garage_id, db)
 
     if garage is None:
@@ -36,9 +41,12 @@ async def get_garage_by_id_or_raise(garage_id: int, db: Connection) -> GarageMod
 
 
 @router.post("/reservations", tags=["reservations"])
-async def create_reservation(rq: ReservationRequest, db: Connection = Depends(get_db)):
+async def create_reservation(
+    rq: ReservationRequest, db: Connection = Depends(get_db)
+):
     return JSONResponse(
-        status_code=200, content={"status": "success", "message": "Reservation created"}
+        status_code=200,
+        content={"status": "success", "message": "Reservation created"},
     )
 
 
@@ -52,13 +60,16 @@ async def get_garages(db: Connection = Depends(get_db)):
     tags=["garages"],
     response_model=SuccessResponse[GarageModel] | ErrorResponse,
 )
-async def create_garage(rq: CreateGarageRequest, db: Connection = Depends(get_db)):
+async def create_garage(
+    rq: CreateGarageRequest, db: Connection = Depends(get_db)
+):
     return await handle_create_garage(rq, db)
 
 
 @router.get("/garages/{garage_id}", tags=["garages"])
 async def get_garage(
-    garage_id: int = Path(..., title="Garage ID"), db: Connection = Depends(get_db)
+    garage_id: int = Path(..., title="Garage ID"),
+    db: Connection = Depends(get_db),
 ):
     garage = await get_garage_by_id_or_raise(garage_id, db)
     return SuccessResponse[GarageModel](data=garage)
@@ -70,14 +81,36 @@ async def update_garage(
 ):
     garage = await get_garage_by_id_or_raise(garage_id, db)
     return await handle_update_garage(garage, rq, db)
-   
+
 
 @router.get("/garages/{garage_id}/spots", tags=["spots"])
 async def get_garage_spots(garage_id: int, db: Connection = Depends(get_db)):
     return JSONResponse(
         status_code=200,
-        content={"status": "success", "message": f"Garage {garage_id} spots retrieved"},
+        content={
+            "status": "success",
+            "message": f"Garage {garage_id} spots retrieved",
+        },
     )
+
+
+@router.post(
+    "/garages/{garage_id}/spots",
+    tags=["spots"],
+    response_model=SuccessResponse[list[SpotModel]] | ErrorResponse,
+)
+async def create_garage_spots(
+    garage_id: int,
+    rq: Union[list[CreateSpotRequest], CreateSpotRequest],
+    db: Connection = Depends(get_db),
+):
+    await get_garage_by_id_or_raise(garage_id, db)
+
+    # In case of a single spot creation request, convert it to a list
+    if isinstance(rq, CreateSpotRequest):
+        rq = [rq]
+
+    return await handle_create_garage_spots(garage_id, rq, db)
 
 
 @router.delete("/garages/{garage_id}", tags=["garages"])
@@ -87,8 +120,11 @@ async def delete_garage(garage_id: int, db: Connection = Depends(get_db)):
 
 
 @router.put("/garages/{garage_id}/spots/{spot_id}", tags=["spots"])
-async def update_spot(garage_id: int, spot_id: int, db: Connection = Depends(get_db)):
+async def update_spot(
+    garage_id: int, spot_id: int, db: Connection = Depends(get_db)
+):
     garage = await get_garage_by_id_or_raise(garage_id, db)
     return JSONResponse(
-        status_code=501, content={"status": "error", "message": "Not implemented"}
+        status_code=501,
+        content={"status": "error", "message": "Not implemented"},
     )

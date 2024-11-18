@@ -12,17 +12,6 @@ class ReservationRequest(BaseModel):
     start_time: datetime = Field(..., title="Start time")
     end_time: datetime = Field(..., title="End time")
 
-    # @root_validator
-    # def check_time_difference(cls, values):
-    #     start_time = values.get('start_time')
-    #     end_time = values.get('end_time')
-    #     if start_time and end_time:
-    #         if end_time <= start_time:
-    #             raise ValueError('End time must be greater than start time')
-    #         if (end_time - start_time).total_seconds() > MAX_RESERAVATION_TIME_HOURS * 3600:
-    #             raise ValueError('Reservation cannot be longer than 4 hours')
-    #     return values
-
 
 class CreateGarageRequest(BaseModel):
     name: str = Field(..., description="Name of the garage")
@@ -33,6 +22,13 @@ class CreateGarageRequest(BaseModel):
 class UpdateGarageRequest(BaseModel):
     name: Optional[str] = Field(None, description="Name of the garage")
     location: Optional[str] = Field(None, description="Location of the garage")
+
+
+class CreateSpotRequest(BaseModel):
+    floor_number: int = Field(..., title="Floor number")
+    spot_row: int = Field(..., title="Row number")
+    spot_col: int = Field(..., title="Column number")
+    is_reserved: bool = Field(False, title="Whether the spot is reserved")
 
 
 class UpdateSpotRequest(BaseModel): ...
