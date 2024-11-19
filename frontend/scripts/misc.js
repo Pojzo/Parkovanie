@@ -29,3 +29,17 @@ export function showToast(message, type = 'success') {
         toast.remove();
     });
 }
+
+export const groupParkingSpotsByFloor = spots => {
+    const spotByFloor = {}
+
+    for (const spot of spots) {
+        if (!spotByFloor[spot.floor_number]) {
+            spotByFloor[spot.floor_number] = [];
+        }
+
+        spotByFloor[spot.floor_number].push(spot);
+    }
+
+    return spotByFloor;
+}

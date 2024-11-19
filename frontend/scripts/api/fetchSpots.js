@@ -1,12 +1,10 @@
 import axios from "axios";
 import { showToast } from "../misc";
-import { garagesEndpoint } from "../config";
+import { spotsEndpoint } from "../config";
 
-export const fetchGarages = async () => {
+export const fetchSpots = async (garageId) => {
     try {
-        const response = await axios.get(garagesEndpoint());
-
-        showToast('Garages fetched successfully', 'success');
+        const response = await axios.get(spotsEndpoint(garageId));
 
         return response.data.data;
     }

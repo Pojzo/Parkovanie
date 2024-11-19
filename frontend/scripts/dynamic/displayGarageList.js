@@ -1,8 +1,6 @@
 import { globalState } from '../config';
 import { fetchGarages } from "../api/fetchGarages"
 
-console.log('dispalying garages')
-
 function _addGarage(garage) {
     const container = document.getElementById('top-content');
 
