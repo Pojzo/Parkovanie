@@ -1,7 +1,7 @@
 import { createGarage } from "./api/createGarage.js";
 import { globalState } from "./config.js";
-import { displayGarageInfo, updateGarageInfo } from "./dynamic/displayGarageInfo.js";
-import { displayParkingLot } from "./dynamic/displayParkingLot.js";
+import { updateGarageInfo } from "./dynamic/displayGarageInfo.js";
+import { displayParkingSpots } from "./dynamic/displayParkingSpots.js";
 
 console.log('Setting up event listeners');
 const createGarageBtn = document.getElementById("create-garage-btn");
@@ -13,7 +13,7 @@ createGarageBtn.addEventListener("click", e => {
 
 const updateCurrentGarage = () => {
     updateGarageInfo();
-    displayParkingLot();
+    displayParkingSpots();
 }
 
 const floorUpBtn = document.getElementById("floor-up-btn");

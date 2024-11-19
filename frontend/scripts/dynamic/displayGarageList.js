@@ -44,8 +44,8 @@ function _addGarage(garage) {
     container.appendChild(garageListContainer);
 }
 
-export const displayGarageList = (data) => {
-
+export const displayGarageList = () => {
+    const data = globalState.garages
     for (const garage of data) {
         _addGarage(garage);
     }
