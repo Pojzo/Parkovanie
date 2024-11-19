@@ -30,10 +30,5 @@ displayGarageInfo();
 console.log(globalState.garageSpots[globalState.currentGarage.garage_id]);
 console.log(globalState.currentGarage);
 
-const numRows = 5;
-const numCols = 10;
 
-const colMargin = 5;
-const rowMargin = 5
-
-displayParkingLot(numRows, numCols, colMargin, rowMargin);
+displayParkingLot();
