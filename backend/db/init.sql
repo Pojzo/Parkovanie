@@ -11,7 +11,9 @@ CREATE TABLE IF NOT EXISTS ParkingGarage (
     garage_id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
     location VARCHAR(255),
-    floors INT NOT NULL
+    floors INT NOT NULL,
+    num_rows INT NOT NULL,
+    num_cols INT NOT NULL
 );
 
 -- Create ParkingSpot table

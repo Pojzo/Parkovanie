@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends, HTTPException, Path, Query
 from fastapi.responses import JSONResponse
 
 from parking_app.controllers.common import get_garage_by_id
-from parking_app.controllers.spots import handle_create_garage_spots
+from parking_app.controllers.spots import handle_create_garage_spots, handle_get_garage_spots
 from parking_app.exceptions import CustomHTTPException
 from parking_app.controllers.garage import (
     handle_create_garage,
@@ -83,16 +83,10 @@ async def update_garage(
     return await handle_update_garage(garage, rq, db)
 
 
-@router.get("/garages/{garage_id}/spots", tags=["spots"])
+@router.get("/garages/{garage_id}/spots", tags=["spots"], response_model=SuccessResponse[list[SpotModel]])
 async def get_garage_spots(garage_id: int, db: Connection = Depends(get_db)):
-    return JSONResponse(
-        status_code=200,
-        content={
-            "status": "success",
-            "message": f"Garage {garage_id} spots retrieved",
-        },
-    )
-
+    garage = await get_garage_by_id_or_raise(garage_id, db)
+    return await handle_get_garage_spots(garage.garage_id, db)
 
 @router.post(
     "/garages/{garage_id}/spots",

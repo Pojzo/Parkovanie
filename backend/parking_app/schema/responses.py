@@ -6,7 +6,6 @@ from pydantic import BaseModel, Field
 
 DataT = TypeVar("DataT")
 
-
 class SuccessResponse(BaseModel, Generic[DataT]):
     status: Literal["success"] = "success"
     message: Optional[str] = None

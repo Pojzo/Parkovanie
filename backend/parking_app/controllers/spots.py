@@ -37,6 +37,17 @@ async def _spot_exists(
 
         return cursor.rowcount > 0
 
+# Returns all spots in a given garage
+async def _get_all_spots_in_garage(garage_id: int, db: Connection) -> list[SpotModel]:
+    async with db.cursor(aiomysql.DictCursor) as cursor:
+        await cursor.execute(
+            "SELECT * FROM ParkingSpot WHERE garage_id = %s",
+            (garage_id,),
+        )
+
+        all_spots = await cursor.fetchall()
+
+        return [SpotModel(**spot) for spot in all_spots]
 
 # Creates a new spot for a given garage, throws an error if the spot already exists
 # Returns the newly created spot as a SpotModel
@@ -92,3 +103,8 @@ async def handle_create_garage_spots(
     await db.commit()
    
     return SuccessResponse[list[SpotModel]](data=new_spots)
+
+async def handle_get_garage_spots(garage_id: int, db: Connection):
+    all_spots = await _get_all_spots_in_garage(garage_id, db)
+    print(all_spots)
+    return SuccessResponse[list[SpotModel]](data=all_spots)
