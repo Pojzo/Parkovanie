@@ -7,6 +7,8 @@ class GarageModel(BaseModel):
     name: str = Field(..., description="Name of the garage")
     location: str = Field(..., description="Location of the garage")
     floors: int = Field(..., description="Number of floors in the garage")
+    num_rows: int = Field(..., description="Number of rows in the garage")
+    num_cols: int = Field(..., description="Number of columns in the garage")
 
 
 class SpotModel(BaseModel):
@@ -16,7 +18,6 @@ class SpotModel(BaseModel):
     spot_row: int = Field(..., description="Row number of the spot")
     spot_col: int = Field(..., description="Column number of the spot")
     is_reserved: bool = Field(False, description="Whether the spot is reserved")
-
 
 class ReservationModel(BaseModel):
     id: int = Field(None, description="ID of the reservation")

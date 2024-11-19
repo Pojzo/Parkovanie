@@ -17,6 +17,8 @@ class CreateGarageRequest(BaseModel):
     name: str = Field(..., description="Name of the garage")
     location: str = Field(..., description="Location of the garage")
     floors: int = Field(..., description="Number of floors")
+    num_rows: int = Field(..., description="Number of rows")
+    num_cols: int = Field(..., description="Number of columns")
 
 
 class UpdateGarageRequest(BaseModel):
