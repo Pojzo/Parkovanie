@@ -1,3 +1,5 @@
+import { globalState } from "./config";
+
 export function showToast(message, type = 'success') {
     const toastContainer = document.getElementById('toast-container');
 
@@ -42,4 +44,36 @@ export const groupParkingSpotsByFloor = spots => {
     }
 
     return spotByFloor;
+}
+
+const getCurrentSpots = () => {
+    const currentFloor = globalState.currentFloor;
+    return globalState.garageSpots[globalState.currentGarage.garage_id][currentFloor];
+}
+
+export const isSpotOccupied = (row, col) => {
+    const currentSpots = getCurrentSpots();
+
+    console.log(currentSpots);
+    console.log(row, col);
+
+    return currentSpots.some(spot => spot.spot_row === row && spot.spot_col === col);
+}
+
+export const popSpotAtCoords = (row, col) => {
+    const index = getCurrentSpots().findIndex(spot => spot.spot_row === row && spot.spot_col === col);
+    globalState.garageSpots[globalState.currentGarage.garage_id][globalState.currentFloor].splice(index, 1);
+}
+
+export const invertSpotOccupancy = (row, col) => {
+    if (isSpotOccupied(row, col)) {
+        popSpotAtCoords(row, col);
+        return;
+    }
+    const newSpot = {
+        spot_row: row,
+        spot_col: col,
+    }
+
+    globalState.garageSpots[globalState.currentGarage.garage_id][globalState.currentFloor].push(newSpot);
 }

@@ -1,9 +1,7 @@
-import { globalState } from "../config";
+import { editorConfig, globalState } from "../config";
 
 const cells = []
 
-const colMargin = 5;
-const rowMargin = 5
 
 export const displayParkingSpots = () => {
     if (cells.length > 0) {
@@ -21,11 +19,14 @@ export const displayParkingSpots = () => {
 
 
     for (const spot of currentSpots) {
-        const row = spot.spot_row - 1;
-        const col = spot.spot_col - 1;
+        const row = spot.spot_row;
+        const col = spot.spot_col;
 
         mask[row][col] = 1;
     }
+
+    const colMargin = editorConfig.colMargin;
+    const rowMargin = editorConfig.rowMargin;
 
     const editorContent = document.getElementById('garage-editor');
     const mainContentWidth = editorContent.offsetWidth;

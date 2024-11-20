@@ -8,8 +8,8 @@ def generate_spots_for_floor(floor_number, rows, cols, reserved_spots=None) -> l
     if reserved_spots is None:
         reserved_spots = []
     spots = []
-    for row in range(1, rows + 1):
-        for col in range(1, cols + 1):
+    for row in range(0, rows):
+        for col in range(0, cols):
             is_reserved = (row, col) in reserved_spots
             spots.append(CreateSpotRequest(
                 floor_number=floor_number,
