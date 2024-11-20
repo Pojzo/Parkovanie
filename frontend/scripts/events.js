@@ -1,11 +1,18 @@
 import { createGarage } from "./api/createGarage.js";
+import { updateGarageSpots } from "./api/updateGarageSpots.js";
 import { editorConfig, globalState } from "./config.js";
 import { updateGarageInfo } from "./dynamic/displayGarageInfo.js";
 import { displayParkingSpots } from "./dynamic/displayParkingSpots.js";
 import { invertSpotOccupancy, isSpotOccupied } from "./misc.js";
 
-console.log('Setting up event listeners');
+// DOM elements
 const createGarageBtn = document.getElementById("create-garage-btn");
+const floorUpBtn = document.getElementById("floor-up-btn");
+const floorDownBtn = document.getElementById("floor-down-btn");
+const saveGarageBtn = document.getElementById("save-garage-btn");
+const garageEditor = document.getElementById("garage-editor");
+
+// ----------------- Event listener for the create garage button -----------------
 createGarageBtn.addEventListener("click", e => {
     console.log('creating garage');
     e.preventDefault();
@@ -17,7 +24,7 @@ const updateCurrentGarage = () => {
     displayParkingSpots();
 }
 
-const floorUpBtn = document.getElementById("floor-up-btn");
+// ----------------- Event listeners for the floor up and floor down buttons -----------------
 
 floorUpBtn.addEventListener("click", e => {
     if (!globalState.currentGarage) {
@@ -29,7 +36,6 @@ floorUpBtn.addEventListener("click", e => {
     }
 });
 
-const floorDownBtn = document.getElementById("floor-down-btn");
 
 floorDownBtn.addEventListener("click", e => {
     if (!globalState.currentGarage) {
@@ -42,7 +48,12 @@ floorDownBtn.addEventListener("click", e => {
 })
 
 
-const garageEditor = document.getElementById("garage-editor");
+// ----------------- Event listener for the save garage button -----------------
+saveGarageBtn.addEventListener("click", e => {
+    updateGarageSpots();
+})
+
+// ----------------- Event listener for the garage editor -----------------
 garageEditor.addEventListener("click", e => {
     // Absolute position relative to the document
     const absoluteX = e.x;

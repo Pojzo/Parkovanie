@@ -96,6 +96,7 @@ async def get_garage_spots(garage_id: int, db: Connection = Depends(get_db)):
 async def create_garage_spots(
     garage_id: int,
     rq: Union[list[CreateSpotRequest], CreateSpotRequest],
+    delete_existing: bool = Query(False, title="Delete existing spots", description="Whether to delete existing spots in the garage"),
     db: Connection = Depends(get_db),
 ):
     await get_garage_by_id_or_raise(garage_id, db)
@@ -104,7 +105,7 @@ async def create_garage_spots(
     if isinstance(rq, CreateSpotRequest):
         rq = [rq]
 
-    return await handle_create_garage_spots(garage_id, rq, db)
+    return await handle_create_garage_spots(garage_id, rq, delete_existing, db)
 
 
 @router.delete("/garages/{garage_id}", tags=["garages"])

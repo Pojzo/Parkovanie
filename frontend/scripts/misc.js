@@ -62,7 +62,8 @@ export const isSpotOccupied = (row, col) => {
 
 export const popSpotAtCoords = (row, col) => {
     const index = getCurrentSpots().findIndex(spot => spot.spot_row === row && spot.spot_col === col);
-    globalState.garageSpots[globalState.currentGarage.garage_id][globalState.currentFloor].splice(index, 1);
+    const currentSpots = getCurrentSpots();
+    currentSpots.splice(index, 1);
 }
 
 export const invertSpotOccupancy = (row, col) => {
@@ -73,7 +74,8 @@ export const invertSpotOccupancy = (row, col) => {
     const newSpot = {
         spot_row: row,
         spot_col: col,
+        floor_number: globalState.currentFloor
     }
-
-    globalState.garageSpots[globalState.currentGarage.garage_id][globalState.currentFloor].push(newSpot);
+    const currentSpots = getCurrentSpots();
+    currentSpots.push(newSpot);
 }

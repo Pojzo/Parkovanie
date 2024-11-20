@@ -70,14 +70,25 @@ async def _create_garage_spot(
             raise Exception("Failed to retrieve created spot")
 
         return spot
+    
+async def _delete_all_spots_in_garage(garage_id: int, db: Connection):
+    async with db.cursor() as cursor:
+        await cursor.execute(
+            "DELETE FROM ParkingSpot WHERE garage_id = %s",
+            (garage_id,)
+        )
+        await db.commit()
 
 
 # Controller for the POST /garages/{garage_id}/spots endpoint
 async def handle_create_garage_spots(
-    garage_id: int, rq: list[CreateSpotRequest], db: Connection
+    garage_id: int, rq: list[CreateSpotRequest], delete_existing: bool, db: Connection
 ) -> SuccessResponse[list[SpotModel]]:
-    new_spots = []
+    if delete_existing:
+        print("Deleting existing spots")
+        await _delete_all_spots_in_garage(garage_id, db)
 
+    new_spots = []
     # For every spot, check if it already exists
     for spot in rq:
         # If the spot is already occupied, don't create any spots and return an error

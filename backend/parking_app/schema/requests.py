@@ -30,7 +30,7 @@ class CreateSpotRequest(BaseModel):
     floor_number: int = Field(..., title="Floor number")
     spot_row: int = Field(..., title="Row number")
     spot_col: int = Field(..., title="Column number")
-    is_reserved: bool = Field(False, title="Whether the spot is reserved")
+    is_reserved: Optional[bool]= Field(False, title="Whether the spot is reserved")
 
 
 class UpdateSpotRequest(BaseModel): ...
