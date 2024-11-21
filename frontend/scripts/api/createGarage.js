@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_URL, garagesEndpoint } from "../config";
+import { garagesEndpoint } from "../globalConfig";
 import { showToast } from "../misc";
 
 const _getGarageForm = () => {

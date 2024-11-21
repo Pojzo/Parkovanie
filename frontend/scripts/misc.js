@@ -1,4 +1,4 @@
-import { globalState } from "./config";
+import { adminData } from "./admin/data";
 
 export function showToast(message, type = 'success') {
     const toastContainer = document.getElementById('toast-container');
@@ -47,8 +47,8 @@ export const groupParkingSpotsByFloor = spots => {
 }
 
 const getCurrentSpots = () => {
-    const currentFloor = globalState.currentFloor;
-    return globalState.garageSpots[globalState.currentGarage.garage_id][currentFloor];
+    const currentFloor = adminData.currentFloor;
+    return adminData.garageSpots[adminData.currentGarage.garage_id][currentFloor];
 }
 
 export const isSpotOccupied = (row, col) => {
@@ -74,7 +74,7 @@ export const invertSpotOccupancy = (row, col) => {
     const newSpot = {
         spot_row: row,
         spot_col: col,
-        floor_number: globalState.currentFloor
+        floor_number: adminData.currentFloor
     }
     const currentSpots = getCurrentSpots();
     currentSpots.push(newSpot);

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { showToast } from "../misc";
-import { garagesEndpoint } from "../config";
+import { garagesEndpoint } from "../globalConfig"
 
 export const fetchGarages = async () => {
     try {

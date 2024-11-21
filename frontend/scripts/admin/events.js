@@ -1,9 +1,10 @@
-import { createGarage } from "./api/createGarage.js";
-import { updateGarageSpots } from "./api/updateGarageSpots.js";
-import { editorConfig, globalState } from "./config.js";
-import { updateGarageInfo } from "./dynamic/displayGarageInfo.js";
-import { displayParkingSpots } from "./dynamic/displayParkingSpots.js";
-import { invertSpotOccupancy, isSpotOccupied } from "./misc.js";
+import { createGarage } from "../api/createGarage.js";
+import { updateGarageSpots } from "../api/updateGarageSpots.js";
+import { adminData } from "./data.js";
+import { editorConfig } from "../globalConfig.js";
+import { updateGarageInfo } from "../dynamic/displayGarageInfo.js";
+import { displayParkingSpots } from "../dynamic/displayParkingSpots.js";
+import { invertSpotOccupancy, isSpotOccupied } from "../misc.js";
 
 // DOM elements
 const createGarageBtn = document.getElementById("create-garage-btn");
@@ -20,29 +21,30 @@ createGarageBtn.addEventListener("click", e => {
 })
 
 const updateCurrentGarage = () => {
-    updateGarageInfo();
-    displayParkingSpots();
+    updateGarageInfo(adminData.currentGarage);
+    const currentSpots = adminData.garageSpots[adminData.currentGarage.garage_id][adminData.currentFloor];
+    displayParkingSpots(adminData.currentGarage.num_rows, adminData.currentGarage.num_cols, currentSpots);
 }
 
 // ----------------- Event listeners for the floor up and floor down buttons -----------------
 
 floorUpBtn.addEventListener("click", e => {
-    if (!globalState.currentGarage) {
+    if (!adminData.currentGarage) {
         return;
     }
-    if (globalState.currentFloor < globalState.currentGarage.floors) {
-        globalState.currentFloor++;
+    if (adminData.currentFloor < adminData.currentGarage.floors) {
+        adminData.currentFloor++;
         updateCurrentGarage();
     }
 });
 
 
 floorDownBtn.addEventListener("click", e => {
-    if (!globalState.currentGarage) {
+    if (!adminData.currentGarage) {
         return;
     }
-    if (globalState.currentFloor > 1) {
-        globalState.currentFloor--;
+    if (adminData.currentFloor > 1) {
+        adminData.currentFloor--;
         updateCurrentGarage();
     }
 })
@@ -65,18 +67,13 @@ garageEditor.addEventListener("click", e => {
     const y = absoluteY - rect.top;
 
     // Calculate the cell width and height
-    const cellWidth = editorConfig.editorWidth / globalState.currentGarage.num_cols;
-    const cellHeight = editorConfig.editorHeight / globalState.currentGarage.num_rows;
+    const cellWidth = editorConfig.editorWidth / adminData.currentGarage.num_cols;
+    const cellHeight = editorConfig.editorHeight / adminData.currentGarage.num_rows;
 
     // Calculate the row and col the user clicked on
     const col = Math.floor(x / cellWidth);
     const row = Math.floor(y / cellHeight);
 
-    // const spotOccupied = isSpotOccupied(row, col);
     invertSpotOccupancy(row, col);
-    // console.log(spotOccupied);
-    // Figure out if the space is occupied
-    // console.log(x, y);
-    // console.log(`User clicked on row ${row} and col ${col}`);
     updateCurrentGarage();
 });

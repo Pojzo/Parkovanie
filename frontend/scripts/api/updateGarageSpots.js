@@ -1,5 +1,6 @@
 import axios from "axios";
-import { globalState, spotsEndpoint } from "../config"
+import { adminData } from "../admin/data";
+import { spotsEndpoint } from "../globalConfig";
 import { showToast } from "../misc";
 
 const _processSpots = (spots) => {
@@ -22,8 +23,8 @@ const _processSpots = (spots) => {
 };
 
 export const updateGarageSpots = async () => {
-    const garageId = globalState.currentGarage.garage_id;
-    const spots = globalState.garageSpots[garageId];
+    const garageId = adminData.currentGarage.garage_id;
+    const spots = adminData.garageSpots[garageId];
     const processedSpots = _processSpots(spots);
 
     let url = spotsEndpoint(garageId);

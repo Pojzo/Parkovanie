@@ -1,7 +1,7 @@
-import { globalState } from '../config';
+import { adminData } from '../admin/data';
 
 export const updateGarageInfo = () => {
-    const garageData = globalState.currentGarage;
+    const garageData = adminData.currentGarage;
     const garageInfo = document.getElementById("garage-info");
 
     const name = document.getElementById("garage-name");
@@ -14,12 +14,11 @@ export const updateGarageInfo = () => {
     floors.textContent = `Floors: ${garageData.floors}`;
 
     const currentFloor = document.getElementById("current-floor");
-    currentFloor.textContent = `Current Floor: ${globalState.currentFloor}`;
+    currentFloor.textContent = `Current Floor: ${adminData.currentFloor}`;
 }
 
 
-export const displayGarageInfo = () => {
-    const garageData = globalState.currentGarage;
+export const displayGarageInfo = (garageData) => {
     const garageInfo = document.getElementById("garage-info");
     garageInfo.id = "garage-info";
 
@@ -37,7 +36,7 @@ export const displayGarageInfo = () => {
     floors.id = "garage-floors";
 
     const currentFloor = document.createElement("p");
-    currentFloor.textContent = `Current Floor: ${globalState.currentFloor}`;
+    currentFloor.textContent = `Current Floor: ${adminData.currentFloor}`;
     currentFloor.id = "current-floor";
 
     garageInfo.appendChild(name);

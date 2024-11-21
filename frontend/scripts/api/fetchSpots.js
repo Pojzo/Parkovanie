@@ -1,6 +1,6 @@
 import axios from "axios";
 import { showToast } from "../misc";
-import { spotsEndpoint } from "../config";
+import { spotsEndpoint } from "../globalConfig";
 
 export const fetchSpots = async (garageId) => {
     try {

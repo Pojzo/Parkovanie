@@ -1,22 +1,16 @@
-import { editorConfig, globalState } from "../config";
+import { adminData } from "../admin/data";
+import { editorConfig } from "../globalConfig";
 
 const cells = []
 
 
-export const displayParkingSpots = () => {
+export const displayParkingSpots = (numRows, numCols, currentSpots) => {
     if (cells.length > 0) {
         for (const cell of cells) {
             cell.remove();
         }
     }
-    const numRows = globalState.currentGarage.num_rows;
-    const numCols = globalState.currentGarage.num_cols;
-
     const mask = Array(numRows).fill(0).map(() => Array(numCols).fill(0));
-
-    const currentFloor = globalState.currentFloor;
-    const currentSpots = globalState.garageSpots[globalState.currentGarage.garage_id][currentFloor];
-
 
     for (const spot of currentSpots) {
         const row = spot.spot_row;

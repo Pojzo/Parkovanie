@@ -1,5 +1,4 @@
-import { globalState } from '../config';
-import { fetchGarages } from "../api/fetchGarages"
+import { adminData } from '../admin/data';
 
 function _addGarage(garage) {
     const container = document.getElementById('top-content');
@@ -44,10 +43,9 @@ function _addGarage(garage) {
     container.appendChild(garageListContainer);
 }
 
-export const displayGarageList = () => {
-    const data = globalState.garages
+export const displayGarageList = (data) => {
     for (const garage of data) {
         _addGarage(garage);
     }
-    globalState.currentGarage = data[0];
+    adminData.currentGarage = data[0];
 }
