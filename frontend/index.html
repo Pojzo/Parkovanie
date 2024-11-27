@@ -34,22 +34,27 @@
                         </li>
                         <li class="nav-item"><a class="nav-link active" href="#team">Tím</a></li>
                         <li class="nav-item"><a class="nav-link active" href="#documents">Motivačný dokument</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="#harmonogram">Harmonogram</a></li>
                         <li class="nav-item"><a class="nav-link active" href="#schedule">Zápisnica</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">Viac</a>
                             <ul class="dropdown-menu active">
-                                <li><a class="dropdown-item active bg-body-shadow-grey" href="https://github.com/Pojzo/Parkovanie.git">Github</a></li>
-                                <li><a class="dropdown-item active bg-body-shadow-grey" href="https://validator.w3.org/">Validator</a></li>
-                                <li><a class="dropdown-item active bg-body-shadow-grey" href="https://www.w3schools.com/">w3schools</a></li>
-                                <li><a class="dropdown-item active bg-body-shadow-grey" href="https://bcstudent.fpvucm.sk/~testuser/tp/2024-2025.html">Vyhodnotenie</a></li>
-                                <li><a class="dropdown-item active bg-body-shadow-grey" href="./Easy_Park_Project_Documentation.html">Git-README</a></li>
+                                <li><a class="dropdown-item active bg-body-shadow-grey"
+                                        href="https://github.com/Pojzo/Parkovanie.git">Github</a></li>
+                                <li><a class="dropdown-item active bg-body-shadow-grey"
+                                        href="https://bcstudent.fpvucm.sk/~testuser/tp/2024-2025.html">Tímový
+                                        projekt</a>
+                                </li>
+                                <li><a class="dropdown-item active bg-body-shadow-grey"
+                                        href="./Easy_Park_Project_Documentation.html">Git-README</a></li>
                             </ul>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
+
         <div class="bg-image">
             <div class="gradient-overlay"></div>
             <div class="container-sm">
@@ -64,12 +69,11 @@
             <div class="about-container">
                 <div class="text">
                     <h2>O projekte</h2>
-                    <p>Táto webová aplikácia pomáha vodičom nájsť a rezervovať parkovacie miesta v meste.</p>
+                    <p>Táto webová aplikácia pomáha vodičom nájsť a rezervovať parkovacie miesta v parkovacích domoch.
+                    </p>
                     <div class="container d-flex align-items-center gap-2">
-                        <button class="btn-demo">
-                            <a href="reservation.html">Vyskúšať demo</a>
-                        </button>
-                        <a class="btn-demo" href="https://github.com/Pojzo/Parkovanie.git">Github</a>
+                        <a class="btn-project" href="reservation.html">Vyskúšať demo</a>
+                        <a class="btn-project" href="https://github.com/Pojzo/Parkovanie.git">Github</a>
                     </div>
                 </div>
                 <div class="image">
@@ -79,28 +83,41 @@
         </section>
 
         <section id="team" class="team-section">
+            <div class="team-header">
+                <h2>Náš tím</h2>
+                <img src="./res/images/nas_tim.jpg" alt="Fotka celého tímu" class="team-photo">
+            </div>
             <div class="team-container">
                 <div class="team-member">
-                    <img src="./res/images/peter_pic.png" alt="Team Leader">
+                    <img src="./res/images/patrik_pic.png" alt="Team Leader">
                     <h3>Patrik Gazdík</h3>
-                    <p>V súčasnosti pracujem ako Mendix Developer v spoločnosti Siemens, kde vytváram interné stránky so zameraním na frontend
-                    a backend. Najviac využívam technológie html, scss, bootstrap, php, avšak mám skúsenosti aj s frameworkami, ako
-                    napríklad vue.js a laravel. V tomto projekte si vyskúšam pozíciu vedúceho tímu, na ktorú by som sa raz aj chcel
-                    dopracovať.
+                    <p>V súčasnosti pracujem ako Mendix Developer v spoločnosti Siemens, kde vytváram interné stránky so
+                        zameraním na frontend
+                        a backend. Najviac využívam technológie html, scss, bootstrap, php, avšak mám skúsenosti aj s
+                        frameworkami, ako
+                        napríklad vue.js a laravel. V tomto projekte si vyskúšam pozíciu vedúceho tímu, na ktorú by som
+                        sa raz aj chcel
+                        dopracovať.
                     </p>
                     <br>
-                    <a href="mailto:gazdik1@ucm.sk"  class="btn-email">Email</a>
+                    <a href="mailto:gazdik1@ucm.sk" class="btn-email">Email</a>
                 </div>
 
                 <div class="team-member">
                     <img src="./res/images/tomas_pic.png" alt="Team Member">
                     <h3>Tomáš Zajac</h3>
-                    <p>Mám 37 rokov a od útleho veku sa zaujímam o hardvér a softvér. Po štúdiu na TOS Trenčín som sa zamestnal v spoločnosti
-                    PCLA, kde som vystriedal viacero pozícií a pracujem tam dodnes. Popri práci sa venujem opravám a návrhom desktopov pre
-                    priateľov a známych. Okrem toho som od minulého roka študentom UCM v Trnave, kde sa snažím zdokonaľovať v oblasti IT,
-                    najmä v programovacích jazykoch, grafike a sieťach. Verím, že človek by mal na sebe pracovať celý život, a preto vnímam
-                    štúdium na UCM ako príležitosť, ako si rozšíriť znalosti a posunúť svoj život vpred. Hoci som zatiaľ v tíme nepracoval,
-                    verím, že vedenie ma dokáže správne nasmerovať, aby som bol užitočný a nápomocný pri vývoji našej aplikácie.</p>
+                    <p>Mám 37 rokov a od útleho veku sa zaujímam o hardvér a softvér. Po štúdiu na TOS Trenčín som sa
+                        zamestnal v spoločnosti
+                        PCLA, kde som vystriedal viacero pozícií a pracujem tam dodnes. Popri práci sa venujem opravám a
+                        návrhom desktopov pre
+                        priateľov a známych. Okrem toho som od minulého roka študentom UCM v Trnave, kde sa snažím
+                        zdokonaľovať v oblasti IT,
+                        najmä v programovacích jazykoch, grafike a sieťach. Verím, že človek by mal na sebe pracovať
+                        celý život, a preto vnímam
+                        štúdium na UCM ako príležitosť, ako si rozšíriť znalosti a posunúť svoj život vpred. Hoci som
+                        zatiaľ v tíme nepracoval,
+                        verím, že vedenie ma dokáže správne nasmerovať, aby som bol užitočný a nápomocný pri vývoji
+                        našej aplikácie.</p>
                     <br>
                     <a href="mailto:zajac2@ucm.sk" class="btn-email">Email</a>
                 </div>
@@ -108,25 +125,35 @@
                 <div class="team-member">
                     <img src="./res/images/vojtech_pic.png" alt="Team Member">
                     <h3>Vojtech Petrík</h3>
-                    <p>Väčšinu mojich skúseností som získal počas štúdia, kde som sa stretol so základnými konceptmi programovania a
-                    technológiami. Nepracoval som pre žiadnu firmu, ale usilujem sa zlepšovať a rozširovať svoje znalosti cez školské
-                    projekty. Aj keď nemám bohaté skúsenosti, som ochotný učiť sa nové veci a pracovať tvrdo na dosiahnutí cieľa. Mojou
-                    silnou stránkou je trpezlivosť a odhodlanie. Som pripravený urobiť maximum pre to, aby som prispel k úspechu tímu. Nikdy
-                    predtým som nepracoval v tíme, ale teším sa na túto príležitosť. Verím, že táto skúsenosť mi pomôže rozvíjať sa nielen v
-                    programovaní, ale aj v tímovej spolupráci a projektovom manažmente. Mojím cieľom je naučiť sa čo najviac a byť užitočným
-                    členom tímu.</p>
+                    <p>Väčšinu mojich skúseností som získal počas štúdia, kde som sa stretol so základnými konceptmi
+                        programovania a
+                        technológiami. Nepracoval som pre žiadnu firmu, ale usilujem sa zlepšovať a rozširovať svoje
+                        znalosti cez školské
+                        projekty. Aj keď nemám bohaté skúsenosti, som ochotný učiť sa nové veci a pracovať tvrdo na
+                        dosiahnutí cieľa. Mojou
+                        silnou stránkou je trpezlivosť a odhodlanie. Som pripravený urobiť maximum pre to, aby som
+                        prispel k úspechu tímu. Nikdy
+                        predtým som nepracoval v tíme, ale teším sa na túto príležitosť. Verím, že táto skúsenosť mi
+                        pomôže rozvíjať sa nielen v
+                        programovaní, ale aj v tímovej spolupráci a projektovom manažmente. Mojím cieľom je naučiť sa čo
+                        najviac a byť užitočným
+                        členom tímu.</p>
                     <br>
                     <a href="mailto:petrik5@ucm.sk" class="btn-email">Email</a>
                 </div>
 
                 <div class="team-member">
-                    <img src="./res/images/patrik_pic.png" alt="Team Member">
+                    <img src="./res/images/peter_pic.png" alt="Team Member">
                     <h3>Peter Kováč</h3>
-                    <p>Pracujem na pozícií Data Acquisition Engineer. Mojou úlohou je automatizovaný zber a ukladanie veľkého množstva dát z
-                    internetu. V minulosti som pracoval ako Game Developer. Programovaniu sa venujem od roku 2015, mám skúsenosti s mnohými
-                    programovacími jazykmi ako Python, C, alebo TypeScript. V tomto zadaní sa budem venovať backendovej časti, kde využijem
-                    skúseností z voľnočasových projektov. Tímová práca pre mňa nebude problémom, keďže mám skúsenosti s verzovacím systémom
-                    Git a platformami ako GitHub či GitLab na správu kódu v cloude.</p>
+                    <p>Pracujem na pozícií Data Acquisition Engineer. Mojou úlohou je automatizovaný zber a ukladanie
+                        veľkého množstva dát z
+                        internetu. V minulosti som pracoval ako Game Developer. Programovaniu sa venujem od roku 2015,
+                        mám skúsenosti s mnohými
+                        programovacími jazykmi ako Python, C, alebo TypeScript. V tomto zadaní sa budem venovať
+                        backendovej časti, kde využijem
+                        skúseností z voľnočasových projektov. Tímová práca pre mňa nebude problémom, keďže mám
+                        skúsenosti s verzovacím systémom
+                        Git a platformami ako GitHub či GitLab na správu kódu v cloude.</p>
                     <br>
                     <a href="mailto:kovac27@ucm.sk" class="btn-email">Email</a>
                 </div>
@@ -134,12 +161,18 @@
                 <div class="team-member">
                     <img src="./res/images/lukas_pic.png" alt="Team Member">
                     <h3>Lukáš Grúlik</h3>
-                    <p>Pracujem ako aplikačný programátor a vo voľnom čase sa venujem tvorbe webových aplikácií. Od mala som sa zaujímal o
-                    prácu s počítačmi či už na úrovni hardvéru, alebo softvéru. Mám skúsenosti s programovacími jazykmi ako je C/C++ a
-                    taktiež ovládam základy jazyku Python, v oblasti web dizajnu som sa stretol s HTML, CSS, JavaScript a PHP vrátane
-                    framework-ov ako je Bootstrap alebo Laravel. Pri tvorbe webových stránok mi záleží na správnej funkcionalite a vzhľade.
-                    Mojím cieľom počas práce na tomto projekte je získať skúsenosti v oblasti back-end vývoja webových aplikácií. Verím, že
-                    práca na projekte mi umožní nielen zlepšiť moje technické vedomosti, ale aj spoluprácu v tíme.</p>
+                    <p>Pracujem ako aplikačný programátor a vo voľnom čase sa venujem tvorbe webových aplikácií. Od mala
+                        som sa zaujímal o
+                        prácu s počítačmi či už na úrovni hardvéru, alebo softvéru. Mám skúsenosti s programovacími
+                        jazykmi ako je C/C++ a
+                        taktiež ovládam základy jazyku Python, v oblasti web dizajnu som sa stretol s HTML, CSS,
+                        JavaScript a PHP vrátane
+                        framework-ov ako je Bootstrap alebo Laravel. Pri tvorbe webových stránok mi záleží na správnej
+                        funkcionalite a vzhľade.
+                        Mojím cieľom počas práce na tomto projekte je získať skúsenosti v oblasti back-end vývoja
+                        webových aplikácií. Verím, že
+                        práca na projekte mi umožní nielen zlepšiť moje technické vedomosti, ale aj spoluprácu v tíme.
+                    </p>
                     <br>
                     <a href="mailto:grulik1@ucm.sk" class="btn-email">Email</a>
                 </div>
@@ -153,104 +186,231 @@
                     <h2>Motivačný dokument</h2>
                     <div class="my-4 container-sm bg-body-shadow-grey">
                         <a href="./doc/Motivačný_Dokument.pdf" download class="btn-demo">Stiahnuť</a>
-                        <button id="toggle-document" class="btn-demo">Zobraziť dokument</button>
+                        <a href="./doc/Motivacny_Dokument.pdf" class="btn-demo" target="_blank">Zobraziť dokument</a>
                     </div>
-                    <div id="document-container" style="display: none; margin-top: 2vw;">
-                        <div class="ratio" style="--bs-aspect-ratio: 85%;">
-                            <object data="./doc/Motivacny_Dokument.pdf" type="application/pdf" width="800" height="600"></object>
-                                
-                                <div class="container-sm d-flex flex-column">
-                                    <p>Váš prehliadač nepodporuje zobrazenie PDF. <a
-                                            href="./doc/Motivacny_Dokument.pdf">Prezrieť priamo na stránke</a>.</p>
-                                </div>
-                            
-                        </div>
+                </div>
+
+                <div class="document-item">
+                    <img src="./res/images/file_icon.png" alt="File Icon">
+                    <h2>Dokument projektu</h2>
+                    <div class="my-4 container-sm bg-body-shadow-grey">
+                        <a href="./doc/Easy_Park_dokument_projektu_2.pdf" download class="btn-demo">Stiahnuť</a>
+                        <a href="./doc/Easy_Park_dokument_projektu_2.pdf" class="btn-demo" target="_blank">Zobraziť dokument</a>
+                    </div>
+                </div>
+
+                <div class="document-item">
+                    <img src="./res/images/presentation-icon.png" alt="File Icon">
+                    <h2>Prezentácia tímu</h2>
+                    <div class="my-4 container-sm bg-body-shadow-grey">
+                        <a href="./doc/Easy_Park_Presentation.pdf" download class="btn-demo">Stiahnuť</a>
+                        <a href="./doc/Easy_Park_Presentation.pdf" class="btn-demo" target="_blank">Zobraziť dokument</a>
+                    </div>
+                </div>
+
+                <div class="document-item">
+                    <img src="./res/images/presentation-icon.png" alt="File Icon">
+                    <h2>Prezentácia projektu</h2>
+                    <div class="my-4 container-sm bg-body-shadow-grey">
+                        <a href="#" download class="btn-demo">Stiahnuť</a>
+                        <a href="#" class="btn-demo" target="_blank">Zobraziť dokument</a>
                     </div>
                 </div>
             </div>
         </section>
+
+        <section id="harmonogram" class="harmonogram-section">
+            <div class="harmonogram-container">
+                <h2>HARMONOGRAM</h2>
+
+                <div class="phase">
+                    <h3>1. Analýza a návrh riešenia (1 - 2 týždne)</h3>
+                    <ul>
+                        <li>Definovanie požiadaviek projektu ako napr. aké funkcie bude aplikácia obsahovať.</li>
+                        <li>Navrhnutie predbežného užívateľského rozhrania aplikácie.</li>
+                        <li>Výber technológií (backend, frontend, databáza).</li>
+                        <li>Rozdelenie úloh medzi členov tímu.</li>
+                        <li>Tvorba prezentácie (tímu a projektu).</li>
+                    </ul>
+                </div>
+
+                <div class="phase">
+                    <h3>2. Vývoj backendu (3 – 4 týždne)</h3>
+                    <ul>
+                        <li>Tvorba základnej logiky aplikácie (spracovanie parkovacích miest, výber a rezerzvácia.)</li>
+                        <li>Spojenie s databázou (ukladanie informácií o garážach a parkovacích miestach).</li>
+                        <li>Vytvorenie API pre komunikáciu medzi frontendom a backendom.</li>
+                        <li>Testovanie funkčnosti backendu.</li>
+                    </ul>
+                </div>
+
+                <div class="phase">
+                    <h3>3. Vývoj frontendu (3 – 4 týždne)</h3>
+                    <ul>
+                        <li>Vývoj užívateľského rozhrania na základe návrhu (responzívny dizajn pre mobil a desktop).
+                        </li>
+                        <li>Prepojenie frontendu k backendu (komunikácia cez API).</li>
+                        <li>Vytvorenie PWA.</li>
+                    </ul>
+                </div>
+
+                <div class="phase">
+                    <h3>4. Testovanie a ladenie (1 - 2 týždne)</h3>
+                    <ul>
+                        <li>Testovanie funkčnosti (backend, frontend, integrácia).</li>
+                        <li>Testovanie používateľského rozhrania na rôznych zariadeniach.</li>
+                        <li>Oprava chýb, optimalizácia rýchlosti a bezpečnosti.</li>
+                    </ul>
+                </div>
+
+                <div class="phase">
+                    <h3>5. Nasadenie a príprava na spustenie (1 týždeň)</h3>
+                    <ul>
+                        <li>Príprava na nasadenie aplikácie na server.</li>
+                        <li>Posledné testy a prípadné opravy.</li>
+                        <li>Tvorba finálnej prezentácie.</li>
+                    </ul>
+                </div>
+
+                <div class="phase">
+                    <h3>CELKOVÝ ODHAD: 8 – 10 týždňov</h3>
+                    <ul>
+                        <li>
+                            Počas plánovania jednotlivých úloh bude kľúčové:
+                            <ul>
+                                <li>Efektívne rozdelenie úloh medzi členov tímu.</li>
+                                <li>Pravidelná komunikácia a kontrola pokroku (aspoň 1x do týždňa v pondelok alebo
+                                    stredu).</li>
+                                <li>Včasné riešenie problémov a odstraňovanie chýb.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
         <section id="schedule" class="schedule-section">
             <div class="schedule-buttons">
                 <button onclick="showWeek('week1')">Týždeň 1</button>
                 <button onclick="showWeek('week2')">Týždeň 2</button>
                 <button onclick="showWeek('week3')">Týždeň 3</button>
-
+                <button onclick="showWeek('week4')">Týždeň 4</button>
+                <button onclick="showWeek('week5')">Týždeň 5</button>
+                <button onclick="showWeek('week6')">Týždeň 6</button>
             </div>
+
             <div id="week1" class="schedule-week">
                 <h3>Týždeň 1</h3>
                 <p>Analýza a návrh riešenia.</p>
                 <ul>
-                    <li>Definovanie požiadaviek: Lukáš</li>
+                    <li>Vytvorenie repozitára na GitHub-e: Peter</li>
+                    <li>Definovanie požiadaviek projektu: Lukáš</li>
                     <li>Navrhnutie predbežného užívateľského rozhrania: Tomáš, Lukáš</li>
+                    <li>Vytvorenie motivačného dokumentu: Celý tím</li>
                 </ul>
             </div>
+
             <div id="week2" class="schedule-week">
                 <h3>Týždeň 2</h3>
                 <p>Vývoj backendu.</p>
                 <ul>
+                    <li>Vytvorenie stránky projektu: Tomáš</li>
+                    <li>Optimalizácia vzhľadu stránky projektu: Lukáš</li>
                     <li>Tvorba základnej logiky: Peter</li>
-                    <li>Spojenie s databázou: Lukáš</li>
+                    <li>Navrhnutie štruktúry databázy: Lukáš</li>
+                    <li>Doplnenie dokumentov a navigačných prvkov na stránku: Tomáš</li>
+                    <li>Nahratie webovej stránky na server: Tomáš</li>
                 </ul>
             </div>
+
             <div id="week3" class="schedule-week">
                 <h3>Týždeň 3</h3>
-                <p>Praca na BH,FH</p>
+                <p>Praca na BE,FE</p>
                 <ul>
                     <li>Vytvorenie dynamického generátora parkovacích miest v parkovacom dome: Peter</li>
                     <li>Inicializácia Dockeru a vytvorenie repozitára pre backend: Peter</li>
-                    <li>Návrh štruktúry databázy: Lukáš, Peter</li>
-                    <li>Nahratie webovej stránky na server: Tomáš</li>
+                    <li>Vytvorenie databázy: Lukáš, Peter</li>
+                    <li>Aktualizovanie webovej stránky na serveri: Tomáš</li>
                     <li>Úprava vzhľadu stránky a doplnenie navigačného panela (navbar): Tomáš</li>
-                    <li>Sucinnost a mentoring a dohlad v tvorbe webstranky : Lukáš</li>
+                    <li>Súčinnosť, mentoring a dohľad v tvorbe webstranky: Lukáš</li>
                 </ul>
             </div>
-        
+
+            <div id="week4" class="schedule-week">
+                <h3>Týždeň 4</h3>
+                <p>Praca na BE,FE a dokumentácií</p>
+                <ul>
+                    <li>Vytvorenie projektového dokumentu: Vojtech, Lukáš</li>
+                    <li>Vytvorenie prezentácie o tíme: Vojtech</li>
+                    <li>Vytvorenie endpointov na backende: Peter</li>
+                    <li>Vytvorenie API pre backend: Peter</li>
+                    <li>Implementovanie základnej logiky na backend-e: Peter</li>
+                    <li>Vytvorenie administrátorskej webstránky pre tvorbu garáži: Peter</li>
+                </ul>
+            </div>
+
+            <div id="week5" class="schedule-week">
+                <h3>Týždeň 5</h3>
+                <p>Praca na FE, testovanie BE</p>
+                <ul>
+                    <li>Aktualizácia vzhľadu a oprava chýb ma hlavnej stránke: Lukáš</li>
+                    <li>Doplnenie dokumentov na hlavnú stránku: Lukáš</li>
+                    <li>Vytvorenie nového vzhľadu pre hlavnú aplikáciu: Lukáš</li>
+                    <li>Prevedenie stránky na progresívnu webovú aplikáciu: Lukáš</li>
+                    <li>Testovanie a oprava chýb na backende: Peter, Lukáš</li>
+                    <li>Vytvorenie formuláru pre ohodnotenie webovej stránky: Lukáš, Vojtech</li>
+                </ul>
+            </div>
+
+
+            <div id="week6" class="schedule-week">
+                <h3>Týždeň 5</h3>
+                <p>Publikácia</p>
+                <ul>
+                    <li>Vyriešiť cloudové riešenie pre aplikáciu: Peter, Lukáš</li>
+                    <li>Aktualizácia webstránky na serveri: Tomáš</li>
+                    <li>Zhodnotenie práce na projekte: Patrik</li>
+                    <li>Vytvorenie prezentácie o aplikácií: Patrik, Vojtech</li>
+                    <li>Zverejnenie finálnej verzie aplikácie: Tomáš, Lukáš, Peter, Patrik</li>
+                </ul>
+            </div>
         </section>
+
+        <section id="review" class="review-section text-center py-5">
+            <h2 class="text-white mb-4">Poskytnite nám svoju spätnú väzbu</h2>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#feedbackModal">
+                Vyplniť formulár
+            </button>
+
+            <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="feedbackModalLabel">Formulár spätnej väzby</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Zavrieť"></button>
+                        </div>
+                        <div class="modal-body">
+                            <iframe
+                                src="https://docs.google.com/forms/d/e/1FAIpQLSfDvlbtUwNvx_0NwbtyvGJ0CIJ2D2YmDJd68GyQrmZJHDN7GQ/viewform?embedded=true"
+                                width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0"
+                                allowfullscreen>
+                                Načítavanie…
+                            </iframe>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zavrieť</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
         <script src="./scripts/script.js"></script>
-        <script>
-            // Získanie referencií na tlačidlo a kontajner dokumentu
-            const toggleButton = document.getElementById('toggle-document');
-            const documentContainer = document.getElementById('document-container');
-
-            // Pridanie udalosti kliknutia na tlačidlo
-            toggleButton.addEventListener('click', function () {
-                // Kontrola aktuálneho zobrazenia kontajnera
-                if (documentContainer.style.display === 'none' || documentContainer.style.display === '') {
-                    // Zobrazenie dokumentu
-                    documentContainer.style.display = 'block';
-                    // Aktualizácia textu tlačidla
-                    toggleButton.textContent = 'Skryť dokument';
-                } else {
-                    // Skrytie dokumentu
-                    documentContainer.style.display = 'none';
-                    // Aktualizácia textu tlačidla
-                    toggleButton.textContent = 'Zobraziť dokument';
-                }
-            });
-        </script>
-        <script>
-            // Pole s cestami k obrázkom
-            const images = [
-                './res/images/parking1.jpg',
-                './res/images/parking2.jpg',
-                './res/images/parking3.jpg',
-                
-                
-            ];
-
-            const bgImageDiv = document.querySelector('.bg-image');
-            let currentImageIndex = 0;
-
-            function changeBackgroundImage() {
-                currentImageIndex = (currentImageIndex + 1) % images.length;
-                bgImageDiv.style.backgroundImage = `url('${images[currentImageIndex]}')`;
-            }
-
-            setInterval(changeBackgroundImage, 5000);
-        </script>
     </main>
 
     <footer id="contact" class="bg-night text-white text-center py-3">

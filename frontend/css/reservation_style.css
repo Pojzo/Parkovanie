@@ -1,15 +1,16 @@
-#main-content {
-  width: 35vw;
-  height: 35vw;
-  background-color: white;
-  margin-inline: auto;
-  margin-top: 200px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 
-body {
-  background-color: aliceblue;
-  width: 100%;
-  height: 100%;
+:root {
+  --cambridge-blue: rgb(119, 202, 152);
+  --celadon: rgb(21, 193, 87);
+  --white: rgb(244, 243, 234);
+  --night: #161616ff;
+  --white-2: rgb(130, 138, 133);
+  --light-grey: #392e2e;
+  --dark-grey: #202020;
+  --mid-grey: #2b2b2b;
+  --shadow-grey: rgba(0, 0, 0, 0.1);
+  --black: #000;
 }
 
 * {
@@ -17,9 +18,24 @@ body {
   padding: 0;
 }
 
+body {
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: var(--black);
+}
+
 .row {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+#main-content {
+  width: 35vw;
+  height: 35vw;
+  background-color: white;
+  margin-inline: auto;
+  margin-top: 200px;
 }
