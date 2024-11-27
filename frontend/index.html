@@ -33,7 +33,7 @@
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="#about">O projekte</a>
                         </li>
                         <li class="nav-item"><a class="nav-link active" href="#team">Tím</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="#documents">Motivačný dokument</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="#documents">Dokumenty</a></li>
                         <li class="nav-item"><a class="nav-link active" href="#harmonogram">Harmonogram</a></li>
                         <li class="nav-item"><a class="nav-link active" href="#schedule">Zápisnica</a></li>
                         <li class="nav-item dropdown">
@@ -85,7 +85,7 @@
         <section id="team" class="team-section">
             <div class="team-header">
                 <h2>Náš tím</h2>
-                <img src="./res/images/nas_tim.jpg" alt="Fotka celého tímu" class="team-photo">
+                <img src="#" alt="Fotka celého tímu" class="team-photo">
             </div>
             <div class="team-container">
                 <div class="team-member">
@@ -195,7 +195,8 @@
                     <h2>Dokument projektu</h2>
                     <div class="my-4 container-sm bg-body-shadow-grey">
                         <a href="./doc/Easy_Park_dokument_projektu_2.pdf" download class="btn-demo">Stiahnuť</a>
-                        <a href="./doc/Easy_Park_dokument_projektu_2.pdf" class="btn-demo" target="_blank">Zobraziť dokument</a>
+                        <a href="./doc/Easy_Park_dokument_projektu_2.pdf" class="btn-demo" target="_blank">Zobraziť
+                            dokument</a>
                     </div>
                 </div>
 
@@ -204,7 +205,8 @@
                     <h2>Prezentácia tímu</h2>
                     <div class="my-4 container-sm bg-body-shadow-grey">
                         <a href="./doc/Easy_Park_Presentation.pdf" download class="btn-demo">Stiahnuť</a>
-                        <a href="./doc/Easy_Park_Presentation.pdf" class="btn-demo" target="_blank">Zobraziť dokument</a>
+                        <a href="./doc/Easy_Park_Presentation.pdf" class="btn-demo" target="_blank">Zobraziť
+                            dokument</a>
                     </div>
                 </div>
 
@@ -411,6 +413,16 @@
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
         <script src="./scripts/script.js"></script>
+
+        <script>
+            if ("serviceWorker" in navigator) {
+                window.addEventListener("load", () => {
+                    navigator.serviceWorker.register("./service-worker.js")
+                        .then(reg => console.log("Service Worker registered", reg))
+                        .catch(err => console.error("Service Worker registration failed", err));
+                });
+            }
+        </script>
     </main>
 
     <footer id="contact" class="bg-night text-white text-center py-3">

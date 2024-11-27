@@ -23,4 +23,4 @@ function changeBackgroundImage() {
     bgImageDiv.style.backgroundImage = `url('${images[currentImageIndex]}')`;
 }
 
-setInterval(changeBackgroundImage, 5000);
+setInterval(changeBackgroundImage, 4000);
