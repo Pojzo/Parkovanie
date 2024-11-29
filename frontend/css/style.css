@@ -72,7 +72,7 @@ body {
     height: 70vh;
     max-height: 600px;
     min-height: 400px;
-    background-image: url('../res/images/parking1.jpg');
+    background-image: url('./frontend/res/images/parking1.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
