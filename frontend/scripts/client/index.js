@@ -2,6 +2,11 @@
 //import { displayGarageInfo } from "../dynamic/displayGarageInfo";
 //import { displayGarageList } from "../dynamic/displayGarageList";
 
+import { fetchSpots } from "../api/fetchSpots";
+import { fetchGarages } from "../api/fetchGarages";
+import { clientData } from "./data";
+import { groupParkingSpotsByFloor } from "../misc";
+
 console.log("reservation page");
 
 //const garagesData = await fetchGarages();
@@ -19,24 +24,56 @@ console.log("reservation page");
 
 //displayInitialGarage();
 
-const garagesData = [
-    { name: "Garáž A", availableSpots: 5, totalSpots: 22 },
-    { name: "Garáž B", availableSpots: 8, totalSpots: 30 },
-    { name: "Garáž C", availableSpots: 2, totalSpots: 18 },
-];
+// const garagesData = [
+//     { name: "Garáž A", availableSpots: 5, totalSpots: 22 },
+//     { name: "Garáž B", availableSpots: 8, totalSpots: 30 },
+//     { name: "Garáž C", availableSpots: 2, totalSpots: 18 },
+// ];
 
-window.onload = () => {
-    renderGarageList(garagesData);
-    console.log("Garage list container:", document.getElementById("garage-list"));
-    console.log("Garage data:", garagesData);
 
+
+window.onload = async () => {
+    clientData.garages = await fetchGarages();
+    for (const garage of clientData.garages) {
+        const spots = await fetchSpots(garage.garage_id);
+        const groupedSpots = groupParkingSpotsByFloor(spots);
+        clientData.garageSpots[garage.garage_id] = groupedSpots;
+    }
+    renderGarageList(clientData.garages);
+    console.log(clientData.garages[0]);
+    console.log(clientData.garageSpots[clientData.garages[0].garage_id]);
 };
+
+const calculateAvailabeSpots = (garageId) => {
+    const spots = clientData.garageSpots[garageId];
+    let availableSpots = 0;
+    for (const floor in spots) {
+        for (const spot of spots[floor]) {
+            if (!spot.occupied) {
+                availableSpots++;
+            }
+        }
+    }
+    return availableSpots;
+}
+
+const calculateTotalSpots = (garageId) => {
+    const spots = clientData.garageSpots[garageId];
+    let totalSpots = 0;
+    for (const floor in spots) {
+        totalSpots += spots[floor].length;
+    }
+    return totalSpots;
+}
 
 function renderGarageList(garages) {
     const garageListContainer = document.getElementById("garage-list");
     garageListContainer.innerHTML = "";
 
     garages.forEach((garage) => {
+        const availableSpots = calculateAvailabeSpots(garage.garage_id);
+        const totalSpots = calculateTotalSpots(garage.garage_id);
+
         const colDiv = document.createElement("div");
         colDiv.className = "col-12 col-sm-6 col-md-4 col-lg-3 d-flex";
 
@@ -57,7 +94,7 @@ function renderGarageList(garages) {
 
         const capacity = document.createElement("p");
         capacity.className = "card-text";
-        capacity.textContent = `Voľné miesta: ${garage.availableSpots}/${garage.totalSpots}`;
+        capacity.textContent = `Voľné miesta: ${availableSpots}/${totalSpots}`;
 
         cardBody.appendChild(title);
         cardBody.appendChild(capacity);
