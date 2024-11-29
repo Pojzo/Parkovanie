@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel, Field
 
@@ -11,13 +12,14 @@ class GarageModel(BaseModel):
     num_cols: int = Field(..., description="Number of columns in the garage")
 
 
+# lease_till DATETIME DEFAULT NULL,
 class SpotModel(BaseModel):
     spot_id: int = Field(None, description="ID of the parking spot")
     garage_id: int = Field(..., description="ID of the garage")
     floor_number: int = Field(..., description="Floor number of the spot")
     spot_row: int = Field(..., description="Row number of the spot")
     spot_col: int = Field(..., description="Column number of the spot")
-    is_reserved: bool = Field(False, description="Whether the spot is reserved")
+    lease_till: Optional[datetime] = Field(None, description="Lease till time")
 
 class ReservationModel(BaseModel):
     id: int = Field(None, description="ID of the reservation")

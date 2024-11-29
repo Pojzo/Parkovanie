@@ -1,8 +1,9 @@
+from datetime import datetime, timedelta
 from aiomysql import Connection
 import aiomysql
 from fastapi.responses import JSONResponse
 from parking_app.models.models import GarageModel, SpotModel
-from parking_app.schema.requests import CreateSpotRequest
+from parking_app.schema.requests import CreateSpotRequest, ReserveSpotRequest
 from parking_app.schema.responses import SuccessResponse
 
 
@@ -79,6 +80,32 @@ async def _delete_all_spots_in_garage(garage_id: int, db: Connection):
         )
         await db.commit()
 
+async def _spot_reserved(garage_id: int, spot_id: int, db: Connection) -> bool:
+    async with db.cursor() as cursor:
+        await cursor.execute(
+            "SELECT lease_till FROM ParkingSpot WHERE garage_id = %s AND spot_id = %s",
+            (garage_id, spot_id),
+        )
+
+        row = await cursor.fetchone()
+        lease_till = row[0]
+
+        if lease_till is None:
+            return False
+        
+        if lease_till > datetime.now():
+            return True
+
+async def _reserve_spot(garage_id: int, spot_id: int, lease_duration_hours: int, db: Connection):
+    async with db.cursor() as cursor:
+        await cursor.execute(
+            """UPDATE ParkingSpot 
+            SET lease_till = %s
+            WHERE garage_id = %s AND spot_id = %s""",
+
+            (datetime.now() + timedelta(hours=lease_duration_hours), garage_id, spot_id),
+        )
+        await db.commit()
 
 # Controller for the POST /garages/{garage_id}/spots endpoint
 async def handle_create_garage_spots(
@@ -118,4 +145,22 @@ async def handle_create_garage_spots(
 async def handle_get_garage_spots(garage_id: int, db: Connection):
     all_spots = await _get_all_spots_in_garage(garage_id, db)
     print(all_spots)
+    print(all_spots)
+    print(all_spots)
+    print(all_spots)
+
     return SuccessResponse[list[SpotModel]](data=all_spots)
+
+async def handle_reserve_spot(rq: ReserveSpotRequest, db: Connection):
+    if await _spot_reserved(rq.garage_id, rq.spot_id, db):
+        return JSONResponse(
+            status_code=409,
+            content={"status": "error", "message": "Spot already reserved"},
+        )
+
+    await _reserve_spot(rq.garage_id, rq.spot_id, rq.lease_duration_hours, db)
+
+    return JSONResponse(
+        status_code=200,
+        content={"status": "success", "message": "Spot reserved"},
+    )

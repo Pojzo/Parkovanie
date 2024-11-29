@@ -1,10 +1,11 @@
 from typing import Union
 from aiomysql import Connection
-from fastapi import APIRouter, Depends, HTTPException, Path, Query
+from fastapi import APIRouter, Body, Depends, HTTPException, Path, Query
 from fastapi.responses import JSONResponse
 
+from parking_app.schema.requests import ReserveSpotRequest
 from parking_app.controllers.common import get_garage_by_id
-from parking_app.controllers.spots import handle_create_garage_spots, handle_get_garage_spots
+from parking_app.controllers.spots import handle_create_garage_spots, handle_get_garage_spots, handle_reserve_spot
 from parking_app.exceptions import CustomHTTPException
 from parking_app.controllers.garage import (
     handle_create_garage,
@@ -123,3 +124,11 @@ async def update_spot(
         status_code=501,
         content={"status": "error", "message": "Not implemented"},
     )
+
+
+@router.post("/reserve", tags=["reservations"])
+async def reserver_spot(
+    rq: ReserveSpotRequest, db: Connection = Depends(get_db)
+):
+    garage = await get_garage_by_id_or_raise(rq.garage_id, db)
+    return await handle_reserve_spot(rq, db)

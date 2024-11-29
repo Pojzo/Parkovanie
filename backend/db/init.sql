@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS ParkingSpot (
     floor_number INT NOT NULL,
     spot_row INT NOT NULL,
     spot_col INT NOT NULL,
-    is_reserved BOOLEAN DEFAULT FALSE,
+    lease_till DATETIME DEFAULT NULL,
     FOREIGN KEY (garage_id) REFERENCES ParkingGarage(garage_id)
 );
 

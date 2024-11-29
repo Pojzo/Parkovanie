@@ -15,7 +15,7 @@ def generate_spots_for_floor(floor_number, rows, cols, reserved_spots=None) -> l
                 floor_number=floor_number,
                 spot_row=row,
                 spot_col=col,
-                is_reserved=is_reserved
+                lease_till=None,
             ))
     return spots
 
