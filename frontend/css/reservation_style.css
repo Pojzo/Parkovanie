@@ -169,12 +169,22 @@ footer {
   display: none !important;
 }
 
-#garage-editor {
+#garage-editor,
+#garage-editor-admin {
   width: 100%; 
   height: 30vw; 
   background-color: var(--mid-grey); 
   border: 1px solid var(--white);
   border-radius: 13px;
+  margin-bottom: 3%;
+}
+
+#garage-editor {
+  margin-top: 10%;
+}
+
+#garage-editor-admin {
+  width: 80%;
 }
 
 #garage-editor-container {
@@ -200,7 +210,7 @@ footer {
 }
 
 #garage-list-admin {
-  width: 20%;
+  width: 15%;
   max-width: 500px;
   height: 75%;
   background-color: var(--mid-grey);
@@ -298,11 +308,11 @@ footer {
     font-size: 0.9rem;
   }
 
-  #garage-editor {
+  #garage-editor,
+  #garage-editor-admin {
     width: 100%;
     height: fit-content;
     min-height: 400px;
-    margin-top: 10%;
     background-color: var(--mid-grey);
     border: 1px solid var(--white);
     border-radius: 13px;
@@ -310,7 +320,7 @@ footer {
 
   #garage-container {
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 2%;
   }
 
   #garage-editor-container {
@@ -343,14 +353,21 @@ footer {
   }
 
   #garage-list,
+  #garage-list-admin,
   #garage-container,
   #control-panel {
     width: 100%;
+    margin: 0 auto;
+  }
+
+  #garage-list-admin {
+    margin-top: 20%;
   }
 }
 
 @media (max-width: 576px) {
-  #garage-list {
+  #garage-list,
+  #garage-list-admin {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 
