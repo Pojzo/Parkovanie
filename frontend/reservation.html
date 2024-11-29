@@ -30,10 +30,13 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="./index.html#about">O projekte</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="./index.html#about">O
+                                projekte</a></li>
                         <li class="nav-item"><a class="nav-link active" href="./index.html#team">Tím</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="./index.html#documents">Motivačný dokument</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="./index.html#harmonogram">Harmonogram</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="./index.html#documents">Motivačný
+                                dokument</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="./index.html#harmonogram">Harmonogram</a>
+                        </li>
                         <li class="nav-item"><a class="nav-link active" href="./index.html#schedule">Zápisnica</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -65,12 +68,18 @@
         <div id="garage-list" class="row g-3"></div>
     </div>
 
-    <!-- Top content, e.g. Create garage button, garage list -->
-    <!-- <div id="top-content">
-        <h1>List of garages</h1>
-        <div id="garage-list" class="container mt-1">
+    <div id="garage-editor-container" class="container hidden">
+        <div id="garage-container" class="col-6 d-flex flex-column justify-content-center align-items-center">
+            <div id="garage-info" class="text-center mb-3"></div>
+            <div id="garage-editor"></div>
         </div>
-    </div> -->
+
+        <div id="control-panel" class="col-3 fixed-end p-3">
+            <button type="button" class="btn btn-secondary w-100 mb-2" id="floor-down-btn">Floor Down</button>
+            <button type="button" class="btn btn-secondary w-100 mb-2" id="floor-up-btn">Floor Up</button>
+            <button type="button" class="btn btn-info w-100" id="back-btn">Back</button>
+        </div>
+    </div>
 
     <section id="review" class="review-section text-center py-5">
         <h2 class="text-white mb-4">Poskytnite nám svoju spätnú väzbu</h2>

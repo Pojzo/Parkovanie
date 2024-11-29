@@ -24,6 +24,11 @@ body {
   font-style: normal;
   background-color: var(--black);
   background: linear-gradient(45deg, var(--mid-grey), #000000 75%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  justify-content: space-between;
 }
 
 .row {
@@ -39,6 +44,10 @@ body {
 
 .navbar {
   background-color: var(--light-grey);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .navbar .navbar-brand,
@@ -94,6 +103,7 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--white);
+  flex-grow: 1;
 }
 
 .card {
@@ -143,7 +153,20 @@ body {
 
 .review-section,
 footer {
+  width: 100%;
   background-color: var(--black);
+  color: var(--white);
+  padding: 10px 20px;
+  margin-top: auto;
+}
+
+footer {
+  margin: 0;
+  padding: 10px 20px;
+}
+
+.hidden {
+  display: none !important;
 }
 
 #garage-editor {
@@ -152,6 +175,19 @@ footer {
   background-color: var(--mid-grey); 
   border: 1px solid var(--white);
   border-radius: 13px;
+}
+
+#garage-editor-container {
+  margin: 0 auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  left: 50%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  min-height: calc(100vh - 10%);
 }
 
 #main-container {
@@ -183,7 +219,8 @@ footer {
 }
 
 #garage-container {
-  width: 50%;
+  width: 70%;
+  order: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -204,6 +241,8 @@ footer {
   border: 1px solid var(--white);
   border-radius: 13px;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  flex: 0 1 25%;
+  order: 2;
 }
 
 #control-panel button {
@@ -259,22 +298,54 @@ footer {
     font-size: 0.9rem;
   }
 
+  #garage-editor {
+    width: 100%;
+    height: fit-content;
+    min-height: 400px;
+    margin-top: 10%;
+    background-color: var(--mid-grey);
+    border: 1px solid var(--white);
+    border-radius: 13px;
+  }
+
+  #garage-container {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  #garage-editor-container {
+    flex-direction: column;
+    padding: 0 10px;
+    width: 100%;
+    min-height: auto;
+  }
+
+  #garage-container {
+    order: 1;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  #control-panel {
+    order: 2;
+    width: 100%;
+  }
+
+  #control-panel button {
+    font-size: 1.2rem;
+    padding: 10px;
+  }
+
   #main-container {
     flex-direction: column;
     align-items: stretch;
+    height: auto;
   }
 
   #garage-list,
   #garage-container,
   #control-panel {
     width: 100%;
-    height: auto;
-    margin-bottom: 15px;
-  }
-
-  #control-panel {
-    border-left: none;
-    box-shadow: none;
   }
 }
 

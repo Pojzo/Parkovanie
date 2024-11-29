@@ -68,3 +68,30 @@ function renderGarageList(garages) {
         garageListContainer.appendChild(colDiv);
     });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const topContentContainer = document.getElementById('top-content');
+    const garageListContainer = document.getElementById('garage-list');
+    const garageEditorContainer = document.getElementById('garage-editor-container');
+    const backButton = document.getElementById('back-btn');
+
+    if (!garageListContainer || !garageEditorContainer || !backButton || !topContentContainer) {
+        console.error('Niektorý z potrebných elementov nebol nájdený.');
+        return;
+    }
+
+    garageListContainer.addEventListener('click', (event) => {
+        const card = event.target.closest('.card');
+        if (card) {
+            console.log(`Kliknuté na kartu: ${card.querySelector('.card-title').textContent}`);
+            garageEditorContainer.classList.remove('hidden');
+            topContentContainer.classList.add('hidden');
+        }
+    });
+
+    backButton.addEventListener('click', () => {
+        garageEditorContainer.classList.add('hidden');
+        topContentContainer.classList.remove('hidden');
+    });
+});
+
