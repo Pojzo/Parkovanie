@@ -12,7 +12,7 @@ const garagesData = await fetchGarages();
 console.log(garagesData);
 adminData.garages = garagesData;
 
-// // Fetch spots for each garage
+// Fetch spots for each garage
 // for (const garage of adminData.garages) {
 //     const spots = await fetchSpots(garage.garage_id);
 //     const groupedSpots = groupParkingSpotsByFloor(spots);
