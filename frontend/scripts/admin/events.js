@@ -1,4 +1,4 @@
-// import { createGarage } from "../api/createGarage.js";
+import { createGarage } from "../api/createGarage.js";
 // import { updateGarageSpots } from "../api/updateGarageSpots.js";
 // import { adminData } from "./data.js";
 // import { editorConfig } from "../globalConfig.js";

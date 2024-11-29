@@ -29,6 +29,7 @@ const _getGarageForm = () => {
 export const createGarage = async () => {
     // Get the data from the form
     const formData = _getGarageForm();
+    console.log(formData);
 
     // Just in case
     if (!formData) {
@@ -45,7 +46,7 @@ export const createGarage = async () => {
 
     try {
         // Send the data to the server
-        const response = await axios.post(garagesEndpoint, {
+        const response = await axios.post(garagesEndpoint(), {
             name,
             location,
             floors,
