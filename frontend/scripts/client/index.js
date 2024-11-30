@@ -8,6 +8,7 @@ import { clientData } from "./data";
 import { displayParkingSpots } from "../dynamic/displayParkingSpots";
 import { groupParkingSpotsByFloor, showToast } from "../misc";
 import { reserveSpot } from "../api/reserveSpot";
+import { fetchMySpots } from "../api/fetchMySpots";
 
 console.log("reservation page");
 
@@ -19,6 +20,10 @@ console.log("reservation page");
 //     { name: "Garáž C", availableSpots: 2, totalSpots: 18 },
 // ];
 
+const updateFetchMySpots = async () => {
+    const spots = await fetchMySpots();
+    clientData.mySpots = spots;
+}
 
 const updateFetchSpots = async (garageId) => {
     const spots = await fetchSpots(garageId);
@@ -33,6 +38,8 @@ window.onload = async () => {
         const groupedSpots = groupParkingSpotsByFloor(spots);
         clientData.garageSpots[garage.garage_id] = groupedSpots;
     }
+    await updateFetchMySpots();
+    console.log(clientData.mySpots);
     renderGarageList(clientData.garages);
 };
 
@@ -103,7 +110,8 @@ const renderParkingSpots = (clickCallback) => {
     const currentSpots = clientData.garageSpots[currentGarage.garage_id];
     clientData.currentGarage = currentGarage;
     clientData.currentFloor = 1;
-    displayParkingSpots(currentGarage.num_rows, currentGarage.num_cols, currentSpots[1], clickCallback);
+    const mySpots = clientData.mySpots;
+    displayParkingSpots(currentGarage.num_rows, currentGarage.num_cols, currentSpots[1], mySpots, spotClickCallback);
 }
 
 const spotClickCallback = (spotId) => {
@@ -152,7 +160,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (clientData.currentFloor > 1) {
             clientData.currentFloor--;
             const currentSpots = clientData.garageSpots[clientData.currentGarage.garage_id][clientData.currentFloor];
-            displayParkingSpots(clientData.currentGarage.num_rows, clientData.currentGarage.num_cols, currentSpots);
+            const mySpots = clientData.mySpots;
+            displayParkingSpots(clientData.currentGarage.num_rows, clientData.currentGarage.num_cols, currentSpots, mySpots, spotClickCallback);
         }
     });
 
@@ -160,7 +169,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (clientData.currentFloor < clientData.currentGarage.floors) {
             clientData.currentFloor++;
             const currentSpots = clientData.garageSpots[clientData.currentGarage.garage_id][clientData.currentFloor];
-            displayParkingSpots(clientData.currentGarage.num_rows, clientData.currentGarage.num_cols, currentSpots);
+            const mySpots = clientData.mySpots;
+            displayParkingSpots(clientData.currentGarage.num_rows, clientData.currentGarage.num_cols, currentSpots, mySpots, spotClickCallback);
         }
     });
 
@@ -174,6 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
             showToast('Miesto bolo úspešne rezervované', 'success');
             clientData.currentSpotId = null;
             await updateFetchSpots(clientData.currentGarage.garage_id);
+            await updateFetchMySpots();
             renderParkingSpots();
         }
         catch (e) {

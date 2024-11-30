@@ -27,13 +27,9 @@ CREATE TABLE IF NOT EXISTS ParkingSpot (
     FOREIGN KEY (garage_id) REFERENCES ParkingGarage(garage_id)
 );
 
--- Create Reservation table
+--  User spots
 CREATE TABLE IF NOT EXISTS Reservation (
-    reservation_id INT PRIMARY KEY AUTO_INCREMENT,
-    spot_id INT,
-    license_plate VARCHAR(15),
-    email VARCHAR(100),
-    start_time DATETIME NOT NULL,
-    end_time DATETIME NOT NULL,
-    FOREIGN KEY (spot_id) REFERENCES ParkingSpot(spot_id)
-);
+    client_identifier VARCHAR(100),
+    garage_id INT,
+    spot_id INT
+)

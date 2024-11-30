@@ -1,7 +1,9 @@
 from typing import Union
 from aiomysql import Connection
+import aiomysql
 from fastapi import APIRouter, Body, Depends, HTTPException, Path, Query
 from fastapi.responses import JSONResponse
+from pydantic import BaseModel
 
 from parking_app.schema.requests import ReserveSpotRequest
 from parking_app.controllers.common import get_garage_by_id
@@ -127,8 +129,25 @@ async def update_spot(
 
 
 @router.post("/reserve", tags=["reservations"])
-async def reserver_spot(
+async def reserve_spot(
     rq: ReserveSpotRequest, db: Connection = Depends(get_db)
 ):
     garage = await get_garage_by_id_or_raise(rq.garage_id, db)
     return await handle_reserve_spot(rq, db)
+
+# Uz sa mi to nechce davat do controllerov tak to spravim len takto
+
+class MySpotsRequest(BaseModel):
+    client_identifier: str
+
+@router.get("/my_spots")
+async def get_my_spots(client_identifier: str, db: Connection = Depends(get_db)):
+    # load it as dict
+    async with db.cursor(aiomysql.DictCursor) as cursor:
+        await cursor.execute(
+            "SELECT * FROM Reservation WHERE client_identifier = %s",
+            (client_identifier,),
+        )
+
+    rows = await cursor.fetchall()
+    return rows

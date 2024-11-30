@@ -107,6 +107,14 @@ async def _reserve_spot(garage_id: int, spot_id: int, lease_duration_hours: int,
         )
         await db.commit()
 
+async def _store_reservation(garage_id: int, spot_id: int, client_identifier: str, db: Connection):
+    async with db.cursor() as cursor:
+        await cursor.execute(
+            "INSERT INTO  Reservation (garage_id, spot_id, client_identifier) VALUES (%s, %s, %s)",
+            (garage_id, spot_id, client_identifier),
+        )
+        await db.commit()
+
 # Controller for the POST /garages/{garage_id}/spots endpoint
 async def handle_create_garage_spots(
     garage_id: int, rq: list[CreateSpotRequest], delete_existing: bool, db: Connection
@@ -155,6 +163,7 @@ async def handle_reserve_spot(rq: ReserveSpotRequest, db: Connection):
         )
 
     await _reserve_spot(rq.garage_id, rq.spot_id, rq.lease_duration_hours, db)
+    await _store_reservation(rq.garage_id, rq.spot_id, rq.client_identifier, db)
 
     return JSONResponse(
         status_code=200,

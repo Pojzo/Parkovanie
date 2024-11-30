@@ -39,3 +39,4 @@ class ReserveSpotRequest(BaseModel):
     garage_id: int
     spot_id: int
     lease_duration_hours: int
+    client_identifier: str

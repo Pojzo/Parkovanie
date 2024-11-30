@@ -4,7 +4,8 @@ import { clientData } from "../client/data";
 const cells = []
 
 // Current spots are spots for the current floor in the current garage :)
-export const displayParkingSpots = (numRows, numCols, currentSpots, clickCallback) => {
+export const displayParkingSpots = (numRows, numCols, currentSpots, mySpots, clickCallback) => {
+    console.log(mySpots);
     console.log(numRows, numCols, currentSpots);
     if (cells.length > 0) {
         for (const cell of cells) {
@@ -14,14 +15,27 @@ export const displayParkingSpots = (numRows, numCols, currentSpots, clickCallbac
     const mask = Array(numRows).fill(0).map(() => Array(numCols).fill(0));
     const spotIds = {};
 
+    const isSpotMySpot = (spotId) => {
+        for (const spot of mySpots) {
+            if (spot.garage_id === clientData.currentGarage.garage_id && spot.spot_id === spotId) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     for (const spot of currentSpots) {
         const row = spot.spot_row;
         const col = spot.spot_col;
 
         const leaseTillDate = new Date(spot.lease_till);
         const isOccupied = leaseTillDate > new Date();
+
         if (isOccupied) {
             mask[row][col] = 2;
+            if (isSpotMySpot(spot.spot_id)) {
+                mask[row][col] = 4;
+            }
         }
         else {
             mask[row][col] = 1;
@@ -54,6 +68,9 @@ export const displayParkingSpots = (numRows, numCols, currentSpots, clickCallbac
 
             const spotId = spotIds[`${j}-${i}`];
             let color = mask[j][i] === 1 ? 'green' : mask[j][i] === 2 ? 'red' : 'blue';
+            if (mask[j][i] === 4) {
+                color = 'yellow';
+            }
             const cell = document.createElement('div');
             cell.style.width = cellWidth + 'px';
             cell.style.height = cellHeight + 'px';

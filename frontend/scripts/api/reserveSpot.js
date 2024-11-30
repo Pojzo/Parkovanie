@@ -7,13 +7,14 @@ export const reserveSpot = async (garageId, spotId) => {
     const leaseTill = new Date();
     leaseTill.setHours(leaseTill.getHours() + 1);
     console.log(garageId, spotId);
+    const clientIdentifier = localStorage.getItem('clientIdentifier');
     try {
         const response = await axios.post(`${API_URL}/reserve`, {
             garage_id: garageId,
             spot_id: spotId,
-            lease_duration_hours: 1
+            lease_duration_hours: 1,
+            client_identifier: clientIdentifier
         })
-        return true;
         showToast('Spot reserved', 'success');
     }
     catch (e) {
