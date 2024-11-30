@@ -40,11 +40,11 @@ export const displayParkingSpots = (numRows, numCols, currentSpots, clickCallbac
     const mainContentWidth = editorContent.offsetWidth;
     const mainContentHeight = editorContent.offsetHeight;
 
+    const initialOffset = colMargin / 2;
+    const initialOffsetY = rowMargin / 2;
+
     const cellWidth = (mainContentWidth - (numCols - 1) * colMargin) / numCols;
     const cellHeight = (mainContentHeight - (numRows - 1) * rowMargin) / numRows;
-
-    console.log(mainContentWidth, cellWidth);
-    console.log(mainContentHeight, cellHeight);
 
     for (let i = 0; i < numCols; i++) {
         for (let j = 0; j < numRows; j++) {
@@ -53,17 +53,20 @@ export const displayParkingSpots = (numRows, numCols, currentSpots, clickCallbac
             }
 
             const spotId = spotIds[`${j}-${i}`];
-            const color = mask[j][i] === 1 ? 'green' : mask[j][i] === 2 ? 'red' : 'blue';
+            let color = mask[j][i] === 1 ? 'green' : mask[j][i] === 2 ? 'red' : 'blue';
             const cell = document.createElement('div');
             cell.style.width = cellWidth + 'px';
             cell.style.height = cellHeight + 'px';
-            cell.style.left = i * (cellWidth + colMargin) + 'px';
-            cell.style.top = j * (cellHeight + rowMargin) + 'px';
+            cell.style.left = i * (cellWidth + colMargin) + initialOffset + 'px';
+            cell.style.top = j * (cellHeight + rowMargin) + initialOffsetY + 'px';
             cell.style.position = 'absolute';
             cell.style.backgroundColor = color;
+            // cell.style.border = `3px solid ${color}`;
+            cell.style.borderRadius = '10px';
+
             editorContent.appendChild(cell);
             cell.onclick = () => {
-                if (mask[j][i] === 1) {
+                if (mask[j][i] === 1 || mask[j][i] === 3) {
                     clickCallback(spotId);
                 }
                 console.log('clicked', j, i);

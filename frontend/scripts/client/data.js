@@ -4,5 +4,5 @@ export const clientData = {
     currentGarage: null,
     currentFloor: 1,
     garageSpots: {},
-    currentSelectedSpot: null
+    currentSpotId: null
 }

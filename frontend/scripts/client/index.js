@@ -6,7 +6,7 @@ import { fetchSpots } from "../api/fetchSpots";
 import { fetchGarages } from "../api/fetchGarages";
 import { clientData } from "./data";
 import { displayParkingSpots } from "../dynamic/displayParkingSpots";
-import { groupParkingSpotsByFloor } from "../misc";
+import { groupParkingSpotsByFloor, showToast } from "../misc";
 import { reserveSpot } from "../api/reserveSpot";
 
 console.log("reservation page");
@@ -20,6 +20,11 @@ console.log("reservation page");
 // ];
 
 
+const updateFetchSpots = async (garageId) => {
+    const spots = await fetchSpots(garageId);
+    const groupedSpots = groupParkingSpotsByFloor(spots);
+    clientData.garageSpots[garageId] = groupedSpots;
+}
 
 window.onload = async () => {
     clientData.garages = await fetchGarages();
@@ -93,6 +98,25 @@ function renderGarageList(garages) {
     });
 }
 
+const renderParkingSpots = (clickCallback) => {
+    const currentGarage = clientData.currentGarage;
+    const currentSpots = clientData.garageSpots[currentGarage.garage_id];
+    clientData.currentGarage = currentGarage;
+    clientData.currentFloor = 1;
+    displayParkingSpots(currentGarage.num_rows, currentGarage.num_cols, currentSpots[1], clickCallback);
+}
+
+const spotClickCallback = (spotId) => {
+    if (spotId == clientData.currentSpotId) {
+        clientData.currentSpotId = null;
+    }
+    else {
+        clientData.currentSpotId = spotId;
+    }
+
+    renderParkingSpots(spotClickCallback);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const topContentContainer = document.getElementById('top-content');
     const garageListContainer = document.getElementById('garage-list');
@@ -107,25 +131,15 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    const renderParkingSpots = (card, clickCallback) => {
-        const currentGarage = clientData.garages.find(garage => garage.name === card.querySelector('.card-title').textContent);
-        const currentSpots = clientData.garageSpots[currentGarage.garage_id];
-        clientData.currentGarage = currentGarage;
-        clientData.currentFloor = 1;
-        displayParkingSpots(currentGarage.num_rows, currentGarage.num_cols, currentSpots[1], clickCallback);
-    }
-
     garageListContainer.addEventListener('click', (event) => {
         const card = event.target.closest('.card');
         if (card) {
             console.log(`Kliknuté na kartu: ${card.querySelector('.card-title').textContent}`);
+            clientData.currentGarage = clientData.garages.find(garage => garage.name === card.querySelector('.card-title').textContent);
             garageEditorContainer.classList.remove('hidden');
             topContentContainer.classList.add('hidden');
-            const clickCallback = (spotId) => {
-                clientData.currentSpotId = spotId;
-                renderParkingSpots(card, clickCallback);
-            }
-            renderParkingSpots(card, clickCallback);
+
+            renderParkingSpots(spotClickCallback);
         }
     });
 
@@ -150,8 +164,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    reserveBtn.addEventListener('click', () => {
-        reserveSpot(clientData.currentGarage.garage_id, clientData.currentSpotId);
+    reserveBtn.addEventListener('click', async () => {
+        if (clientData.currentSpotId === null) {
+            showToast('Nie je vybrané žiadne miesto', 'info');
+            return;
+        }
+        try {
+            await reserveSpot(clientData.currentGarage.garage_id, clientData.currentSpotId);
+            showToast('Miesto bolo úspešne rezervované', 'success');
+            clientData.currentSpotId = null;
+            await updateFetchSpots(clientData.currentGarage.garage_id);
+            renderParkingSpots();
+        }
+        catch (e) {
+            console.error('Chyba pri rezervácii miesta');
+            console.error(e);
+            showToast('Nastala chyba pri rezervácii miesta', 'danger');
+        }
     });
 });
 

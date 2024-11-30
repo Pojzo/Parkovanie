@@ -20,7 +20,7 @@ def generate_spots_for_floor(floor_number, rows, cols, reserved_spots=None) -> l
     return spots
 
 floor_plan_data = []
-floor_plan_data += generate_spots_for_floor(1, 2, 3, reserved_spots=[(1, 2)])
+floor_plan_data += generate_spots_for_floor(1, 2, 3, reserved_spots=[(1, 3)])
 floor_plan_data += generate_spots_for_floor(2, 3, 4, reserved_spots=[(2, 3), (3, 1)])
 floor_plan_data += generate_spots_for_floor(3, 2, 5, reserved_spots=[(1, 4), (2, 5)])
 
