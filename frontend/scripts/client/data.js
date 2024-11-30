@@ -10,7 +10,7 @@ export const clientData = {
 
 // Try to fetch clientIdentifier from localStorage
 const clientIdentifier = localStorage.getItem('clientIdentifier');
-if (clientIdentifier === undefined) {
+if (clientIdentifier === undefined || clientIdentifier === null) {
     // If it's not present, generate a new one
     const newClientIdentifier = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
     localStorage.setItem('clientIdentifier', newClientIdentifier);
