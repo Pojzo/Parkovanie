@@ -1,4 +1,3 @@
-import "./events.js";
 import { displayGarageList } from '../dynamic/displayAdminGarageList.js'
 import { fetchGarages } from '../api/fetchGarages.js'
 // import { displayGarageInfo } from '../dynamic/displayGarageInfo.js';

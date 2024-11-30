@@ -144,11 +144,7 @@ async def handle_create_garage_spots(
 
 async def handle_get_garage_spots(garage_id: int, db: Connection):
     all_spots = await _get_all_spots_in_garage(garage_id, db)
-    print(all_spots)
-    print(all_spots)
-    print(all_spots)
-    print(all_spots)
-
+   
     return SuccessResponse[list[SpotModel]](data=all_spots)
 
 async def handle_reserve_spot(rq: ReserveSpotRequest, db: Connection):

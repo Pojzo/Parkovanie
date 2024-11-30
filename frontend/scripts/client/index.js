@@ -7,21 +7,9 @@ import { fetchGarages } from "../api/fetchGarages";
 import { clientData } from "./data";
 import { displayParkingSpots } from "../dynamic/displayParkingSpots";
 import { groupParkingSpotsByFloor } from "../misc";
+import { reserveSpot } from "../api/reserveSpot";
 
 console.log("reservation page");
-
-//const garagesData = await fetchGarages();
-
-//clientData.garages = garagesData;
-
-//displayGarageList(garagesData);
-//console.log("displayed");
-
-//const displayInitialGarage = () => {
-//    if (garagesData.length > 0) {
-//        displayGarageInfo(garagesData[0]);
-//    }
-//}
 
 //displayInitialGarage();
 
@@ -112,10 +100,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const backButton = document.getElementById('back-btn');
     const floorUpBtn = document.getElementById('floor-up-btn');
     const floorDownBtn = document.getElementById('floor-down-btn');
+    const reserveBtn = document.getElementById('reserve-btn');
 
-    if (!garageListContainer || !garageEditorContainer || !backButton || !topContentContainer || !floorUpBtn || !floorDownBtn) {
+    if (!garageListContainer || !garageEditorContainer || !backButton || !topContentContainer || !floorUpBtn || !floorDownBtn || !reserveBtn) {
         console.error('Niektorý z potrebných elementov nebol nájdený.');
         return;
+    }
+
+    const renderParkingSpots = (card, clickCallback) => {
+        const currentGarage = clientData.garages.find(garage => garage.name === card.querySelector('.card-title').textContent);
+        const currentSpots = clientData.garageSpots[currentGarage.garage_id];
+        clientData.currentGarage = currentGarage;
+        clientData.currentFloor = 1;
+        displayParkingSpots(currentGarage.num_rows, currentGarage.num_cols, currentSpots[1], clickCallback);
     }
 
     garageListContainer.addEventListener('click', (event) => {
@@ -124,11 +121,11 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(`Kliknuté na kartu: ${card.querySelector('.card-title').textContent}`);
             garageEditorContainer.classList.remove('hidden');
             topContentContainer.classList.add('hidden');
-            const currentGarage = clientData.garages.find(garage => garage.name === card.querySelector('.card-title').textContent);
-            const currentSpots = clientData.garageSpots[currentGarage.garage_id];
-            clientData.currentGarage = currentGarage;
-            clientData.currentFloor = 1;
-            displayParkingSpots(currentGarage.num_rows, currentGarage.num_cols, currentSpots[1]);
+            const clickCallback = (spotId) => {
+                clientData.currentSpotId = spotId;
+                renderParkingSpots(card, clickCallback);
+            }
+            renderParkingSpots(card, clickCallback);
         }
     });
 
@@ -151,6 +148,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const currentSpots = clientData.garageSpots[clientData.currentGarage.garage_id][clientData.currentFloor];
             displayParkingSpots(clientData.currentGarage.num_rows, clientData.currentGarage.num_cols, currentSpots);
         }
+    });
+
+    reserveBtn.addEventListener('click', () => {
+        reserveSpot(clientData.currentGarage.garage_id, clientData.currentSpotId);
     });
 });
 

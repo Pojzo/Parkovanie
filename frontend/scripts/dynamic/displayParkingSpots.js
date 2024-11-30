@@ -1,10 +1,10 @@
-import { adminData } from "../admin/data";
 import { editorConfig } from "../globalConfig";
+import { clientData } from "../client/data";
 
 const cells = []
 
 // Current spots are spots for the current floor in the current garage :)
-export const displayParkingSpots = (numRows, numCols, currentSpots) => {
+export const displayParkingSpots = (numRows, numCols, currentSpots, clickCallback) => {
     console.log(numRows, numCols, currentSpots);
     if (cells.length > 0) {
         for (const cell of cells) {
@@ -12,6 +12,7 @@ export const displayParkingSpots = (numRows, numCols, currentSpots) => {
         }
     }
     const mask = Array(numRows).fill(0).map(() => Array(numCols).fill(0));
+    const spotIds = {};
 
     for (const spot of currentSpots) {
         const row = spot.spot_row;
@@ -24,6 +25,10 @@ export const displayParkingSpots = (numRows, numCols, currentSpots) => {
         }
         else {
             mask[row][col] = 1;
+        }
+        spotIds[`${row}-${col}`] = spot.spot_id;
+        if (clientData.currentSpotId === spot.spot_id) {
+            mask[row][col] = 3;
         }
     }
 
@@ -46,7 +51,9 @@ export const displayParkingSpots = (numRows, numCols, currentSpots) => {
             if (mask[j][i] === 0) {
                 continue;
             }
-            const color = mask[j][i] === 1 ? 'green' : 'red';
+
+            const spotId = spotIds[`${j}-${i}`];
+            const color = mask[j][i] === 1 ? 'green' : mask[j][i] === 2 ? 'red' : 'blue';
             const cell = document.createElement('div');
             cell.style.width = cellWidth + 'px';
             cell.style.height = cellHeight + 'px';
@@ -55,6 +62,12 @@ export const displayParkingSpots = (numRows, numCols, currentSpots) => {
             cell.style.position = 'absolute';
             cell.style.backgroundColor = color;
             editorContent.appendChild(cell);
+            cell.onclick = () => {
+                if (mask[j][i] === 1) {
+                    clickCallback(spotId);
+                }
+                console.log('clicked', j, i);
+            }
             cells.push(cell);
         }
     }
