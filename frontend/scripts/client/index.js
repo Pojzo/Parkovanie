@@ -6,16 +6,6 @@ import { groupParkingSpotsByFloor, showToast } from "../misc";
 import { reserveSpot } from "../api/reserveSpot";
 import { fetchMySpots } from "../api/fetchMySpots";
 
-console.log("reservation page");
-
-//displayInitialGarage();
-
-// const garagesData = [
-//     { name: "Garáž A", availableSpots: 5, totalSpots: 22 },
-//     { name: "Garáž B", availableSpots: 8, totalSpots: 30 },
-//     { name: "Garáž C", availableSpots: 2, totalSpots: 18 },
-// ];
-
 const updateFetchMySpots = async () => {
     const spots = await fetchMySpots();
     clientData.mySpots = spots;
@@ -103,18 +93,31 @@ function renderGarageList(garages) {
 
 const renderParkingSpots = (clickCallback) => {
     const currentGarage = clientData.currentGarage;
-    const currentSpots = clientData.garageSpots[currentGarage.garage_id];
-    clientData.currentGarage = currentGarage;
-    clientData.currentFloor = 1;
+    const currentSpots = clientData.garageSpots[currentGarage.garage_id][clientData.currentFloor];
     const mySpots = clientData.mySpots;
-    displayParkingSpots(currentGarage.num_rows, currentGarage.num_cols, currentSpots[1], mySpots, spotClickCallback);
+
+    if (!Array.isArray(currentSpots)) {
+        console.error('currentSpots is not an array:', currentSpots);
+        return;
+    }
+
+    displayParkingSpots(currentGarage.num_rows, currentGarage.num_cols, currentSpots, mySpots, clickCallback);
+    updateCurrentFloorInfo();
+}
+
+const updateCurrentFloorInfo = () => {
+    const currentFloorInfo = document.getElementById('current-floor-info');
+    if (currentFloorInfo) {
+        currentFloorInfo.textContent = `Current Floor: ${clientData.currentFloor}`;
+    } else {
+        console.error('Element with ID "current-floor-info" not found.');
+    }
 }
 
 const spotClickCallback = (spotId) => {
     if (spotId == clientData.currentSpotId) {
         clientData.currentSpotId = null;
-    }
-    else {
+    } else {
         clientData.currentSpotId = spotId;
     }
 
@@ -140,6 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (card) {
             console.log(`Kliknuté na kartu: ${card.querySelector('.card-title').textContent}`);
             clientData.currentGarage = clientData.garages.find(garage => garage.name === card.querySelector('.card-title').textContent);
+            clientData.currentFloor = 1; 
             garageEditorContainer.classList.remove('hidden');
             topContentContainer.classList.add('hidden');
 
@@ -155,18 +159,14 @@ document.addEventListener('DOMContentLoaded', () => {
     floorDownBtn.addEventListener('click', () => {
         if (clientData.currentFloor > 1) {
             clientData.currentFloor--;
-            const currentSpots = clientData.garageSpots[clientData.currentGarage.garage_id][clientData.currentFloor];
-            const mySpots = clientData.mySpots;
-            displayParkingSpots(clientData.currentGarage.num_rows, clientData.currentGarage.num_cols, currentSpots, mySpots, spotClickCallback);
+            renderParkingSpots(spotClickCallback);
         }
     });
 
     floorUpBtn.addEventListener('click', () => {
         if (clientData.currentFloor < clientData.currentGarage.floors) {
             clientData.currentFloor++;
-            const currentSpots = clientData.garageSpots[clientData.currentGarage.garage_id][clientData.currentFloor];
-            const mySpots = clientData.mySpots;
-            displayParkingSpots(clientData.currentGarage.num_rows, clientData.currentGarage.num_cols, currentSpots, mySpots, spotClickCallback);
+            renderParkingSpots(spotClickCallback);
         }
     });
 
@@ -181,13 +181,11 @@ document.addEventListener('DOMContentLoaded', () => {
             clientData.currentSpotId = null;
             await updateFetchSpots(clientData.currentGarage.garage_id);
             await updateFetchMySpots();
-            renderParkingSpots();
-        }
-        catch (e) {
+            renderParkingSpots(spotClickCallback);
+        } catch (e) {
             console.error('Chyba pri rezervácii miesta');
             console.error(e);
             showToast('Nastala chyba pri rezervácii miesta', 'danger');
         }
     });
 });
-

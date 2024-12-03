@@ -323,6 +323,16 @@ footer {
   padding: 10px 20px;
 }
 
+#current-floor-info {
+  font-size: 1.5rem;
+  color: var(--white);
+  background-color: var(--dark-grey);
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
 @media (max-width: 768px) {
   .card {
     height: auto;
@@ -392,6 +402,11 @@ footer {
   #garage-list-admin {
     margin-top: 20%;
   }
+
+  #current-floor-info {
+    font-size: 1.2rem;
+    padding: 8px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -402,5 +417,10 @@ footer {
 
   .card {
     padding: 15px;
+  }
+
+  #current-floor-info {
+    font-size: 1rem;
+    padding: 6px;
   }
 }
