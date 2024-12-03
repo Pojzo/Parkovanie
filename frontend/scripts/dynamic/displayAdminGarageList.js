@@ -17,15 +17,19 @@ const _addGarage = (garage) => {
     const garageDiv = document.createElement('div');
     garageDiv.className = 'garage-item p-3 mb-2 bg-light border rounded';
     garageDiv.style.cursor = 'pointer';
+    garageDiv.style.color = 'black';
+    garageDiv.style.textAlign = 'center';
+    garageDiv.dataset.garageId = garage.garage_id;
+    
     garageDiv.appendChild(nameText);
     garageDiv.appendChild(locationText);
 
-    garageDiv.style.color = 'black';
-    garageDiv.style.textAlign = 'center';
     garageListItemsContainer.appendChild(garageDiv);
 }
 
 export const displayGarageList = (data) => {
+    const garageListItemsContainer = document.getElementById('garage-list-items');
+    garageListItemsContainer.innerHTML = "";
     for (const garage of data) {
         _addGarage(garage);
     }

@@ -1,7 +1,3 @@
-//import { fetchGarages } from "../api/fetchGarages";
-//import { displayGarageInfo } from "../dynamic/displayGarageInfo";
-//import { displayGarageList } from "../dynamic/displayGarageList";
-
 import { fetchSpots } from "../api/fetchSpots";
 import { fetchGarages } from "../api/fetchGarages";
 import { clientData } from "./data";

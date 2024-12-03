@@ -14,7 +14,7 @@
 }
 
 * {
-    margin: 0px ;
+    margin: 0px;
     padding: 0px;
 }
 
@@ -37,11 +37,11 @@ body {
 
 .navbar .nav-link:hover,
 .navbar .nav-link:focus {
-    color: var(--celadon)!important;
+    color: var(--celadon) !important;
 }
 
 .dropdown-menu {
-    background-color: var(--mid-grey)!important;
+    background-color: var(--mid-grey) !important;
     border: none;
 }
 
@@ -51,13 +51,13 @@ body {
 
 .dropdown-item:hover,
 .dropdown-item:focus {
-    color: var(--celadon);  
+    color: var(--celadon);
     background-color: var(--white);
 }
 
 .navbar-toggler {
     border-color: var(--white);
-    
+
 }
 
 .navbar-toggler-icon {
@@ -65,7 +65,7 @@ body {
 }
 
 .custom-nav-width {
-    width: 100%;  
+    width: 100%;
 }
 
 .bg-image {
@@ -104,6 +104,17 @@ body {
     transform: translateY(-30%);
     text-shadow: 0 0 0.5vw var(--black);
 }
+
+.modal-title {
+    color: var(--black);
+}
+
+#feedbackForm {
+    width: 100%;
+    height: 500px;
+    color: black;
+}
+
 
 .content-sub {
     color: var(--white);
@@ -208,7 +219,7 @@ body {
     padding: 3vw 0;
 }
 
-.team-header { 
+.team-header {
     width: 80%;
     color: var(--night);
     margin: 0 auto;
@@ -301,7 +312,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2vw; 
+    gap: 2vw;
 }
 
 .document-item {
@@ -380,6 +391,10 @@ body {
 
 .schedule-week h3 {
     margin-top: 0;
+}
+
+.schedule-week p {
+    font-size: 1.5rem;
 }
 
 .schedule-week ul {
@@ -536,7 +551,7 @@ body {
     .team-member {
         padding: 10px;
     }
-    
+
     .about-container img {
         max-width: 100%;
     }

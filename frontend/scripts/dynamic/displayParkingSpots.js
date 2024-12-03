@@ -78,8 +78,11 @@ export const displayParkingSpots = (numRows, numCols, currentSpots, mySpots, cli
             cell.style.top = j * (cellHeight + rowMargin) + initialOffsetY + 'px';
             cell.style.position = 'absolute';
             cell.style.backgroundColor = color;
-            // cell.style.border = `3px solid ${color}`;
+            cell.style.border = `3px solid ${color}`;
             cell.style.borderRadius = '10px';
+            cell.dataset.row = j;
+            cell.dataset.col = i;
+            cell.addEventListener('click', () => clickCallback(j, i));
 
             editorContent.appendChild(cell);
             cell.onclick = () => {
