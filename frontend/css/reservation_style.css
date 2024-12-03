@@ -333,6 +333,14 @@ footer {
   margin-bottom: 15px;
 }
 
+#paymentSuccess img {
+  width: 30%;
+  height: 30%;
+  padding: 10px;
+  background-color: var(--cambridge-blue);
+  border-radius: 50%;
+}
+
 @media (max-width: 768px) {
   .card {
     height: auto;

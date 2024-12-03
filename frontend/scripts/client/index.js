@@ -5,6 +5,7 @@ import { displayParkingSpots } from "../dynamic/displayParkingSpots";
 import { groupParkingSpotsByFloor, showToast } from "../misc";
 import { reserveSpot } from "../api/reserveSpot";
 import { fetchMySpots } from "../api/fetchMySpots";
+import QRCode from 'qrcode';
 
 const updateFetchMySpots = async () => {
     const spots = await fetchMySpots();
@@ -132,6 +133,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const floorUpBtn = document.getElementById('floor-up-btn');
     const floorDownBtn = document.getElementById('floor-down-btn');
     const reserveBtn = document.getElementById('reserve-btn');
+    const payButton = document.getElementById('payButton');
+    const paymentSuccess = document.getElementById('paymentSuccess');
+    const qrCodeContainer = document.getElementById('qrCodeContainer');
 
     if (!garageListContainer || !garageEditorContainer || !backButton || !topContentContainer || !floorUpBtn || !floorDownBtn || !reserveBtn) {
         console.error('Niektorý z potrebných elementov nebol nájdený.');
@@ -175,17 +179,43 @@ document.addEventListener('DOMContentLoaded', () => {
             showToast('Nie je vybrané žiadne miesto', 'info');
             return;
         }
-        try {
-            await reserveSpot(clientData.currentGarage.garage_id, clientData.currentSpotId);
-            showToast('Miesto bolo úspešne rezervované', 'success');
-            clientData.currentSpotId = null;
-            await updateFetchSpots(clientData.currentGarage.garage_id);
-            await updateFetchMySpots();
-            renderParkingSpots(spotClickCallback);
-        } catch (e) {
-            console.error('Chyba pri rezervácii miesta');
-            console.error(e);
-            showToast('Nastala chyba pri rezervácii miesta', 'danger');
-        }
+
+        const qrCodeData = `Payment for spot ${clientData.currentSpotId}`;
+        qrCodeContainer.innerHTML = '';
+        QRCode.toCanvas(document.createElement('canvas'), qrCodeData, (error, canvas) => {
+            if (error) console.error(error);
+            qrCodeContainer.appendChild(canvas);
+        });
+
+        const paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
+        paymentModal.show();
+    });
+
+    payButton.addEventListener('click', async () => {
+        qrCodeContainer.style.display = 'none';
+        paymentSuccess.style.display = 'block';
+        payButton.style.display = 'none';
+
+        setTimeout(async () => {
+            const paymentModal = bootstrap.Modal.getInstance(document.getElementById('paymentModal'));
+            paymentModal.hide();
+
+            try {
+                await reserveSpot(clientData.currentGarage.garage_id, clientData.currentSpotId);
+                showToast('Miesto bolo úspešne rezervované', 'success');
+                clientData.currentSpotId = null;
+                await updateFetchSpots(clientData.currentGarage.garage_id);
+                await updateFetchMySpots();
+                renderParkingSpots(spotClickCallback);
+            } catch (e) {
+                console.error('Chyba pri rezervácii miesta');
+                console.error(e);
+                showToast('Nastala chyba pri rezervácii miesta', 'danger');
+            }
+
+            qrCodeContainer.style.display = 'block';
+            paymentSuccess.style.display = 'none';
+            payButton.style.display = 'block';
+        }, 3000);
     });
 });
