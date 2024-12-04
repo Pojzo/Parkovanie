@@ -1,7 +1,7 @@
 import { fetchSpots } from "../api/fetchSpots";
 import { fetchGarages } from "../api/fetchGarages";
 import { clientData } from "./data";
-import { displayParkingSpots } from "../dynamic/displayParkingSpots";
+import { displayAdminParkingSpots, displayParkingSpots } from "../dynamic/displayParkingSpots";
 import { groupParkingSpotsByFloor, showToast } from "../misc";
 import { reserveSpot } from "../api/reserveSpot";
 import { fetchMySpots } from "../api/fetchMySpots";
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (card) {
             console.log(`Kliknuté na kartu: ${card.querySelector('.card-title').textContent}`);
             clientData.currentGarage = clientData.garages.find(garage => garage.name === card.querySelector('.card-title').textContent);
-            clientData.currentFloor = 1; 
+            clientData.currentFloor = 1;
             garageEditorContainer.classList.remove('hidden');
             topContentContainer.classList.add('hidden');
 

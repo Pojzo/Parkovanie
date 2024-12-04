@@ -36,15 +36,16 @@
 import { fetchSpots } from "../api/fetchSpots";
 import { fetchGarages } from "../api/fetchGarages";
 import { adminData } from "./data";
-import { displayParkingSpots } from "../dynamic/displayParkingSpots";
+import { displayAdminParkingSpots } from "../dynamic/displayParkingSpots";
 import { createGarage } from "../api/createGarage";
 import { displayGarageList } from "../dynamic/displayAdminGarageList";
+import { groupParkingSpotsByFloor } from "../misc";
 
 document.addEventListener('DOMContentLoaded', async () => {
     const createGarageBtn = document.getElementById("create-garage-btn");
     const garageEditorContainer = document.getElementById("garage-editor-admin");
     const topContentContainer = document.getElementById("top-content");
-    const garageListItems = document.getElementById("garage-list-items"); 
+    const garageListItems = document.getElementById("garage-list-items");
 
     if (!createGarageBtn) {
         console.error("Create button not found");
@@ -65,7 +66,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             const currentSpots = adminData.garageSpots[newGarage.garage_id] || {};
             adminData.currentFloor = 1;
-            displayParkingSpots(newGarage.num_rows, newGarage.num_cols, currentSpots[1] || [], [], () => { });
+            displayAdminParkingSpots(newGarage.num_rows, newGarage.num_cols, currentSpots[1] || [], [], () => { });
 
             garageEditorContainer.classList.remove('hidden');
             topContentContainer.classList.add('hidden');
@@ -84,7 +85,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const spots = await fetchSpots(garageId);
             adminData.garageSpots[garageId] = spots;
 
-            displayParkingSpots(selectedGarage.num_rows, selectedGarage.num_cols, spots, [], spotClickCallback);
+            displayAdminParkingSpots(selectedGarage.num_rows, selectedGarage.num_cols, spots, [], spotClickCallback);
 
             garageEditorContainer.classList.remove('hidden');
             topContentContainer.classList.add('hidden');
@@ -104,6 +105,34 @@ document.addEventListener('DOMContentLoaded', async () => {
     displayInitialGarage();
 });
 
+const renderParkingSpots = (clickCallback) => {
+    const currentGarage = adminData.currentGarage;
+    const currentSpots = adminData.garageSpots[currentGarage.garage_id][adminData.currentFloor];
+
+    if (!Array.isArray(currentSpots)) {
+        console.error('currentSpots is not an array:', currentSpots);
+        return;
+    }
+
+    console.log('displaing');
+    displayAdminParkingSpots(currentGarage.num_rows, currentGarage.num_cols, currentSpots, clickCallback);
+    // updateCurrentFloorInfo();
+    // renderParkingSpots();
+}
+
+window.onload = async () => {
+    adminData.garages = await fetchGarages();
+
+    for (const garage of adminData.garages) {
+        const spots = await fetchSpots(garage.garage_id);
+        const groupedSpots = groupParkingSpotsByFloor(spots);
+        adminData.garageSpots[garage.garage_id] = groupedSpots;
+    }
+    adminData.currentGarage = adminData.garages[0];
+    adminData.currentFloor = 1;
+    renderParkingSpots(spotClickCallback);
+}
+
 const spotClickCallback = (row, col) => {
     const currentGarage = adminData.currentGarage;
     const currentSpots = adminData.garageSpots[currentGarage.garage_id] || [];
@@ -116,5 +145,5 @@ const spotClickCallback = (row, col) => {
     }
 
     adminData.garageSpots[currentGarage.garage_id] = currentSpots;
-    displayParkingSpots(currentGarage.num_rows, currentGarage.num_cols, currentSpots, [], spotClickCallback);
+    // displayParkingSpots(currentGarage.num_rows, currentGarage.num_cols, currentSpots, [], spotClickCallback);
 }
