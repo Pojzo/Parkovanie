@@ -33,13 +33,17 @@
 
 //displayInitialGarage();
 
+import { updateGarageSpots } from "../api/updateGarageSpots";
+
 import { fetchSpots } from "../api/fetchSpots";
 import { fetchGarages } from "../api/fetchGarages";
 import { adminData } from "./data";
 import { displayAdminParkingSpots } from "../dynamic/displayParkingSpots";
 import { createGarage } from "../api/createGarage";
 import { displayGarageList } from "../dynamic/displayAdminGarageList";
-import { groupParkingSpotsByFloor } from "../misc";
+import { groupParkingSpotsByFloor, invertSpotOccupancy } from "../misc";
+import './events';
+import { editorConfig } from "../globalConfig";
 
 document.addEventListener('DOMContentLoaded', async () => {
     const createGarageBtn = document.getElementById("create-garage-btn");
@@ -66,7 +70,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             const currentSpots = adminData.garageSpots[newGarage.garage_id] || {};
             adminData.currentFloor = 1;
-            displayAdminParkingSpots(newGarage.num_rows, newGarage.num_cols, currentSpots[1] || [], [], () => { });
+            displayAdminParkingSpots(newGarage.num_rows, newGarage.num_cols, currentSpots[1] || []);
 
             garageEditorContainer.classList.remove('hidden');
             topContentContainer.classList.add('hidden');
@@ -85,7 +89,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const spots = await fetchSpots(garageId);
             adminData.garageSpots[garageId] = spots;
 
-            displayAdminParkingSpots(selectedGarage.num_rows, selectedGarage.num_cols, spots, [], spotClickCallback);
+            displayAdminParkingSpots(selectedGarage.num_rows, selectedGarage.num_cols, spots, []);
 
             garageEditorContainer.classList.remove('hidden');
             topContentContainer.classList.add('hidden');
@@ -93,7 +97,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     const garagesData = await fetchGarages();
-    console.log(garagesData);
     adminData.garages = garagesData;
 
     adminData.currentGarage = garagesData[0];
@@ -137,6 +140,7 @@ const spotClickCallback = (row, col) => {
     const currentGarage = adminData.currentGarage;
     const currentSpots = adminData.garageSpots[currentGarage.garage_id] || [];
 
+    console.log(currentSpots);
     const spotIndex = currentSpots.findIndex(spot => spot.spot_row === row && spot.spot_col === col);
     if (spotIndex !== -1) {
         currentSpots.splice(spotIndex, 1);
@@ -147,3 +151,76 @@ const spotClickCallback = (row, col) => {
     adminData.garageSpots[currentGarage.garage_id] = currentSpots;
     // displayParkingSpots(currentGarage.num_rows, currentGarage.num_cols, currentSpots, [], spotClickCallback);
 }
+
+const floorUpBtn = document.getElementById("floor-up-btn");
+const floorDownBtn = document.getElementById("floor-down-btn");
+
+const garageEditor = document.getElementById("garage-editor");
+
+floorUpBtn.addEventListener("click", e => {
+    if (!adminData.currentGarage) {
+        return;
+    }
+    console.log('clicked');
+    if (adminData.currentFloor < adminData.currentGarage.floors) {
+        adminData.currentFloor++;
+        renderParkingSpots();
+    }
+});
+
+
+floorDownBtn.addEventListener("click", e => {
+    if (!adminData.currentGarage) {
+        return;
+    }
+    if (adminData.currentFloor > 1) {
+        adminData.currentFloor--;
+        renderParkingSpots();
+    }
+})
+
+garageEditor.addEventListener("click", (e) => {
+    // Absolute position relative to the document
+    const absoluteX = e.x;
+    const absoluteY = e.y;
+
+    // Calculate the relative position to the garage editor
+    const rect = garageEditor.getBoundingClientRect();
+    const x = absoluteX - rect.left;
+    const y = absoluteY - rect.top;
+
+    // Consistent cell width and height calculation
+    const colMargin = editorConfig.colMargin;
+    const rowMargin = editorConfig.rowMargin;
+
+    const cellWidth = (garageEditor.offsetWidth - (adminData.currentGarage.num_cols - 1) * colMargin) / adminData.currentGarage.num_cols;
+    const cellHeight = (garageEditor.offsetHeight - (adminData.currentGarage.num_rows - 1) * rowMargin) / adminData.currentGarage.num_rows;
+
+    // Adjust x and y to account for margins
+    const adjustedX = x - colMargin / 2;
+    const adjustedY = y - rowMargin / 2;
+
+    // Calculate the row and col the user clicked on
+    const col = Math.floor(adjustedX / (cellWidth + colMargin));
+    const row = Math.floor(adjustedY / (cellHeight + rowMargin));
+
+    // Ensure the calculated row and col are within bounds
+    if (row >= 0 && row < adminData.currentGarage.num_rows && col >= 0 && col < adminData.currentGarage.num_cols) {
+        invertSpotOccupancy(row, col);
+        renderParkingSpots();
+    } else {
+        console.log("Clicked outside grid bounds");
+    }
+});
+
+
+const saveGarageBtn = document.getElementById("save-garage-btn");
+
+// ----------------- Event listener for the save garage button -----------------
+saveGarageBtn.addEventListener("click", e => {
+    updateGarageSpots();
+
+    // reload the page
+
+    location.reload();
+})

@@ -102,6 +102,8 @@ export const displayAdminParkingSpots = (numRows, numCols, currentSpots, clickCa
             cell.remove();
         }
     }
+
+
     const mask = Array(numRows).fill(0).map(() => Array(numCols).fill(0));
     const spotIds = {};
 
@@ -132,7 +134,7 @@ export const displayAdminParkingSpots = (numRows, numCols, currentSpots, clickCa
             if (mask[j][i] === 0) {
                 continue;
             }
-            const color = 'gray;'
+            const color = 'gray'
 
             const cell = document.createElement('div');
             cell.style.width = cellWidth + 'px';
@@ -140,20 +142,15 @@ export const displayAdminParkingSpots = (numRows, numCols, currentSpots, clickCa
             cell.style.left = i * (cellWidth + colMargin) + initialOffset + 'px';
             cell.style.top = j * (cellHeight + rowMargin) + initialOffsetY + 'px';
             cell.style.position = 'absolute';
+            cell.style.zIndex = 1200;
             cell.style.backgroundColor = color;
-            cell.style.border = `3px solid ${color}`;
-            cell.style.borderRadius = '10px';
+            // cell.style.border = `3px solid ${color}`;
+            // cell.style.borderRadius = '10px';
             cell.dataset.row = j;
             cell.dataset.col = i;
             cell.addEventListener('click', () => clickCallback(j, i));
 
             editorContent.appendChild(cell);
-            cell.onclick = () => {
-                if (mask[j][i] === 1 || mask[j][i] === 3) {
-                    clickCallback(spotId);
-                }
-                console.log('clicked', j, i);
-            }
             cells.push(cell);
         }
     }

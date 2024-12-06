@@ -216,19 +216,20 @@ footer {
   border-radius: 13px;
   margin-bottom: 3%;
   padding: 10px;
+  /* z-index: 100; */
 }
 
-#garage-editor {
+/* #garage-editor {
   margin-top: 10%;
-}
+} */
 
-#garage-editor-admin {
+/* #garage-editor-admin {
   margin-top: 10%;
   margin-bottom: 10%;
   width: 50%;
   max-height: 650px;
   z-index: -1;
-}
+} */
 
 #garage-editor-container {
   margin: 0 auto;

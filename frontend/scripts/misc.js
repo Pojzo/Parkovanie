@@ -67,6 +67,8 @@ export const popSpotAtCoords = (row, col) => {
 }
 
 export const invertSpotOccupancy = (row, col) => {
+    console.log('inverting');
+    console.log(row, col);
     if (isSpotOccupied(row, col)) {
         popSpotAtCoords(row, col);
         return;
