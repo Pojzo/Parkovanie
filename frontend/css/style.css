@@ -99,7 +99,7 @@ body {
     z-index: 1;
     text-align: center;
     color: var(--white);
-    font-size: 4vw;
+    font-size: 3rem;
     top: 0%;
     transform: translateY(-30%);
     text-shadow: 0 0 0.5vw var(--black);
@@ -115,10 +115,9 @@ body {
     color: black;
 }
 
-
 .content-sub {
     color: var(--white);
-    font-size: 1.6vw;
+    font-size: 1.5rem;
     font-style: italic;
     text-shadow: 0 0 0.5vw var(--black);
     text-align: center;
