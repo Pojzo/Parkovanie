@@ -270,7 +270,7 @@ footer {
 #control-panel {
   width: 20%;
   max-width: 600px;
-  height: 60%;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -282,7 +282,6 @@ footer {
   border-radius: 13px;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
   flex: 0 1 25%;
-  order: 2;
 }
 
 #control-panel button {
@@ -339,6 +338,24 @@ footer {
   padding: 10px;
   background-color: var(--cambridge-blue);
   border-radius: 50%;
+}
+
+#garage-info-container {
+  color: white;
+  margin-bottom: 20px;
+}
+
+#garage-info-container-mobile {
+  margin-bottom: 20px;
+}
+
+#garage-info-container {
+  color: white;
+  margin-bottom: 20px;
+}
+
+#garage-info-container-mobile {
+  margin-bottom: 20px;
 }
 
 @media (max-width: 768px) {
