@@ -10,9 +10,9 @@ Táto webová aplikácia je navrhnutá pre efektívnejšiu rezerváciu parkovac�
 - ✅ **29.10.2024** - Treba mať pripravenú základnú štruktúru webovej stránky, základný dizajn k téme projektu, a pripravené logo.
 - ✅ **16.11.2024** - Učebňa 328, 15:30
 - ✅ **13.11.2024** - Treba mať finálnu verziu motivačného dokumentu na stránke, harmonogram práce, jednotlivé úlohy na ktorých sa robilo, plánované stretnutia, roly v tíme, kto má čo na starosti a krátku prezentáciu vo formáte PDF o tom čo každý člen tímu robí. Taktiež vedúci by mal nahrať na server aktuálny stav projektu. 
-- **05.12.2024** - Dokončiť projekt, dokumentáciu a prezentáciu.
-- **06.12.2024** - Spoločná kontrola celého projektu
-- **07.12.2024** - Odovzdanie a prezentovanie projektu.
+- ✅ **05.12.2024** - Dokončiť projekt, dokumentáciu a prezentáciu.
+- ✅ **06.12.2024** - Spoločná kontrola celého projektu
+- ✅ **07.12.2024** - Odovzdanie a prezentovanie projektu.
 
 ## 🛠️ ️️TECHNOLOGICKÝ STACK ️
 - **HTML**
@@ -62,9 +62,9 @@ Táto webová aplikácia je navrhnutá pre efektívnejšiu rezerváciu parkovac�
 - Oprava chýb, optimalizácia rýchlosti a bezpečnosti.
 
 ### 5. Nasadenie a príprava na spustenie (1 týždeň)
-- Príprava na nasadenie aplikácie na server
-- Posledné testy a prípadné opravy.
-- Tvorba finálnej prezentácie
+- Príprava na nasadenie aplikácie na server ✅
+- Posledné testy a prípadné opravy. ✅
+- Tvorba finálnej prezentácie ✅
 
 ### ⌛ CELKOVÝ ODHAD: 8 – 10 týždňov ✅
 - Počas plánovania jednotlivých úloh bude kľúčové:
